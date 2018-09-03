@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: avan-ni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/22 17:17:33 by tpatter           #+#    #+#             */
-/*   Updated: 2018/05/28 16:55:54 by tpatter          ###   ########.fr       */
+/*   Created: 2018/05/22 14:48:05 by avan-ni           #+#    #+#             */
+/*   Updated: 2018/06/01 17:58:28 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,15 @@
 
 char	*ft_strmap(char const *s, char (*f)(char))
 {
-	char	*temp;
-	int		i;
+	char	*str;
+	size_t	len;
 
-	if (!s || !f)
+	if (!s)
 		return (NULL);
-	i = 0;
-	temp = (char*)ft_memalloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (temp)
-	{
-		while (s[i])
-		{
-			temp[i] = f(s[i]);
-			i++;
-		}
-	}
-	return (temp);
+	len = ft_strlen(s);
+	if (!(str = ft_strnew(len)))
+		return (NULL);
+	while (*s)
+		*str++ = (f)(*s++);
+	return (str - len);
 }

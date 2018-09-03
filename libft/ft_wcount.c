@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_countchr.c                                      :+:      :+:    :+:   */
+/*   ft_wcount.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: avan-ni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 17:02:40 by tpatter           #+#    #+#             */
-/*   Updated: 2018/06/06 17:12:07 by tpatter          ###   ########.fr       */
+/*   Created: 2018/05/28 13:03:33 by avan-ni           #+#    #+#             */
+/*   Updated: 2018/06/02 16:06:30 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_countchr(char *str, char c)
+size_t	ft_wcount(const char *str, char c)
 {
-	int	i;
-	int	nochar;
+	size_t	count;
+	size_t	i;
 
 	i = 0;
-	nochar = 0;
-	while (str[i])
+	count = 0;
+	if (!str)
+		return (0);
+	while (*(str + i))
 	{
-		if (str[i] == c)
-			nochar++;
-		i++;
+		while (*(str + i) == c)
+			i++;
+		if (*(str + i) != c && *(str + i))
+			count++;
+		while (*(str + i) != c && *(str + i))
+			i++;
 	}
-	return (nochar);
+	return (count);
 }

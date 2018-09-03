@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_grabline.h                                      :+:      :+:    :+:   */
+/*   ft_delchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: avan-ni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/29 12:14:09 by tpatter           #+#    #+#             */
-/*   Updated: 2018/07/05 13:43:50 by tpatter          ###   ########.fr       */
+/*   Created: 2018/06/05 17:09:08 by avan-ni           #+#    #+#             */
+/*   Updated: 2018/06/20 13:45:20 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_GRABLINE_H
-# define FT_GRABLINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 1
-
-typedef struct	s_gnl
+int	ft_delchr(const char *s, char c)
 {
-	char		buff[BUFF_SIZE + 1];
-	char		**lines;
-	int			myline;
-	int			totline;
-	char		*line;
-}				t_gnl;
+	size_t i;
 
-int				ft_grabline(int fd, char **line);
-
-#endif
+	i = 0;
+	while (*(s + i))
+	{
+		if (*(s + i) == c)
+			return ((int)i);
+		i++;
+	}
+	if (*(s + i) == c && c == '\0')
+		return (i);
+	return (-1);
+}

@@ -3,90 +3,59 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: avan-ni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/04 12:27:33 by tpatter           #+#    #+#             */
-/*   Updated: 2018/06/28 14:33:35 by tpatter          ###   ########.fr       */
+/*   Created: 2018/07/25 13:26:46 by avan-ni           #+#    #+#             */
+/*   Updated: 2018/07/25 13:26:51 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
 #include "libft.h"
-#include <unistd.h>
 
-static void	ft_scan(int fd, t_fd *myfd, int nochar, char *oldbuff)
+static int	ft_gnl(char buf[BUFF_SIZE + 1], char **l, int *r, const int fd)
 {
-	t_list	*mystr;
-	char	buff[BUFF_SIZE + 1];
-	int		rd;
-	char	*str;
+	int	i;
+	int j;
 
-	oldbuff[nochar] = '\0';
-	mystr = ft_lstnew(oldbuff, BUFF_SIZE + 1);
-	while ((rd = read(fd, buff, BUFF_SIZE)) > 0)
+	i = -1;
+	while (*r > 0)
 	{
-		nochar += rd;
-		buff[rd] = '\0';
-		ft_lstaddend(mystr, buff, BUFF_SIZE + 1);
+		j = 0;
+		while (j < *r)
+		{
+			(*l)[++i] = buf[j++];
+			if ((*l)[i] == '\n')
+			{
+				ft_strcpy(&buf[0], &buf[j]);
+				(*l)[i] = '\0';
+				return (1);
+			}
+		}
+		*r = read(fd, &buf[0], BUFF_SIZE);
+		buf[*r] = 0;
 	}
-	str = ft_strnew(nochar + 1);
-	while (mystr)
-	{
-		ft_strcat(str, (char*)mystr->content);
-		mystr = ft_lstdestroy(mystr);
-	}
-	if (str[nochar - 1] == '\n')
-		str[nochar - 1] = '\0';
-	myfd->str = str;
-	myfd->totline = ft_countchr(str, '\n') + 1;
-}
-
-static char	*ft_getline(t_fd *myfd)
-{
-	int		i;
-	int		j;
-	int		pos;
-	int		counter;
-
-	i = 0;
-	pos = 0;
-	counter = 1;
-	j = 0;
-	while (counter < myfd->line)
-	{
-		if ((myfd->str)[i] == '\n')
-			counter++;
-		i++;
-	}
-	while (pos < myfd->line)
-	{
-		if ((myfd->str)[j] == '\n' || (myfd->str)[j] == '\0')
-			pos++;
-		j++;
-	}
-	return (ft_strsub(myfd->str, i, j - i - 1));
-}
-
-int			get_next_line(int fd, char **line)
-{
-	char		buff[BUFF_SIZE + 1];
-	static t_fd	*myfd;
-	int			nochar;
-
-	if (fd < 0 || !line || (read(fd, buff, 0) <= -1))
-		return (-1);
-	if ((nochar = read(fd, buff, BUFF_SIZE)) > 0)
-	{
-		myfd = (t_fd*)malloc(sizeof(t_fd));
-		myfd->line = 0;
-		ft_scan(fd, myfd, nochar, buff);
-	}
-	if (!myfd || myfd->line >= myfd->totline)
-	{
-		*line = ft_strnew(0);
+	if (i >= 0)
+		return (1);
+	else
 		return (0);
-	}
-	myfd->line++;
-	*line = ft_getline(myfd);
-	return (1);
+}
+
+int			get_next_line(const int fd, char **line)
+{
+	static char		buf[1000][BUFF_SIZE + 1];
+	int				ret;
+	int				i;
+
+	if (!line || fd < 0 || (read(fd, NULL, 0) < 0))
+		return (-1);
+	if (!(*line = ft_strnew(52001)))
+		return (-1);
+	ret = ft_strlen(&buf[fd][0]);
+	if (!ret)
+		ret = read(fd, &buf[fd][0], BUFF_SIZE);
+	buf[fd][ret] = 0;
+	i = ft_gnl((char*)(buf[fd]), &*line, &ret, fd);
+	if (ft_strlen(*line) > 0 || i == 1)
+		return (1);
+	return (ret);
 }

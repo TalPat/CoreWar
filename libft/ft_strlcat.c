@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: avan-ni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/21 17:07:12 by tpatter           #+#    #+#             */
-/*   Updated: 2018/05/23 19:13:08 by tpatter          ###   ########.fr       */
+/*   Created: 2018/05/21 17:57:41 by avan-ni           #+#    #+#             */
+/*   Updated: 2018/05/28 15:25:00 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,20 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	int		i;
-	int		dstlen;
-	int		newdstsize;
+	char	*d;
+	char	*s;
+	size_t	len;
+	size_t	dst_len;
 
-	newdstsize = dstsize;
-	i = 0;
-	dstlen = ft_strlen(dst);
-	while (i < (newdstsize - dstlen - 1) && src[i])
-	{
-		dst[dstlen + i] = src[i];
-		i++;
-	}
-	if (dstsize != 0 && !(dstlen > newdstsize))
-	{
-		dst[dstlen + i] = '\0';
-		return (dstlen + ft_strlen(src));
-	}
-	return (dstsize + ft_strlen(src));
+	if (!(d = (char *)ft_memchr(dst, '\0', dstsize)))
+		return (dstsize + ft_strlen(src));
+	s = (char *)src;
+	d = (char *)dst;
+	dst_len = ft_strlen(dst);
+	len = dst_len + ft_strlen(s);
+	d += dst_len;
+	while (dst_len++ < dstsize - 1 && *s)
+		*d++ = *s++;
+	*d = '\0';
+	return (len);
 }

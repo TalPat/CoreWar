@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avan-ni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/22 14:38:36 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/06/01 17:24:10 by avan-ni          ###   ########.fr       */
+/*   Created: 2018/06/02 17:33:20 by avan-ni           #+#    #+#             */
+/*   Updated: 2018/06/02 18:44:32 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_strclr(char *s)
+#include "libft.h"
+
+char	*ft_strrev(char *str)
 {
-	while (s && *s)
+	size_t	len;
+	char	temp;
+	size_t	i;
+
+	i = 0;
+	len = ft_strlen(str) - 1;
+	while (len > i)
 	{
-		*s = '\0';
-		s++;
+		temp = str[len];
+		str[len--] = str[i];
+		str[i++] = temp;
 	}
+	return (str);
 }

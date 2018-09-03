@@ -3,64 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jde-agr <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/22 13:38:00 by tpatter           #+#    #+#             */
-/*   Updated: 2018/05/28 15:23:03 by tpatter          ###   ########.fr       */
+/*   Created: 2018/08/04 14:14:03 by jde-agr           #+#    #+#             */
+/*   Updated: 2018/08/04 14:14:14 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static const char	*ft_trimblanks(const char *str)
+int	ft_atoi(const char *str)
 {
-	int	i;
-	int	checker;
-
-	i = 0;
-	checker = 0;
-	while (str[i] && (str[i] <= '0' || str[i] >= '9'))
-	{
-		if (str[i] == '+' || str[i] == '-')
-			checker++;
-		i++;
-	}
-	if (checker >= 2)
-		return (str);
-	i = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\v' || str[i] == '\r'
-				|| str[i] == '\f' || str[i] == '\n' || str[i] == '+')
-	{
-		i++;
-	}
-	return (str + i);
-}
-
-int					ft_atoi(const char *str)
-{
-	int			val;
-	int			i;
 	int			sign;
-	const char	*newstr;
+	long int	sum;
 
-	newstr = ft_trimblanks(str);
-	val = 0;
-	i = 0;
 	sign = 1;
-	if (newstr[i] == '-')
+	sum = 0;
+	while (ft_isspace((char)(*str)))
+		str++;
+	if ((char)*str == '-')
 	{
-		sign = -1;
-		i++;
+		sign *= -1;
+		str++;
 	}
-	while (newstr[i])
+	else if ((char)*str == '+')
+		str++;
+	while (ft_isdigit((char)*str))
 	{
-		if (newstr[i] >= '0' && newstr[i] <= '9')
-		{
-			val = val * 10;
-			val += newstr[i++] - '0';
-		}
-		else
-			return (val * sign);
+		if ((sign > 0 && ((sum * 10) + (*str - '0')) > 2147483647)
+		|| (sign < 0 && ((sum * 10) + (*str - '0')) > 2147483648))
+			return (0);
+		sum = (sum * 10) + (*str - '0');
+		str++;
 	}
-	return (val * sign);
+	if (*str && !ft_isdigit((char)*str))
+		return (0);
+	return (sum * sign);
 }

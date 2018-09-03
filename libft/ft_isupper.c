@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_isupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: avan-ni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/04 12:27:57 by tpatter           #+#    #+#             */
-/*   Updated: 2018/06/07 16:27:14 by tpatter          ###   ########.fr       */
+/*   Created: 2018/05/21 14:24:11 by avan-ni           #+#    #+#             */
+/*   Updated: 2018/05/21 15:38:10 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 32
-# include <stdlib.h>
-
-typedef struct	s_fd
+int	ft_isupper(int c)
 {
-	char		*str;
-	int			line;
-	int			totline;
-}				t_fd;
-
-int				get_next_line(int fd, char **line);
-
-#endif
+	if (c >= 65 && c <= 90)
+		return (1);
+	return (0);
+}

@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdestroy.c                                    :+:      :+:    :+:   */
+/*   ft_strnew_del.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: avan-ni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 21:00:49 by tpatter           #+#    #+#             */
-/*   Updated: 2018/06/06 21:05:32 by tpatter          ###   ########.fr       */
+/*   Created: 2018/06/06 16:05:21 by avan-ni           #+#    #+#             */
+/*   Updated: 2018/06/20 17:16:14 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-t_list	*ft_lstdestroy(t_list *lst)
+char	*ft_strnew_del(char *s, char c)
 {
-	t_list	*tmp;
+	size_t i;
 
-	free(lst->content);
-	tmp = lst->next;
-	free(lst);
-	return (tmp);
+	i = 0;
+	while (*(s + i) != c && *(s + i))
+		i++;
+	if (i == ft_strlen(s))
+		return (s);
+	else if (i == 0)
+		return (ft_strnew(0));
+	else
+		return (ft_strndup((const char *)s, i));
 }

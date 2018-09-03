@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stradd.c                                        :+:      :+:    :+:   */
+/*   ft_isint.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: avan-ni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/09 11:31:50 by tpatter           #+#    #+#             */
-/*   Updated: 2018/08/09 13:41:27 by tpatter          ###   ########.fr       */
+/*   Created: 2018/06/01 12:57:19 by avan-ni           #+#    #+#             */
+/*   Updated: 2018/06/01 13:02:13 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
-
-void	ft_stradd(char *str, char **arr)
+int	ft_isint(int c)
 {
-	int	i;
-
-	i = 0;
-	while (arr[i])
-		i++;
-	arr[i] = ft_strdup(str);
-	arr[i + 1] = NULL;
+	if (c <= 2147483647 && c >= -2147483648)
+		return (1);
+	return (0);
 }

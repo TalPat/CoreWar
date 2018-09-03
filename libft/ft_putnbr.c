@@ -3,57 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/23 15:01:04 by tpatter           #+#    #+#             */
-/*   Updated: 2018/05/28 14:16:11 by tpatter          ###   ########.fr       */
+/*   Created: 2018/05/28 11:39:24 by avan-ni           #+#    #+#             */
+/*   Updated: 2018/08/29 13:10:12 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_tenpower(int exp)
+void	ft_putnbr(int n)
 {
-	if (exp == 0)
-		return (1);
-	return (10 * ft_tenpower(exp - 1));
-}
+	char *s;
 
-static int		ft_nodigits(int n)
-{
-	int	i;
-
-	i = 0;
-	while (n != 0)
+	if (n == -2147483648)
 	{
-		n = n / 10;
-		i++;
+		ft_putstr("-2147483648");
+		return ;
 	}
-	return (i);
-}
-
-void			ft_putnbr(int n)
-{
-	int	i;
-	int	digits;
-
-	i = 0;
-	digits = ft_nodigits(n);
-	if (n == 0)
-		ft_putchar('0');
-	else
-	{
-		if (n < 0)
-			ft_putchar('-');
-		while (i < digits)
-		{
-			if (n < 0)
-				ft_putchar((n / ft_tenpower(digits - 1 - i)) * -1 + '0');
-			else
-				ft_putchar(n / ft_tenpower(digits - 1 - i) + '0');
-			n = n - ((n / ft_tenpower(digits - 1 - i)) *
-					ft_tenpower(digits - 1 - i));
-			i++;
-		}
-	}
+	s = ft_itoa(n);
+	ft_putstr(s);
+	free(s);
 }
