@@ -6,11 +6,11 @@
 #    By: tpatter <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/24 17:28:22 by tpatter           #+#    #+#              #
-#    Updated: 2018/09/03 11:08:50 by tpatter          ###   ########.fr        #
+#    Updated: 2018/09/03 11:12:29 by tpatter          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	fdf
+NAME		=	corewar
 SRCDIR		=	srcs/
 SRC			=	
 SRCPATH		:=	$(addprefix $(SRCDIR), $(SRC))
