@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   cw.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
+/*   By: talon <talon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/04 08:56:18 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/04 15:42:35 by talon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CW_H
 # define CW_H
 
-# include "./libft/libft.h"
+# include "libft/includes/libft.h"
 
 typedef struct	s_cw
 {
@@ -30,6 +30,6 @@ typedef struct	s_pc
 
 unsigned char	*dec_to_hex(unsigned char n);
 void			ft_initcw(t_cw *cw);
-void			ft_docommand(t_cw *cw, int pc);
+void			ft_docommand(t_cw *cw, t_pc *pc);
 
 #endif
