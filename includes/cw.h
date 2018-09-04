@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cw.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
+/*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/04 15:40:44 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/09/04 16:36:24 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,6 @@ typedef struct	s_pc
 
 unsigned char	*dec_to_hex(unsigned char n);
 void			ft_initcw(t_cw *cw);
-void			ft_docommand(t_cw *cw, int pc);
+void			ft_docommand(t_cw *cw, t_pc *pc);
 
 #endif
