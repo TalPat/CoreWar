@@ -18,7 +18,7 @@
 /*byte in memory. If the pc does point to the function, pc must be incremented*/
 /* by the function that it executes.*/
 
-void	ft_comcont(t_cornfield *cw, unsigned char com, int pc)
+void	ft_comcont(t_cornfield *cw, unsigned char com, t_pc pc)
 {
 	if (com == 0x0a)
 		ft_ldi(cw, pc);
@@ -38,7 +38,7 @@ void	ft_comcont(t_cornfield *cw, unsigned char com, int pc)
 		pc->pc++;
 }
 
-void	ft_docommand(t_cornfield *cw, int pc)
+void	ft_docommand(t_cornfield *cw, t_pc pc)
 {
 	unsigned char	com;
 
