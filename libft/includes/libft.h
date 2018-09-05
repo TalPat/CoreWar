@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-ni <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 13:43:14 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/07/25 13:43:26 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/09/05 13:42:38 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int					ft_isascii(int c);
 int					ft_isdigit(int c);
 int					ft_isspace(int c);
 int					ft_isint(int c);
+int					ft_atoi_base(const char *str, int str_base);
 int					ft_atoi(const char *str);
 int					ft_delchr(const char *s, char c);
 

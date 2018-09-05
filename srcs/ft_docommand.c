@@ -3,22 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_docommand.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talon <talon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 15:10:08 by talon             #+#    #+#             */
-/*   Updated: 2018/09/04 15:42:36 by talon            ###   ########.fr       */
+/*   Updated: 2018/09/05 15:21:59 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cw.h"
 #include "op.h"
 
-/*Find and execute the relevent function which the given pc points to. Should */
-/*the pc not point to an operation, the pc is incremented to point to the next*/
-/*byte in memory. If the pc does point to the function, pc must be incremented*/
-/* by the function that it executes.*/
+/*
+**Find and execute the relevent function which the given pc points to. Should
+**the pc not point to an operation, the pc is incremented to point to the next
+**byte in memory. If the pc does point to the function, pc must be incremented
+**by the function that it executes.
+*/
 
-void	ft_comcont(t_cornfield *cw, unsigned char com, t_pc pc)
+void	ft_comcont(t_cw *cw, unsigned char com, t_pc *pc)
 {
 	if (com == 0x0a)
 		ft_ldi(cw, pc);
@@ -34,15 +36,15 @@ void	ft_comcont(t_cornfield *cw, unsigned char com, t_pc pc)
 		ft_lfork(cw, pc);
 	else if (com == 0x10)
 		ft_aff(cw, pc);
-	else 
-		pc->pc++;
+	else
+		pc->index++;
 }
 
-void	ft_docommand(t_cornfield *cw, t_pc pc)
+void	ft_docommand(t_cw *cw, t_pc *pc)
 {
 	unsigned char	com;
 
-	com = cw->mem[pc->pc];
+	com = cw->mem[pc->index];
 	if (com == 0x01)
 		ft_live(cw, pc);
 	else if (com == 0x02)
@@ -56,7 +58,7 @@ void	ft_docommand(t_cornfield *cw, t_pc pc)
 	else if (com == 0x06)
 		ft_and(cw, pc);
 	else if (com == 0x07)
-		ft_or(cw, pc;
+		ft_or(cw, pc);
 	else if (com == 0x08)
 		ft_xor(cw, pc);
 	else if (com == 0x09)

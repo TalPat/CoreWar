@@ -3,40 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   hex_to_bin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
+/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 11:13:27 by cking             #+#    #+#             */
-/*   Updated: 2018/09/05 13:36:18 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/05 13:55:07 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
+#include "cw.h"
+
+char	*rec_hb(int num, char *ans)
+{
+	char	*tmp;
+
+	if (!num)
+		return (ans);
+	if (num % 2)
+		tmp = ft_strjoin("1", ans);
+	else
+		tmp = ft_strjoin("0", ans);
+	return (rec_hb(num / 2, tmp));
+}
 
 char	*hex_to_bin(char *hex)
 {
-	char	binary[16][5] = {"0000", "0001", "0010", "0011", "0100", "0101", "0110", "0111", "1000", "1001", "1010", "1011", "1100", "1101", "1110", "1111"};
-	char	*hexref = "0123456789abcdef";
-	char	*ptr;
-	int		i = 0;
-	int		j = 0;
-    char	*ans = NULL;
+	char	*ans;
+	int		num;
 
-	while (*(hex + i))
-    {
-		//ptr = ft_strchr(hexref, *(hex + i));
-		while (*(hexref + j) != *(hex + i))
-			j++;
-		ans = ft_strjoin(ans, binary[j]);
-		i++;
-	}
+	num = ft_atoi_base(hex, 16);
+	ans = rec_hb(num, "");
+	while (ft_strlen(ans) % 4)
+		ans = ft_strjoin("0", ans);
 	return (ans);
-}
-
-int		main(void)
-{
-	char *ans;
-	char *hex = "FF";
-
-	ans = hex_to_bin(hex);
-	ft_putstr(ans);
 }
