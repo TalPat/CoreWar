@@ -6,13 +6,13 @@
 /*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 11:13:27 by cking             #+#    #+#             */
-/*   Updated: 2018/09/05 13:55:07 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/09/05 16:34:18 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cw.h"
 
-char	*rec_hb(int num, char *ans)
+char	*rec_h2b(int num, char *ans)
 {
 	char	*tmp;
 
@@ -22,17 +22,28 @@ char	*rec_hb(int num, char *ans)
 		tmp = ft_strjoin("1", ans);
 	else
 		tmp = ft_strjoin("0", ans);
-	return (rec_hb(num / 2, tmp));
+	free(ans);
+	ans = ft_strdup(tmp);
+	free(tmp);
+	return (rec_h2b(num / 2, ans));
 }
 
 char	*hex_to_bin(char *hex)
 {
 	char	*ans;
 	int		num;
+	char	*beg;
 
 	num = ft_atoi_base(hex, 16);
-	ans = rec_hb(num, "");
+	beg = ft_strnew(0);
+	ans = ft_strdup(rec_h2b(num, beg));
 	while (ft_strlen(ans) % 4)
-		ans = ft_strjoin("0", ans);
+	{
+		free(beg);
+		beg = ft_strjoin("0", ans);
+		free(ans);
+		ans = ft_strdup(beg);
+	}
+	free(beg);
 	return (ans);
 }

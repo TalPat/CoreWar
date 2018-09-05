@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cw.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/05 15:44:59 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/05 16:01:33 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,10 @@
 # include "libft.h"
 # include "op.h"
 
-/*typedef	struct	s_cornfield //playfield
-{
-	unsigned char	*field;
-	t_corn			*pcs;
-	int				cycles;
-
-}				t_cornfield;
-
-typedef struct	s_corn //pc...
-{
-	unsigned char 	*flags; //pop with default flags i.e. carry & live
-	unsigned char	*p_num; //number of the player
-	unsigned char   *reg;
-	int				index;
-}				t_corn;*/
-
 typedef struct		s_cw
 {
 	t_list			*playerlist;
-	int 			nbrplayers;
+	int				nbrplayers;
 	t_list			*pclist;
 	unsigned char	*mem;
 	unsigned int	cyclecounter;
@@ -58,8 +42,10 @@ typedef struct		s_player
 	unsigned int	idnbr;
 }					t_player;
 
-unsigned char	*dec_to_hex(unsigned char n);
 void			ft_initcw(t_cw *cw);
 void			ft_docommand(t_cw *cw, t_pc *pc);
+void			ft_live(t_cw *cw, t_pc *pc);
+char			*hex_to_bin(char *hex);
+unsigned char	*dec_to_hex(unsigned char n);
 
 #endif
