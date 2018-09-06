@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cw.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
+/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/05 16:01:33 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/06 13:15:45 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,18 @@
 # include "libft.h"
 # include "op.h"
 
+typedef struct		s_op
+{
+	char			*name;
+	int				argc;
+	int				arg[4];
+	int				op_code;
+	int				ctc;
+	char			*desc;
+	int				eb;
+	int				dunno;
+}					t_op;
+
 typedef struct		s_cw
 {
 	t_list			*playerlist;
@@ -23,6 +35,7 @@ typedef struct		s_cw
 	t_list			*pclist;
 	unsigned char	*mem;
 	unsigned int	cyclecounter;
+	t_op			op_tab[17];
 }					t_cw;
 
 typedef struct		s_pc
@@ -47,5 +60,6 @@ void			ft_docommand(t_cw *cw, t_pc *pc);
 void			ft_live(t_cw *cw, t_pc *pc);
 char			*hex_to_bin(char *hex);
 unsigned char	*dec_to_hex(unsigned char n);
+int				*ft_getparam(unsigned char c);
 
 #endif

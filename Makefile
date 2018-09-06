@@ -3,17 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: talon <talon@student.42.fr>                +#+  +:+       +#+         #
+#    By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/24 17:28:22 by tpatter           #+#    #+#              #
-#    Updated: 2018/09/04 14:57:19 by talon            ###   ########.fr        #
+#    Updated: 2018/09/06 13:01:57 by tpatter          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	corewar
 SRCDIR		=	srcs/
 SRC			=	op.c\
-				dec_to_hex.c
+				dec_to_hex.c\
+				ft_getparam.c
 SRCPATH		:=	$(addprefix $(SRCDIR), $(SRC))
 OBJDIR		=	obj/
 OBJ			=	$(SRC:%.c=%.o)
