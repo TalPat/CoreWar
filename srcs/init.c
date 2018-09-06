@@ -3,18 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-agr <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 12:21:14 by jde-agr           #+#    #+#             */
-/*   Updated: 2018/09/04 15:40:38 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/09/06 16:27:21 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cw.h"
 
-void	init_struct(t_cornfield *cf)
+void	init_struct(t_cw *cw)
 {
-	cf->field = (unsigned char*)malloc(sizeof(unsigned char) * MEM_SIZE);
-	cf->pcs = (t_corn*)malloc(sizeof(t_corn) * 1);
-	cf->cycles = 0;
+	cw->nbrplayers = 0;
+	cw->mem = (unsigned char*)malloc(sizeof(unsigned char) * MEM_SIZE);
+	cw->cyclecounter = 0;
+	ft_inittable(cw);
+	cw->cycle2die = CYCLE_TO_DIE;
+	cw->cycledelta = CYCLE_DELTA;
 }

@@ -6,13 +6,13 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 15:51:30 by cking             #+#    #+#             */
-/*   Updated: 2018/09/05 15:51:47 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/06 15:44:55 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cw.h"
 
-void	ft_live(t_cw *cw, t_pc *pc)
+void		ft_live(t_cw *cw, t_pc *pc)
 {
 	char		*str;
 	int			plr_nbr;
@@ -27,6 +27,7 @@ void	ft_live(t_cw *cw, t_pc *pc)
 			((t_player *)(cursor->content))->live == 1;
 		cursor = cursor->next;
 	}
-	pc = pc + DIR_SIZE;
+	pc->index = pc->index + DIR_SIZE;
 	pc->cr = 10;
+	free(str);
 }

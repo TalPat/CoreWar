@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_st.c                                            :+:      :+:    :+:   */
+/*   ft_verify_eb.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/06 13:02:28 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/06 16:26:52 by tpatter          ###   ########.fr       */
+/*   Created: 2018/09/06 14:29:14 by cking             #+#    #+#             */
+/*   Updated: 2018/09/06 15:22:01 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "cw.h"
-#include <stdlib.h>
 
-void	ft_st(t_cw *cw, t_pc *pc)
+int		ft_verify_eb(t_cw *cw, t_pc *pc)
 {
-	int		*arr;
-	int		newidx;
-	int		storeidx;
+	int	*arr;
+	int	idx;
+	int	i;
 
-	pc->cr = 5;
-	newidx = 0;
-	if (ft_verify_eb(cw, pc))
+	i = 0;
+	idx = cw->mem[pc->index];
+	arr = ft_getparam(cw->mem[pc->index + 1]);
+	while (i < 4)
 	{
-		arr = ft_getparam(cw->mem[pc->index + 1]);
-		newidx += 1;
-		if (arr[1] == T_REG)
+		if (cw->op_tab[idx].arg[i])
 		{
-			newidx += 1;
-			storeidx = pc->registers[cw->mem[pc->index + 1]]
+			if ((cw->op_tab[idx].arg[i] & arr[i]) != arr[i])
+				return (0);
 		}
-		else if (arr[1] == T_IND)
-			newidx += IND_SIZE;
-		pc->index += newidx + 2;
-
+		else
+		{
+			if (arr[i])
+				return (0);
+		}
+		i++;
 	}
-	else
-		pc->index++;
+	return (1);
 }

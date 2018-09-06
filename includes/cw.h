@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cw.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/06 13:15:45 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/06 16:02:12 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ typedef struct		s_cw
 	unsigned char	*mem;
 	unsigned int	cyclecounter;
 	t_op			op_tab[17];
+	int				cycle2die;
+	int				cycledelta;
 }					t_cw;
 
 typedef struct		s_pc
@@ -61,5 +63,6 @@ void			ft_live(t_cw *cw, t_pc *pc);
 char			*hex_to_bin(char *hex);
 unsigned char	*dec_to_hex(unsigned char n);
 int				*ft_getparam(unsigned char c);
+int				ft_verify_eb(t_cw *cw, t_pc *pc);
 
 #endif
