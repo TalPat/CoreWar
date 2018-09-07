@@ -1,4 +1,4 @@
-#include "cw.h"
+#include "../includes/cw.h"
 
 int		ft_numlen(int value, int base)
 {

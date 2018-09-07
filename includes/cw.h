@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/07 14:50:19 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/07 16:02:11 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,8 @@ int				*ft_getparam(unsigned char c);
 int				ft_verify_eb(t_cw *cw, t_pc *pc);
 int				ft_getdir(t_cw *cw, int idx);
 int				ft_getind(t_cw *cw, int idx);
+void			ft_inittable(t_cw *cw);
+void			ft_print_bits(t_cw *cw, int index, int n);
+char			*ft_itoa_base(int value, int base);
 
 #endif
