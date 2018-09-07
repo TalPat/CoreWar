@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_inittable.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 13:09:25 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/06 14:40:47 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/07 14:48:37 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cw.h"
+#include "../includes/cw.h"
 #include <stdlib.h>
 
 void	ft_inittablecont(t_cw *cw)

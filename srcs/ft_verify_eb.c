@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_verify_eb.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 14:29:14 by cking             #+#    #+#             */
-/*   Updated: 2018/09/06 15:22:01 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/07 14:48:52 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cw.h"
+#include "../includes/cw.h"
 
 int		ft_verify_eb(t_cw *cw, t_pc *pc)
 {

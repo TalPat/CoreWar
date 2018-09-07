@@ -6,12 +6,12 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 12:42:27 by cking             #+#    #+#             */
-/*   Updated: 2018/09/07 12:43:48 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/07 14:49:13 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cw.h"
-#include "libft.h"
+#include "../includes/cw.h"
+#include "../libft/includes/libft.h"
 #include <stdlib.h>
 
 int	ft_getind(t_cw *cw, int idx)

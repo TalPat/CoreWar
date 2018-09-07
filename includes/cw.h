@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   cw.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/07 12:10:50 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/07 14:50:19 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CW_H
 # define CW_H
 
-# include "libft.h"
+# include "../libft/includes/libft.h"
 # include "op.h"
 
 typedef struct		s_op
@@ -65,5 +65,6 @@ unsigned char	*dec_to_hex(unsigned char n);
 int				*ft_getparam(unsigned char c);
 int				ft_verify_eb(t_cw *cw, t_pc *pc);
 int				ft_getdir(t_cw *cw, int idx);
+int				ft_getind(t_cw *cw, int idx);
 
 #endif
