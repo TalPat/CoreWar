@@ -6,7 +6,7 @@
 /*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 13:02:28 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/06 16:26:52 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/07 11:07:00 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ void	ft_st(t_cw *cw, t_pc *pc)
 		if (arr[1] == T_REG)
 		{
 			newidx += 1;
-			storeidx = pc->registers[cw->mem[pc->index + 1]]
+			storeidx = pc->registers[cw->mem[pc->index + 1]];
 		}
-		else if (arr[1] == T_IND)
+		else
+		{
 			newidx += IND_SIZE;
-		pc->index += newidx + 2;
-
+		}
+		pc->index += newidx + 1;
 	}
-	else
-		pc->index++;
+	pc->index++;
 }
