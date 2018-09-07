@@ -10,6 +10,7 @@ void	ft_add(t_cw *cw, t_pc *pc)
 	if (ft_verify_eb(cw, pc)) //valid eb
 	{
 		newidx += 2;
+        get_
 		
 	}
 	pc->index++;
