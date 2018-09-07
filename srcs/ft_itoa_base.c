@@ -1,6 +1,19 @@
-#include "../includes/cw.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/07 16:09:11 by cking             #+#    #+#             */
+/*   Updated: 2018/09/07 16:34:28 by cking            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int		ft_numlen(int value, int base)
+#include "../includes/cw.h"
+#include <stdio.h>
+
+int static	ft_numlen(int value, int base)
 {
 	int				i;
 	int				nbr;
@@ -28,11 +41,17 @@ int		ft_numlen(int value, int base)
 	return (i);
 }
 
+char	*zero(char *num, int i)
+{
+	num[i] = '0';
+	num[i + 1] = '\0';
+	return (num);
+}
+
 char	*ft_itoa_base(int value, int base)
 {
 	char			*str;
 	char			*num;
-	char			c;
 	int				i;
 	int				nbr;
 	unsigned int	n;
@@ -42,17 +61,10 @@ char	*ft_itoa_base(int value, int base)
 	nbr = value;
 	if (!(num = (char*)malloc(sizeof(char) * (i + 2))))
 		return (0);
-	if (value == -2147483648 && base == 10)
-	{
-		str = "-2147483648";
-		return (str);
-	}
+	if (nbr == -2147483648 && base == 10)
+		return ("-2147483648");
 	if (nbr == 0)
-	{
-		num[i] = '0';
-		num[i + 1] = '\0';
-		return (num);
-	}
+		return (zero(num, i));
 	if (base == 10 && nbr < 0)
 	{
 		num[0] = '-';
@@ -63,8 +75,7 @@ char	*ft_itoa_base(int value, int base)
 		n = (unsigned int)nbr;
 		while (n)
 		{
-			c = str[n % base];
-			num[i] = c;
+			num[i] = str[n % base];
 			n /= base;
 			i--;
 		}
@@ -73,11 +84,16 @@ char	*ft_itoa_base(int value, int base)
 	}
 	while (nbr)
 	{
-		c = str[nbr % base];
-		num[i] = c;
+		num[i] = str[nbr % base];
 		nbr /= base;
 		i--;
 	}
 	num[ft_numlen(value, base)] = '\0';
 	return (num);
+}
+
+int main()
+{
+	int n = 90;
+	printf("%s\n", ft_itoa_base(n,16));
 }
