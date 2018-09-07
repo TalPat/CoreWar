@@ -6,12 +6,11 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 16:09:11 by cking             #+#    #+#             */
-/*   Updated: 2018/09/07 16:34:28 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/07 16:37:19 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cw.h"
-#include <stdio.h>
 
 int static	ft_numlen(int value, int base)
 {
@@ -41,10 +40,10 @@ int static	ft_numlen(int value, int base)
 	return (i);
 }
 
-char	*zero(char *num, int i)
+char	*zero(char *num)
 {
-	num[i] = '0';
-	num[i + 1] = '\0';
+	num[0] = '0';
+	num[1] = '\0';
 	return (num);
 }
 
@@ -64,7 +63,7 @@ char	*ft_itoa_base(int value, int base)
 	if (nbr == -2147483648 && base == 10)
 		return ("-2147483648");
 	if (nbr == 0)
-		return (zero(num, i));
+		return (zero(num));
 	if (base == 10 && nbr < 0)
 	{
 		num[0] = '-';
@@ -90,10 +89,4 @@ char	*ft_itoa_base(int value, int base)
 	}
 	num[ft_numlen(value, base)] = '\0';
 	return (num);
-}
-
-int main()
-{
-	int n = 90;
-	printf("%s\n", ft_itoa_base(n,16));
 }
