@@ -6,7 +6,7 @@
 /*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 13:02:28 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/07 12:01:16 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/07 12:16:18 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void	ft_st(t_cw *cw, t_pc *pc)
 			newidx += IND_SIZE;
 			while (i < REG_SIZE)
 			{
-				cw->mem[pc->index + (34 % IDX_MOD) + i] =
-					pc->registers[cw->mem[pc->index + 2]][i];
+				cw->mem[pc->index + (ft_getdir(cw, pc->index + 3) % IDX_MOD) + i]
+				 = pc->registers[cw->mem[pc->index + 2]][i];
 				i++;
 			}
 		}
