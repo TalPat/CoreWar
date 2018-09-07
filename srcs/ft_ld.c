@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 16:10:31 by cking             #+#    #+#             */
-/*   Updated: 2018/09/07 12:29:18 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/07 13:10:08 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void		ft_ld(t_cw *cw, t_pc *pc)
 {
-	int				*arr;
+	int		*arr;
+	int		i;
 
 	pc->cr = 5;
 	if (ft_verify_eb(cw, pc))
@@ -28,7 +29,10 @@ void		ft_ld(t_cw *cw, t_pc *pc)
 		}
 		else
 		{
-
+			i = -1;
+			while (++i < REG_SIZE)
+				cw->mem[pc->index + (ft_getind(cw, pc->index + 2 + IND_SIZE))
+				+ i] = pc->registers[cw->mem[pc->index + 2 + IND_SIZE]];
 			pc->index = pc->index + 2 + IND_SIZE;
 		}
 	}

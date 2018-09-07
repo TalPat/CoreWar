@@ -3,16 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_getdir.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:58:26 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/07 12:09:31 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/07 12:45:19 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cw.h"
 #include "libft.h"
 #include <stdlib.h>
+
+/*
+**credit tpatter
+*/
 
 int	ft_getdir(t_cw *cw, int idx)
 {
