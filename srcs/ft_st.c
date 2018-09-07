@@ -6,7 +6,7 @@
 /*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 13:02:28 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/07 11:07:00 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/07 12:01:16 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ void	ft_st(t_cw *cw, t_pc *pc)
 	int		*arr;
 	int		newidx;
 	int		storeidx;
+	int		i;
 
+	i = 0;
 	pc->cr = 5;
 	newidx = 0;
 	if (ft_verify_eb(cw, pc))
@@ -29,11 +31,22 @@ void	ft_st(t_cw *cw, t_pc *pc)
 		if (arr[1] == T_REG)
 		{
 			newidx += 1;
-			storeidx = pc->registers[cw->mem[pc->index + 1]];
+			while (i < REG_SIZE)
+			{
+				pc->registers[cw->mem[pc->index + 3]][i] =
+					pc->registers[cw->mem[pc->index + 2]][i];
+				i++;
+			}
 		}
 		else
 		{
 			newidx += IND_SIZE;
+			while (i < REG_SIZE)
+			{
+				cw->mem[pc->index + (34 % IDX_MOD) + i] =
+					pc->registers[cw->mem[pc->index + 2]][i];
+				i++;
+			}
 		}
 		pc->index += newidx + 1;
 	}

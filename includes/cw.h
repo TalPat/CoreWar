@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cw.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
+/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/06 16:02:12 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/09/07 12:10:50 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ char			*hex_to_bin(char *hex);
 unsigned char	*dec_to_hex(unsigned char n);
 int				*ft_getparam(unsigned char c);
 int				ft_verify_eb(t_cw *cw, t_pc *pc);
+int				ft_getdir(t_cw *cw, int idx);
 
 #endif
