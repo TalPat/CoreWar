@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_inittable.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
+/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 13:09:25 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/10 15:42:35 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/10 17:06:45 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ void	ft_inittable(t_cw *cw)
 		T_DIR, T_REG, 0}, 7, 6, "ou  (or   r1, r2, r3   r1 | r2 -> r3", 1, 0};
 	cw->op_tab[8] = (t_op){"xor", 3, {T_REG | T_IND | T_DIR, T_REG | T_IND |
 		T_DIR, T_REG, 0}, 8, 6, "ou (xor  r1, r2, r3   r1^r2 -> r3", 1, 0};
-	cw->op_tab[9] = (t_op){"zjmp", 1, {T_DIR}, 9, 20, "jump if zero", 0, 1};
+	cw->op_tab[9] = (t_op){"zjmp", 1, {T_DIR, 0, 0, 0}, 9, 20,
+		"jump if zero", 0, 1};
 	cw->op_tab[10] = (t_op){"ldi", 3, {T_REG | T_DIR | T_IND, T_DIR | T_REG,
 		T_REG, 0}, 10, 25, "load index", 1, 1};
 	cw->op_tab[11] = (t_op){"sti", 3, {T_REG, T_REG | T_DIR | T_IND, T_DIR |

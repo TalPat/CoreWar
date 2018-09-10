@@ -9,7 +9,7 @@ void	ft_add(t_cw *cw, t_pc *pc)
 	int				r3;
 	unsigned char	*ans;
 
-	pc->cr = 10; //cycles to complete this
+	pc->cr = cw->op_tab[4].ctc; //cycles to complete this
 	newidx = 0; //beginning of current cmd
 	num = 0;
 	if (ft_verify_eb(cw, pc)) //valid eb
@@ -28,7 +28,7 @@ void	ft_add(t_cw *cw, t_pc *pc)
 		if (ft_atoi_base((char *)pc->registers[r3 - 1], 10) == 0) //carry
 			pc->carry = 1;
 	}
-	pc->index++;
+	pc->index+= 5;
 }
 
 int main(void)

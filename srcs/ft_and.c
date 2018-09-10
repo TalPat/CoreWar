@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_getind.c                                        :+:      :+:    :+:   */
+/*   ft_and.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/07 12:42:27 by cking             #+#    #+#             */
-/*   Updated: 2018/09/10 18:03:11 by tpatter          ###   ########.fr       */
+/*   Created: 2018/09/10 16:13:33 by tpatter           #+#    #+#             */
+/*   Updated: 2018/09/10 16:31:10 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cw.h"
-#include "../libft/includes/libft.h"
+#include "libft.h"
+#include "cw.h"
 #include <stdlib.h>
 
-int	ft_getind(t_cw *cw, int idx)
-{
-	int	i;
-	int	val;
-	int	mult;
+/*
+** No comment yet.
+*/
 
-	i = 0;
-	val = 0;
-	mult = 1;
-	while (i < IND_SIZE)
+void	ft_and(t_cw *cw, t_pc *pc)
+{
+	int		*arr;
+	int		newidx;
+	int		val[3];
+
+	pc->cr = cw->op_tab[6].ctc;
+	newidx = 0;
+	if (ft_verify_eb(cw, pc))
 	{
-		val = val + (cw->mem[idx + IND_SIZE - i - 1] * mult);
-		mult *= 256;
-		i++;
+		arr = ft_getparam(cw->mem[pc->index + 1]);
+		newidx += 1;
+		if (arr[0] = T_REG)
+		{
+			newidx += 1;
+			val[0] = ft_getregval(pc, cw->mem[pc->index + newidx]);
+		}
+		pc->index += newidx + 1;
 	}
-	return (val);
+	pc->index++;
 }

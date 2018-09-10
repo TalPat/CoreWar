@@ -6,7 +6,7 @@
 /*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 11:47:51 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/10 16:04:47 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/10 16:45:35 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,30 +29,30 @@ void	ft_sti(t_cw *cw, t_pc *pc)
 
 	i = 0;
 	pc->cr = cw->op_tab[11].ctc;
-	newidx = 0;
+	newidx = 1;
 	if (ft_verify_eb(cw, pc))
 	{
-		arr = ft_getparam(cw->mem[pc->index + 1]);
-		newidx += 1;
+		arr = ft_getparam(cw->mem[pc->index + newidx]);
+		newidx += 2;
 		if (arr[1] == T_REG)
 		{
+			sum = ft_getregval(pc, cw->mem[pc->index + newidx]);
 			newidx += 1;
-			sum = ft_getregval(pc, cw->mem[pc->index + 2]);
 		}
 		else
 		{
+			sum = ft_getdir(cw, pc->index + newidx);
 			newidx += DIR_SIZE;
-			sum = ft_getdir(cw, pc->index + 2);
 		}
 		if (arr[2] == T_REG)
 		{
-			newidx += 1;
 			sum += ft_getregval(pc, cw->mem[pc->index + newidx]);
+			newidx += 1;
 		}
 		else
 		{
-			newidx += DIR_SIZE;
 			sum += ft_getdir(cw, pc->index + newidx);
+			newidx += DIR_SIZE;
 		}
 		while (i < REG_SIZE)
 		{
@@ -60,7 +60,6 @@ void	ft_sti(t_cw *cw, t_pc *pc)
 				pc->registers[cw->mem[pc->index + 2]][i];
 			i++;
 		}
-		pc->index += newidx + 1;
 	}
-	pc->index++;
+	pc->index += newidx;
 }
