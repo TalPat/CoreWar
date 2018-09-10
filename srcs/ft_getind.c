@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_getind.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
+/*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 12:42:27 by cking             #+#    #+#             */
-/*   Updated: 2018/09/07 14:49:13 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/10 18:03:11 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int	ft_getind(t_cw *cw, int idx)
 	mult = 1;
 	while (i < IND_SIZE)
 	{
-		val = val + (cw->mem[idx + IND_SIZE - i] * mult);
-		mult *= 0xFF;
+		val = val + (cw->mem[idx + IND_SIZE - i - 1] * mult);
+		mult *= 256;
 		i++;
 	}
 	return (val);

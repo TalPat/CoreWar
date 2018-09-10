@@ -6,7 +6,7 @@
 /*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 15:48:14 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/10 17:57:51 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/10 18:02:38 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_getregval(t_pc *pc, int reg)
 	while (i < REG_SIZE)
 	{
 		val = val + (pc->registers[reg][REG_SIZE - i - 1] * mult);
-		mult *= 0xFF;
+		mult *= 256;
 		i++;
 	}
 	return (val);
