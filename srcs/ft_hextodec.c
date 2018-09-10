@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_hextodec.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
+/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 16:47:19 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/10 17:27:27 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/10 17:29:58 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	ft_hextodec(char *str)
 	int		mult;
 
 	charno = ft_strlen(str);
-	printf("len : %i\n", charno);
 	val = 0;
 	mult = 1;
 	while (charno)
@@ -30,7 +29,6 @@ int	ft_hextodec(char *str)
 		if (str[charno - 1] >= '0' && str[charno - 1] <= '9')
 			val += (str[charno - 1] - '0') * mult;
 		mult *= 16;
-		printf("ans : %i", val);
 		charno--;
 	}
 	printf("ans : %i", val);
