@@ -6,7 +6,7 @@
 /*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 16:47:19 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/10 17:23:17 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/10 17:26:44 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_hextodec(char *str)
 	mult = 1;
 	while (charno)
 	{
-		if (str[charno -1] >= 'a' && str[charno - 1] <= 'f')
+		if (str[charno - 1] >= 'a' && str[charno - 1] <= 'f')
 			val += (str[charno - 1] - 'a' + 10) * mult;
 		if (str[charno - 1] >= '0' && str[charno - 1] <= '9')
 			val += (str[charno - 1] - '0') * mult;
