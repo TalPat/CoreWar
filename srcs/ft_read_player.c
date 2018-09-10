@@ -6,12 +6,13 @@
 /*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 13:38:54 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/09/10 18:16:18 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/09/10 18:18:53 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cw.h"
 #include "op.h"
+#include "fcntl.h"
 
 void	ft_store_player(t_cw *cw, char *file, int pos)
 {
