@@ -6,7 +6,7 @@
 /*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 19:44:09 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/10 19:46:35 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/10 20:15:58 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,5 @@ void	ft_or(t_cw *cw, t_pc *pc)
 		ft_strinreg(pc, cw->mem[(pc->index + newidx) % IDX_MOD], val[2]);
 		newidx += 1;
 	}
-	pc->index += newidx + 1;
+	pc->index += newidx;
 }
