@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/07 16:02:11 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/10 10:21:29 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ int				ft_getind(t_cw *cw, int idx);
 void			ft_inittable(t_cw *cw);
 void			ft_print_bits(t_cw *cw, int index, int n);
 char			*ft_itoa_base(int value, int base);
+void			ft_print_reg(t_pc *pc);
 
 #endif
