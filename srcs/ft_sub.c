@@ -1,6 +1,6 @@
 #include "cw.h"
 
-void	ft_add(t_cw *cw, t_pc *pc)
+void	ft_sub(t_cw *cw, t_pc *pc)
 {
 	int				newidx;
 	int				num;
@@ -20,12 +20,12 @@ void	ft_add(t_cw *cw, t_pc *pc)
 			10), 10);
 		r3 = ft_atoi_base(ft_itoa_base(cw->mem[pc->index + newidx + 2],
 			10), 10);
-		num = ft_atoi_base((char*)pc->registers[r1 - 1], 10) +
+		num = ft_atoi_base((char*)pc->registers[r1 - 1], 10) -
 			ft_atoi_base((char*)pc->registers[r2 - 1], 10);
 		ft_putnbr(num);
 		ft_putchar('\n');
 		pc->registers[r3 - 1] = (unsigned char*)ft_itoa_base(num, 16);
-		if (ft_atoi_base((char *)pc->registers[r3 - 1], 10) == 0) //carry
+		if (ft_atoi_base((char *)pc->registers[r3 - 1], 10) == 0)
 			pc->carry = 1;
 	}
 	pc->index++;
@@ -50,16 +50,16 @@ int main(void)
 	pc->index = 0;
 
 	ft_print_bits(cw, 0, 5);
-	pc->registers[0] = (unsigned char*)"3";
+	pc->registers[0] = (unsigned char*)"20";
 	pc->registers[1] = (unsigned char*)"2";
-	pc->registers[2] = (unsigned char*)"23";
+	pc->registers[2] = (unsigned char*)"1";
 	pc->registers[3] = (unsigned char*)"2";
 	//pc->registers[2][0] = (unsigned char)ft_strdup("3");
 	//pc->registers[2][1] = (unsigned char)ft_strdup("0");
 	ft_putchar('\n');
-	ft_add(cw, pc);
+	ft_sub(cw, pc);
 	ft_putstr((char*)pc->registers[15]); //prints hex value
-	ft_putchar('\n');
+    ft_putchar('\n');
 	ft_putnbr(pc->carry);
 	//ft_ld(cw, pc);
 }
