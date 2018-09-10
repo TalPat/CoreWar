@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_st.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tpatter <tpatter2student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 13:02:28 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/07 12:42:06 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/10 11:38:00 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_st(t_cw *cw, t_pc *pc)
 	int		i;
 
 	i = 0;
-	pc->cr = 5;
+	pc->cr = cw->op_tab[2].ctc;
 	newidx = 0;
 	if (ft_verify_eb(cw, pc))
 	{
