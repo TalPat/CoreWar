@@ -1,5 +1,7 @@
 #include "cw.h"
 
+int	ft_hextodec(char *str);
+
 void	ft_zjmp(t_cw *cw, t_pc *pc)
 {
 	int				newidx;
@@ -7,8 +9,10 @@ void	ft_zjmp(t_cw *cw, t_pc *pc)
 
 	pc->cr = cw->op_tab[9].ctc; //cycles to complete this
 	newidx = 0; //beginning of current cmd
+    ft_putstr((char*)&cw->mem[pc->index + 1]);
 	if (pc->carry == 1)
-        newidx = ft_atoi_base(ft_itoa_base(cw->mem[pc->index + 1], 10), 10);
+        //newidx = ft_atoi_base(ft_itoa_base(cw->mem[pc->index + 1], 10), 10);
+        newidx = ft_hextodec((char *)&cw->mem[pc->index + ]);
 	else
 		newidx = 3;
 	ft_putstr("no..: ");
