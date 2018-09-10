@@ -6,13 +6,18 @@
 /*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 11:47:51 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/10 15:57:36 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/10 16:04:47 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "cw.h"
 #include <stdlib.h>
+
+/*
+**using an indirect val as param 2 not accounted for? pdf does not specify its
+**use.
+*/
 
 void	ft_sti(t_cw *cw, t_pc *pc)
 {
@@ -42,12 +47,18 @@ void	ft_sti(t_cw *cw, t_pc *pc)
 		if (arr[2] == T_REG)
 		{
 			newidx += 1;
-			sum = ft_getregval(pc, cw->mem[pc->index + newidx]);
+			sum += ft_getregval(pc, cw->mem[pc->index + newidx]);
 		}
 		else
 		{
 			newidx += DIR_SIZE;
-			sum = ft_getdir(cw, pc->index + newidx);
+			sum += ft_getdir(cw, pc->index + newidx);
+		}
+		while (i < REG_SIZE)
+		{
+			cw->mem[pc->index + (sum % IDX_MOD) + i] =
+				pc->registers[cw->mem[pc->index + 2]][i];
+			i++;
 		}
 		pc->index += newidx + 1;
 	}
