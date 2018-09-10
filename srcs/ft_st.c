@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_st.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter2student.wethinkcode.co    +#+  +:+       +#+        */
+/*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 13:02:28 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/10 11:38:00 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/10 18:33:11 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,32 +23,31 @@ void	ft_st(t_cw *cw, t_pc *pc)
 
 	i = 0;
 	pc->cr = cw->op_tab[2].ctc;
-	newidx = 0;
+	newidx = 1;
 	if (ft_verify_eb(cw, pc))
 	{
-		arr = ft_getparam(cw->mem[pc->index + 1]);
-		newidx += 1;
+		arr = ft_getparam(cw->mem[pc->index + newidx]);
+		newidx += 2;
 		if (arr[1] == T_REG)
 		{
-			newidx += 1;
 			while (i < REG_SIZE)
 			{
 				pc->registers[cw->mem[pc->index + 3]][i] =
 					pc->registers[cw->mem[pc->index + 2]][i];
 				i++;
 			}
+			newidx += 1;
 		}
 		else
 		{
-			newidx += IND_SIZE;
 			while (i < REG_SIZE)
 			{
 				cw->mem[pc->index + (ft_getdir(cw, pc->index + 3) % IDX_MOD)
 				+ i] = pc->registers[cw->mem[pc->index + 2]][i];
 				i++;
 			}
+			newidx += IND_SIZE;
 		}
-		pc->index += newidx + 1;
 	}
-	pc->index++;
+	pc->index += newidx;
 }

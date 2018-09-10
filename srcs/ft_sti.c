@@ -6,7 +6,7 @@
 /*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 11:47:51 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/10 16:45:35 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/10 19:30:41 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 #include <stdlib.h>
 
 /*
-**using an indirect val as param 2 not accounted for? pdf does not specify its
-**use.
+**using an indirect val as param 2 uses value at index(4 bytes).
 */
 
 void	ft_sti(t_cw *cw, t_pc *pc)
@@ -39,10 +38,16 @@ void	ft_sti(t_cw *cw, t_pc *pc)
 			sum = ft_getregval(pc, cw->mem[pc->index + newidx]);
 			newidx += 1;
 		}
-		else
+		else if (arr[1] == T_IND)
 		{
 			sum = ft_getdir(cw, pc->index + newidx);
 			newidx += DIR_SIZE;
+		}
+		else
+		{
+			sum = ft_getdir(cw, (pc->index + ft_getind(cw, (pc->index +
+				newidx) % IDX_MOD)) % IDX_MOD);
+			newidx += IND_SIZE;
 		}
 		if (arr[2] == T_REG)
 		{
