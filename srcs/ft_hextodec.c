@@ -6,7 +6,7 @@
 /*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 16:47:19 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/10 17:18:09 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/09/10 17:25:28 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int	ft_hextodec(char *str)
 	mult = 1;
 	while (charno)
 	{
-		if (str[charno] >= 'a' && str[charno] <= 'f')
-			val += (str[charno] - 'a' + 10) * mult;
-		if (str[charno] >= '0' && str[charno] <= '9')
-			val += (str[charno] - '0') * mult;
+		if (str[charno -1] >= 'a' && str[charno - 1] <= 'f')
+			val += (str[charno - 1] - 'a' + 10) * mult;
+		if (str[charno - 1] >= '0' && str[charno - 1] <= '9')
+			val += (str[charno - 1] - '0') * mult;
 		mult *= 16;
 		printf("ans : %i", val);
 		charno--;
