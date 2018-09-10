@@ -10,14 +10,9 @@ void	ft_zjmp(t_cw *cw, t_pc *pc)
 	pc->cr = cw->op_tab[9].ctc; //cycles to complete this
 	newidx = 0; //beginning of current cmd
 	if (pc->carry == 1)
-        //newidx = ft_atoi_base(ft_itoa_base(cw->mem[pc->index + 1], 10), 10);
         newidx = ft_getdir(cw, pc->index + 1);
 	else
-		newidx = 3;
-	ft_putstr("no..: ");
-	ft_putnbr(newidx);
-    ft_putchar('\n');
-
+		newidx = DIR_SIZE + 1;
 	pc->index += newidx;
 }
 
@@ -32,8 +27,8 @@ int main(void)
 	cw->mem[0] = 9;
 	cw->mem[1] = 255;
 	cw->mem[2] = 255;
-	cw->mem[3] = 3;
-	cw->mem[4] = 7;
+	cw->mem[3] = 255;
+	cw->mem[4] = 255;
 	cw->mem[15] = 0;
 	//cw->mem[5] = 'B';
 	//cw->mem[6] = 2;
@@ -47,7 +42,7 @@ int main(void)
 	//pc->registers[2][0] = (unsigned char)ft_strdup("3");
 	//pc->registers[2][1] = (unsigned char)ft_strdup("0");
 	ft_putchar('\n');
-    pc->carry = 1;
+    pc->carry = 0;
 	ft_zjmp(cw, pc);
 	//ft_putstr((char*)pc->registers[15]); //prints hex value
     ft_putnbr(pc->index);
