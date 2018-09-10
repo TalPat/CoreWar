@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_inittable.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
+/*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 13:09:25 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/07 14:48:37 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/10 15:42:35 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

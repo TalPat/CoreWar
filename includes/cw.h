@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cw.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
+/*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/10 10:21:29 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/10 15:52:42 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ void			ft_inittable(t_cw *cw);
 void			ft_print_bits(t_cw *cw, int index, int n);
 char			*ft_itoa_base(int value, int base);
 void			ft_print_reg(t_pc *pc);
+int				ft_getregval(t_pc *pc, int reg);
 
 #endif
