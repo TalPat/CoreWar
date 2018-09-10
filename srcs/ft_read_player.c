@@ -6,53 +6,60 @@
 /*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 13:38:54 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/09/10 16:56:03 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/09/10 18:18:53 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cw.h"
+#include "op.h"
+#include "fcntl.h"
 
-int	ft_read_player(t_cw *cw, const int fd)
+void	ft_store_player(t_cw *cw, char *file, int pos)
 {
 	int				i;
+	int				fd;
 	int				ret;
 	unsigned char	c;
 
-	cw->mem = (unsigned char *)malloc(sizeof(unsigned char) *
-		(ft_count_bits(fd)));
-	i = 0;
+	fd = open(file, O_RDONLY);
+	i = pos;
 	while (1)
 	{
 		ret = read(fd, &c, 1);
-		if (ret == 1)
+		if (ret == 1 && i < (pos + MEM_SIZE * 8))
 		{
 			cw->mem[i] = c;
 			i++;
 		}
-		else if (ret == -1)
-			return (-1);
 		else
-			return (i);
+			break ;
 	}
+	close(fd);
+}
+
+int	ft_count_players(char **players)
+{
+	int i;
+
+	i = 0;
+	while (players[i][0] != '\0')
+		i++;
 	return (i);
 }
 
-int	ft_count_bits(const int fd)
+int	ft_read_player(t_cw *cw, char **players)
 {
-	int				i;
-	int				ret;
-	unsigned char	c;
+	int mem;
+	int npl;
+	int i;
 
+	npl = ft_count_players(players);
+	mem = (8 * MEM_SIZE) / (npl);
 	i = 0;
-	while (1)
+	while (i < npl)
 	{
-		ret = read(fd, &c, 1);
-		if (ret == 1)
-			i++;
-		else if (ret == -1)
-			return (-1);
-		else
-			return (i);
+		ft_store_player(cw, players[i], mem * i);
+		i++;
 	}
-	return (0);
+
 }

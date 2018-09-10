@@ -6,7 +6,7 @@
 /*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/10 16:58:46 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/09/10 18:16:39 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,6 @@ char			*ft_itoa_base(int value, int base);
 void			ft_print_reg(t_pc *pc);
 int				ft_getregval(t_pc *pc, int reg);
 
-int				ft_read_player(t_cw *cw, const int fd);
+int				ft_read_player(t_cw *cw, char **players);
 
 #endif
