@@ -6,7 +6,7 @@
 /*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:58:26 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/10 17:38:16 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/10 17:55:23 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_getdir(t_cw *cw, int idx)
 	mult = 1;
 	while (i < DIR_SIZE)
 	{
-		val = val + (cw->mem[idx + DIR_SIZE - i - 1] * mult);
+		val += val + (cw->mem[idx + DIR_SIZE - i - 1] * mult);
 		mult *= 0xFF;
 		i++;
 	}
