@@ -6,13 +6,13 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 16:10:31 by cking             #+#    #+#             */
-/*   Updated: 2018/09/11 10:30:08 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/11 12:05:25 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cw.h"
 
-void		ft_ldcont(t_cw *cw, t_pc *pc)
+void		ft_lddir(t_cw *cw, t_pc *pc)
 {
 	int i;
 	int regnum;
@@ -27,6 +27,22 @@ void		ft_ldcont(t_cw *cw, t_pc *pc)
 	pc->index = pc->index + 2 + DIR_SIZE;
 }
 
+void		ft_ldind(t_cw *cw, t_pc *pc)
+{
+	int regnum;
+	int i;
+	int offset;
+
+	regnum = cw->mem[pc->index + 2 + IND_SIZE];
+	i = 0;
+	offset = ft_hextodec(ft_strsub((char *)cw->mem, pc->index + 2, IND_SIZE));
+	while (i < REG_SIZE)
+	{
+		pc->registers[regnum][i] = cw->mem[pc->index + i + offset];
+		i++;
+	}
+}
+
 void		ft_ld(t_cw *cw, t_pc *pc)
 {
 	int		*arr;
@@ -37,18 +53,13 @@ void		ft_ld(t_cw *cw, t_pc *pc)
 	{
 		arr = ft_getparam(cw->mem[pc->index + 1]);
 		if (arr[0] == T_DIR)
-			ft_ldcont(cw, pc);
+			ft_lddir(cw, pc);
 		else
-		{
-			i = -1;
-			while (++i < REG_SIZE)
-				cw->mem[pc->index + (ft_getind(cw, pc->index + 2 + IND_SIZE))
-				+ i] = pc->registers[cw->mem[pc->index + 2 + IND_SIZE]][i];
-			pc->index = pc->index + 2 + IND_SIZE;
-		}
+			ft_ldind(cw, pc);
 	}
 	else
 		pc->index += 2;
+	free(arr);
 }
 
 int		main(void)
@@ -63,14 +74,14 @@ int		main(void)
 	cw->mem = (unsigned char*)malloc(sizeof(unsigned char) * MEM_SIZE);
 	ft_bzero(cw->mem, MEM_SIZE);
 	cw->mem[0] = 2;
-	cw->mem[1] = 144;
-	cw->mem[2] = 1;
-	cw->mem[3] = 1;
-	cw->mem[4] = 0;
-	cw->mem[5] = 255;
-	cw->mem[6] = 2;
+	cw->mem[1] = 208;
+	cw->mem[2] = 255;
+	cw->mem[3] = 0;
+	cw->mem[4] = 2;
+	cw->mem[5] = 0;
+	cw->mem[6] = 0;
 	pc->index = 0;
-	//ft_print_bits(cw, 0, 15);
+	ft_print_bits(cw, 0, 7);
 	pc->registers = (unsigned char **)malloc(sizeof(unsigned char *) * REG_NUMBER);
 	i = 0;
 	while (i < REG_NUMBER)
@@ -81,4 +92,5 @@ int		main(void)
 	}
 	ft_ld(cw, pc);
 	ft_print_reg(pc);
+	ft_putnbr(ft_hextodec("ff00"));
 }

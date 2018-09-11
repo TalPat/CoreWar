@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cw.h"
+#include "../includes/cw.h"
 #include <stdio.h>
 
 int	ft_hextodec(char *str)
@@ -31,6 +31,6 @@ int	ft_hextodec(char *str)
 		mult *= 16;
 		charno--;
 	}
-	printf("ans : %i", val);
+	//printf("ans : %i", val);
 	return (val);
 }
