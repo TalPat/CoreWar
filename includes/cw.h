@@ -71,6 +71,7 @@ void			ft_print_bits(t_cw *cw, int index, int n);
 char			*ft_itoa_base(int value, int base);
 void			ft_print_reg(t_pc *pc);
 int				ft_getregval(t_pc *pc, int reg);
+int				ft_hextodec(char *str);
 
 int				ft_read_player(t_cw *cw, char **players);
 
