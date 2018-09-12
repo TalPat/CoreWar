@@ -3,18 +3,21 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+         #
+#    By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/24 17:28:22 by tpatter           #+#    #+#              #
-#    Updated: 2018/09/06 13:01:57 by tpatter          ###   ########.fr        #
+#    Updated: 2018/09/11 16:25:18 by avan-ni          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	corewar
 SRCDIR		=	srcs/
-SRC			=	op.c\
+SRC			=	init.c main.c ft_itoa_base.c\
+				ft_read_player.c\
+				ft_inittable.c\
 				dec_to_hex.c\
-				ft_getparam.c
+				ft_getparam.c\
+				ft_print_bits.c
 SRCPATH		:=	$(addprefix $(SRCDIR), $(SRC))
 OBJDIR		=	obj/
 OBJ			=	$(SRC:%.c=%.o)
