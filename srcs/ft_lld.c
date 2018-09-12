@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 16:03:07 by cking             #+#    #+#             */
-/*   Updated: 2018/09/12 10:10:19 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/12 13:32:29 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void		ft_llddir(t_cw *cw, t_pc *pc)
 	int check;
 
 	i = 0;
+	check = 0;
 	regnum = cw->mem[pc->index + 2 + DIR_SIZE];
 	while (i < REG_SIZE)
 	{
@@ -29,9 +30,9 @@ void		ft_llddir(t_cw *cw, t_pc *pc)
 	}
 	pc->index = pc->index + 2 + DIR_SIZE;
 	if (!check)
-		pc->carry = '1';
+		pc->carry = 1;
 	else
-		pc->carry = NULL;
+		pc->carry = 0;
 }
 
 void		ft_lldind(t_cw *cw, t_pc *pc)
@@ -44,6 +45,7 @@ void		ft_lldind(t_cw *cw, t_pc *pc)
 	regnum = cw->mem[pc->index + 2 + IND_SIZE];
 	i = 0;
 	offset = ft_hextodec(ft_strsub((char *)cw->mem, pc->index + 2, IND_SIZE));
+	check = 0;
 	while (i < REG_SIZE)
 	{
 		pc->registers[regnum][i] = cw->mem[pc->index + i + (offset % IDX_MOD)];
@@ -51,16 +53,15 @@ void		ft_lldind(t_cw *cw, t_pc *pc)
 			check++;
 		i++;
 		if (!check)
-			pc->carry = '1';
+			pc->carry = 1;
 		else
-			pc->carry = NULL;
+			pc->carry = 0;
 	}
 }
 
 void		ft_lld(t_cw *cw, t_pc *pc)
 {
 	int		*arr;
-	int		i;
 
 	pc->cr = cw->op_tab[13].ctc;
 	if (ft_verify_eb(cw, pc))
@@ -70,8 +71,8 @@ void		ft_lld(t_cw *cw, t_pc *pc)
 			ft_lddir(cw, pc);
 		else
 			ft_ldind(cw, pc);
+		free(arr);
 	}
 	else
 		pc->index += 2;
-	free(arr);
 }

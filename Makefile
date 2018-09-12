@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+         #
+#    By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/24 17:28:22 by tpatter           #+#    #+#              #
-#    Updated: 2018/09/12 12:51:36 by tpatter          ###   ########.fr        #
+#    Updated: 2018/09/12 13:20:54 by cking            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,8 +43,9 @@ SRC			=	ft_add.c\
 				ft_print_reg.c\
 				ft_strinreg.c\
 				ft_zjmp.c\
-				init.c
-				ft_print_bits.c
+				init.c\
+				ft_print_bits.c\
+				ft_set_reg.c
 SRCPATH		:=	$(addprefix $(SRCDIR), $(SRC))
 OBJDIR		=	obj/
 OBJ			=	$(SRC:%.c=%.o)

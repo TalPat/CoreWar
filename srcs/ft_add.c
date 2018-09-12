@@ -7,7 +7,7 @@ void	ft_add(t_cw *cw, t_pc *pc)
 	int				r1;
 	int				r2;
 	int				r3;
-	unsigned char	*ans;
+	//unsigned char	*ans;
 
 	pc->cr = cw->op_tab[4].ctc; //cycles to complete this
 	newidx = 0; //beginning of current cmd
@@ -37,6 +37,7 @@ int main(void)
 	t_pc			*pc;
 
 	cw = (t_cw *)malloc(sizeof(t_cw));
+	pc = (t_pc *)malloc(sizeof(t_pc));
 	ft_inittable(cw);
 	cw->mem = (unsigned char *)malloc(sizeof(unsigned char) * 7);
 	cw->mem[0] = 4;
