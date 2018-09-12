@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/12 16:54:55 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/12 17:23:57 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void			ft_set_reg_dir(t_cw *cw, t_pc *pc, int index, int reg_num);
 void			ft_llddir(t_cw *cw, t_pc *pc);
 void			ft_lldind(t_cw *cw, t_pc *pc);
 void			ft_strinreg(t_pc *pc, int regno, int val);
+void			ft_free_reg(unsigned char **reg);
 void			ft_live(t_cw *cw, t_pc *pc);
 void			ft_ld(t_cw *cw, t_pc *pc);
 void			ft_st(t_cw *cw, t_pc *pc);
