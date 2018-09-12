@@ -6,7 +6,7 @@
 /*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 12:21:14 by jde-agr           #+#    #+#             */
-/*   Updated: 2018/09/12 17:27:53 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/12 17:44:20 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,6 @@ void	init_struct(t_cw *cw)
 	cw->cycledelta = CYCLE_DELTA;
 	cw->nbr_live_calls = NBR_LIVE;
 	cw->options = 0;
+	cw->gameover = 0;
+	cw->error = 0;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cw.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
+/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/12 17:23:57 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/12 18:30:05 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ typedef struct		s_cw
 	int				cycledelta;
 	int				nbr_live_calls;
 	int				options;
+	int				gameover;
+	int				error;
 }					t_cw;
 
 typedef struct		s_pc
@@ -47,6 +49,7 @@ typedef struct		s_pc
 	int				index;
 	unsigned int	idnbr;
 	int				cr;
+	int				cyccomplete;
 	unsigned char	**registers;
 	unsigned char	carry;
 	unsigned char	live;
