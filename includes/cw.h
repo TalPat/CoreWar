@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cw.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
+/*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/12 10:26:36 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/12 12:36:37 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char			*ft_itoa_base(int value, int base);
 void			ft_print_reg(t_pc *pc);
 int				ft_getregval(t_pc *pc, int reg);
 int				ft_hextodec(char *str);
-
+void			init_struct(t_cw *cw);
 int				ft_read_player(t_cw *cw, char **players);
 
 #endif
