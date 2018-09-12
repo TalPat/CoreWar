@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cw.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/12 12:36:37 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/09/12 12:45:46 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void			ft_live(t_cw *cw, t_pc *pc);
 char			*hex_to_bin(char *hex);
 unsigned char	*dec_to_hex(unsigned char n);
 int				*ft_getparam(unsigned char c);
-int				*ft_getparam_size(unsigned char c)
+int				*ft_getparam_size(unsigned char c);
 int				ft_verify_eb(t_cw *cw, t_pc *pc);
 int				ft_getdir(t_cw *cw, int idx);
 int				ft_getind(t_cw *cw, int idx);
