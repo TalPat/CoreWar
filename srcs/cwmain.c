@@ -6,7 +6,7 @@
 /*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 16:53:27 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/12 17:56:24 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/12 18:31:05 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	main(int argc, char **argv)
 
 	cw = (t_cw*)malloc(sizeof(t_cw));
 	init_struct(cw);
-
 	while (!cw->gameover)
 	{
 		if (cw->error)

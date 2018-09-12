@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_st.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
+/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 13:02:28 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/12 13:48:26 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/12 18:57:14 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,32 +21,39 @@ void	ft_st(t_cw *cw, t_pc *pc)
 	int		i;
 
 	i = 0;
-	pc->cr = cw->op_tab[2].ctc;
-	newidx = 1;
-	if (ft_verify_eb(cw, pc))
+	if (!pc->cr)
+		pc->cr = cw->op_tab[2].ctc;
+	pc->cyccomplete++;
+	if (pc->cr == pc->cyccomplete)
 	{
-		arr = ft_getparam(cw->mem[pc->index + newidx]);
-		newidx += 2;
-		if (arr[1] == T_REG)
+		newidx = 1;
+		if (ft_verify_eb(cw, pc))
 		{
-			while (i < REG_SIZE)
+			arr = ft_getparam(cw->mem[pc->index + newidx]);
+			newidx += 2;
+			if (arr[1] == T_REG)
 			{
-				pc->registers[cw->mem[pc->index + 3]][i] =
-					pc->registers[cw->mem[pc->index + 2]][i];
-				i++;
+				while (i < REG_SIZE)
+				{
+					pc->registers[cw->mem[pc->index + 3]][i] =
+						pc->registers[cw->mem[pc->index + 2]][i];
+					i++;
+				}
+				newidx += 1;
 			}
-			newidx += 1;
-		}
-		else
-		{
-			while (i < REG_SIZE)
+			else
 			{
-				cw->mem[pc->index + (ft_getdir(cw, pc->index + 3) % IDX_MOD)
-				+ i] = pc->registers[cw->mem[pc->index + 2]][i];
-				i++;
+				while (i < REG_SIZE)
+				{
+					cw->mem[pc->index + (ft_getdir(cw, pc->index + 3) % IDX_MOD)
+					+ i] = pc->registers[cw->mem[pc->index + 2]][i];
+					i++;
+				}
+				newidx += IND_SIZE;
 			}
-			newidx += IND_SIZE;
 		}
+		pc->index = (pc->index + newidx) % MEM_SIZE;
+		pc->cr = 0;
+		pc->cyccomplete = 0;
 	}
-	pc->index += newidx;
 }
