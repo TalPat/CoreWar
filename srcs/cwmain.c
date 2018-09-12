@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   cwmain.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/04 12:21:14 by jde-agr           #+#    #+#             */
-/*   Updated: 2018/09/12 17:27:53 by tpatter          ###   ########.fr       */
+/*   Created: 2018/09/12 16:53:27 by tpatter           #+#    #+#             */
+/*   Updated: 2018/09/12 17:27:58 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cw.h"
-#include <stdlib.h>
+#include "op.h"
 
-void	init_struct(t_cw *cw)
+int	main(int argc, char **argv)
 {
-	cw->playerlist = NULL;
-	cw->nbrplayers = 0;
-	cw->pclist = NULL;
-	cw->mem = (unsigned char*)malloc(sizeof(unsigned char) * MEM_SIZE);
-	cw->cyclecounter = 0;
-	ft_inittable(cw);
-	cw->cycle2die = CYCLE_TO_DIE;
-	cw->cycledelta = CYCLE_DELTA;
-	cw->nbr_live_calls = NBR_LIVE;
-	cw->options = 0;
+	t_cw *cw;
+
+	cw = (t_cw*)malloc(sizeof(t_cw));
+	init_struct(cw);
+	return (0);
 }
