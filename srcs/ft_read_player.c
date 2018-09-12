@@ -6,7 +6,7 @@
 /*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 13:38:54 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/09/10 18:18:53 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/09/11 17:07:23 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_store_player(t_cw *cw, char *file, int pos)
 	while (1)
 	{
 		ret = read(fd, &c, 1);
-		if (ret == 1 && i < (pos + MEM_SIZE * 8))
+		if (ret == 1 && i < (pos + (MEM_SIZE / 4)))
 		{
 			cw->mem[i] = c;
 			i++;
@@ -41,10 +41,10 @@ int	ft_count_players(char **players)
 {
 	int i;
 
-	i = 0;
-	while (players[i][0] != '\0')
+	i = 1;
+	while (players[i])
 		i++;
-	return (i);
+	return (i - 1);
 }
 
 int	ft_read_player(t_cw *cw, char **players)
@@ -54,12 +54,12 @@ int	ft_read_player(t_cw *cw, char **players)
 	int i;
 
 	npl = ft_count_players(players);
-	mem = (8 * MEM_SIZE) / (npl);
+	mem = (MEM_SIZE) / (npl);
 	i = 0;
 	while (i < npl)
 	{
 		ft_store_player(cw, players[i], mem * i);
 		i++;
 	}
-
+	return(0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_bits.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
+/*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 15:49:51 by cking             #+#    #+#             */
-/*   Updated: 2018/09/10 10:10:19 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/11 16:52:42 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,21 @@ void	ft_print_bits(t_cw *cw, int index, int n)
 	i = 0;
 	while (i < n)
 	{
-		if (cw->mem[index + i] < 10)
+		if (cw->mem[index + i] < 16)
 			ft_putchar('0');
 		ft_putstr(ft_itoa_base(cw->mem[index + i], 16));
 		i++;
-		if (i < n)
-			ft_putchar(' ');
+		//if (i <= n)
+		//	ft_putchar(' ');
+		ft_putstr(" ");
+		if (i % 16 == 0)
+			ft_putstr(": ");
+		if (i % 16 == 0)
+		{
+			ft_putnbr(i/16);
+			ft_putchar('\n');
+		}
 	}
 	ft_putchar('\n');
+
 }
