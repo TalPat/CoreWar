@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 16:03:07 by cking             #+#    #+#             */
-/*   Updated: 2018/09/12 13:39:09 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/12 16:23:32 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void		ft_llddir(t_cw *cw, t_pc *pc)
 		pc->carry = 1;
 	else
 		pc->carry = 0;
+	pc->index = pc->index + 3 + DIR_SIZE;
 }
 
 void		ft_lldind(t_cw *cw, t_pc *pc)
@@ -57,6 +58,7 @@ void		ft_lldind(t_cw *cw, t_pc *pc)
 		else
 			pc->carry = 0;
 	}
+	pc->index = pc->index + 3 + IND_SIZE;
 }
 
 void		ft_lld(t_cw *cw, t_pc *pc)

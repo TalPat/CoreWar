@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 16:10:31 by cking             #+#    #+#             */
-/*   Updated: 2018/09/12 13:44:54 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/12 16:21:47 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void		ft_lddir(t_cw *cw, t_pc *pc)
 		pc->registers[regnum][i] = cw->mem[pc->index + 2 + i];
 		i++;
 	}
-	pc->index = pc->index + 2 + DIR_SIZE;
+	pc->index = pc->index + 3 + DIR_SIZE;
 }
 
 void		ft_ldind(t_cw *cw, t_pc *pc)
@@ -41,6 +41,7 @@ void		ft_ldind(t_cw *cw, t_pc *pc)
 		pc->registers[regnum][i] = cw->mem[pc->index + i + (offset % IDX_MOD)];
 		i++;
 	}
+	pc->index = pc->index + 3 + IND_SIZE;
 }
 
 void		ft_ld(t_cw *cw, t_pc *pc)
