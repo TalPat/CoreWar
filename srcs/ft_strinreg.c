@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strinreg.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 19:11:52 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/10 19:38:48 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/12 15:56:40 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 void	ft_strinreg(t_pc *pc, int regno, int val)
 {
 	int	i;
-	int	newval;
 	int mult;
 
 	mult = 1;

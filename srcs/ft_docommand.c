@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_docommand.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 15:10:08 by talon             #+#    #+#             */
-/*   Updated: 2018/09/05 15:21:59 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/12 15:42:31 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cw.h"
+#include "../includes/cw.h"
 #include "op.h"
 
 /*

@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/12 15:38:46 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/12 15:54:42 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ typedef struct		s_player
 
 void			ft_initcw(t_cw *cw);
 void			ft_docommand(t_cw *cw, t_pc *pc);
-void			ft_live(t_cw *cw, t_pc *pc);
 char			*hex_to_bin(char *hex);
 unsigned char	*dec_to_hex(unsigned char n);
 int				*ft_getparam(unsigned char c);
@@ -82,5 +81,21 @@ void			ft_set_reg_dir(t_cw *cw, t_pc *pc, int index, int reg_num);
 void			ft_llddir(t_cw *cw, t_pc *pc);
 void			ft_lldind(t_cw *cw, t_pc *pc);
 void			ft_strinreg(t_pc *pc, int regno, int val);
+void			ft_live(t_cw *cw, t_pc *pc);
+void			ft_ld(t_cw *cw, t_pc *pc);
+void			ft_st(t_cw *cw, t_pc *pc);
+void			ft_add(t_cw *cw, t_pc *pc);
+void			ft_sub(t_cw *cw, t_pc *pc);
+void			ft_and(t_cw *cw, t_pc *pc);
+void			ft_or(t_cw *cw, t_pc *pc);
+void			ft_xor(t_cw *cw, t_pc *pc);
+void			ft_zjmp(t_cw *cw, t_pc *pc);
+void			ft_ldi(t_cw *cw, t_pc *pc);
+void			ft_sti(t_cw *cw, t_pc *pc);
+void			ft_fork(t_cw *cw, t_pc *pc);
+void			ft_lld(t_cw *cw, t_pc *pc);
+void			ft_lldi(t_cw *cw, t_pc *pc);
+void			ft_lfork(t_cw *cw, t_pc *pc);
+void			ft_aff(t_cw *cw, t_pc *pc);
 
 #endif

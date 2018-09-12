@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sti.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 11:47:51 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/10 19:30:41 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/12 15:40:35 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	ft_sti(t_cw *cw, t_pc *pc)
 {
 	int		*arr;
 	int		newidx;
-	int		storeidx;
 	int		i;
 	int		sum;
 
