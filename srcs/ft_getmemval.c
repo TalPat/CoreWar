@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 09:32:45 by cking             #+#    #+#             */
-/*   Updated: 2018/09/12 09:50:55 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/12 09:55:12 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,21 @@ int		ft_getmemval(t_cw *cw, int index, int size)
 	return (val);
 }
 
-int		main(void)
-{
-	t_cw			*cw;
+// int		main(void)
+// {
+// 	t_cw			*cw;
 
-	cw = (t_cw *)malloc(sizeof(t_cw));
-	ft_inittable(cw);
-	cw->mem = (unsigned char*)malloc(sizeof(unsigned char) * MEM_SIZE);
-	ft_bzero(cw->mem, MEM_SIZE);
-	cw->mem[0] = 0;
-	cw->mem[1] = 0;
-	cw->mem[2] = 0;
-	cw->mem[3] = 0;
-	cw->mem[4] = 0;
-	cw->mem[5] = 1;
-	cw->mem[6] = 0;
-	ft_print_bits(cw, 0, 7);
-	ft_putnbr(ft_getmemval(cw, 0, 7));
-}
+// 	cw = (t_cw *)malloc(sizeof(t_cw));
+// 	ft_inittable(cw);
+// 	cw->mem = (unsigned char*)malloc(sizeof(unsigned char) * MEM_SIZE);
+// 	ft_bzero(cw->mem, MEM_SIZE);
+// 	cw->mem[0] = 0;
+// 	cw->mem[1] = 0;
+// 	cw->mem[2] = 0;
+// 	cw->mem[3] = 0;
+// 	cw->mem[4] = 0;
+// 	cw->mem[5] = 1;
+// 	cw->mem[6] = 0;
+// 	ft_print_bits(cw, 0, 7);
+// 	ft_putnbr(ft_getmemval(cw, 0, 7));
+// }
