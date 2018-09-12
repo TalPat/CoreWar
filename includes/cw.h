@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/12 13:20:30 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/12 15:38:46 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct		s_player
 	char			*name;
 	char			*warcry;
 	unsigned int	idnbr;
+	char			*magic_num;
 }					t_player;
 
 void			ft_initcw(t_cw *cw);
@@ -78,5 +79,8 @@ int				ft_read_player(t_cw *cw, char **players);
 void			ft_set_reg_reg(t_pc *pc, int reg_src, int reg_dst);
 void			ft_set_reg_ind(t_cw *cw, t_pc *pc, int index, int reg_num);
 void			ft_set_reg_dir(t_cw *cw, t_pc *pc, int index, int reg_num);
+void			ft_llddir(t_cw *cw, t_pc *pc);
+void			ft_lldind(t_cw *cw, t_pc *pc);
+void			ft_strinreg(t_pc *pc, int regno, int val);
 
 #endif

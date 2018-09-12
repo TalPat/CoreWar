@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 16:03:07 by cking             #+#    #+#             */
-/*   Updated: 2018/09/12 13:32:29 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/12 13:39:09 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ void		ft_lld(t_cw *cw, t_pc *pc)
 	{
 		arr = ft_getparam(cw->mem[pc->index + 1]);
 		if (arr[0] == T_DIR)
-			ft_lddir(cw, pc);
+			ft_llddir(cw, pc);
 		else
-			ft_ldind(cw, pc);
+			ft_lldind(cw, pc);
 		free(arr);
 	}
 	else

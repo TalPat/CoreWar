@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_and.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 16:13:33 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/10 20:16:09 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/12 13:49:26 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ void	ft_and(t_cw *cw, t_pc *pc)
 	{
 		arr = ft_getparam(cw->mem[pc->index + newidx]);
 		newidx += 1;
-		if (arr[0] = T_REG)
+		if (arr[0] == T_REG)
 		{
 			val[0] = ft_getregval(pc, cw->mem[pc->index + newidx]);
 			newidx += 1;
 		}
-		if (arr[0] = T_IND)
+		if (arr[0] == T_IND)
 		{
 			val[0] = ft_getdir(cw, (pc->index + ft_getind(cw, (pc->index +
 				newidx) % IDX_MOD)) % IDX_MOD);
@@ -48,12 +48,12 @@ void	ft_and(t_cw *cw, t_pc *pc)
 			val[0] = ft_getdir(cw, (pc->index + newidx) % IDX_MOD);
 			newidx += DIR_SIZE;
 		}
-		if (arr[1] = T_REG)
+		if (arr[1] == T_REG)
 		{
 			val[1] = ft_getregval(pc, cw->mem[pc->index + newidx]);
 			newidx += 1;
 		}
-		if (arr[1] = T_IND)
+		if (arr[1] == T_IND)
 		{
 			val[1] = ft_getdir(cw, (pc->index + ft_getind(cw, (pc->index +
 				newidx) % IDX_MOD)) % IDX_MOD);

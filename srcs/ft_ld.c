@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 16:10:31 by cking             #+#    #+#             */
-/*   Updated: 2018/09/12 10:09:18 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/12 13:44:54 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void		ft_ldind(t_cw *cw, t_pc *pc)
 void		ft_ld(t_cw *cw, t_pc *pc)
 {
 	int		*arr;
-	int		i;
 
 	pc->cr = cw->op_tab[2].ctc;
 	if (ft_verify_eb(cw, pc))
@@ -56,10 +55,11 @@ void		ft_ld(t_cw *cw, t_pc *pc)
 			ft_lddir(cw, pc);
 		else
 			ft_ldind(cw, pc);
+		free(arr);
 	}
 	else
 		pc->index += 2;
-	free(arr);
+
 }
 
 // int		main(void)
