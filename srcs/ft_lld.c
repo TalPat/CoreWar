@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 16:03:07 by cking             #+#    #+#             */
-/*   Updated: 2018/09/12 16:28:45 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/12 16:52:51 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,34 +79,34 @@ void		ft_lld(t_cw *cw, t_pc *pc)
 		pc->index += 2;
 }
 
-int		main(void)
-{
-	t_cw			*cw;
-	t_pc			*pc;
-	int				i;
+// int		main(void)
+// {
+// 	t_cw			*cw;
+// 	t_pc			*pc;
+// 	int				i;
 
-	cw = (t_cw *)malloc(sizeof(t_cw));
-	pc = (t_pc *)malloc(sizeof(t_pc));
-	ft_inittable(cw);
-	cw->mem = (unsigned char*)malloc(sizeof(unsigned char) * MEM_SIZE);
-	ft_bzero(cw->mem, MEM_SIZE);
-	cw->mem[0] = 13;
-	cw->mem[1] = 144;
-	cw->mem[2] = 0;
-	cw->mem[3] = 0;
-	cw->mem[4] = 0;
-	cw->mem[5] = 5;
-	cw->mem[6] = 2;
-	pc->index = 0;
-	ft_print_bits(cw, 0, 7);
-	pc->registers = (unsigned char **)malloc(sizeof(unsigned char *) * REG_NUMBER);
-	i = 0;
-	while (i < REG_NUMBER)
-	{
-		pc->registers[i] = (unsigned char *)malloc(sizeof(unsigned char) * REG_SIZE);
-		ft_bzero(pc->registers[i], REG_SIZE);
-		i++;
-	}
-	ft_lld(cw, pc);
-	ft_print_reg(pc);
-}
+// 	cw = (t_cw *)malloc(sizeof(t_cw));
+// 	pc = (t_pc *)malloc(sizeof(t_pc));
+// 	ft_inittable(cw);
+// 	cw->mem = (unsigned char*)malloc(sizeof(unsigned char) * MEM_SIZE);
+// 	ft_bzero(cw->mem, MEM_SIZE);
+// 	cw->mem[0] = 13;
+// 	cw->mem[1] = 144;
+// 	cw->mem[2] = 0;
+// 	cw->mem[3] = 0;
+// 	cw->mem[4] = 0;
+// 	cw->mem[5] = 5;
+// 	cw->mem[6] = 2;
+// 	pc->index = 0;
+// 	ft_print_bits(cw, 0, 7);
+// 	pc->registers = (unsigned char **)malloc(sizeof(unsigned char *) * REG_NUMBER);
+// 	i = 0;
+// 	while (i < REG_NUMBER)
+// 	{
+// 		pc->registers[i] = (unsigned char *)malloc(sizeof(unsigned char) * REG_SIZE);
+// 		ft_bzero(pc->registers[i], REG_SIZE);
+// 		i++;
+// 	}
+// 	ft_lld(cw, pc);
+// 	ft_print_reg(pc);
+// }

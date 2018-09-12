@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 15:51:30 by cking             #+#    #+#             */
-/*   Updated: 2018/09/12 15:56:30 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/12 16:52:45 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void		ft_live(t_cw *cw, t_pc *pc)
 		cursor = cursor->next;
 	}
 	pc->index = pc->index + DIR_SIZE;
-	pc->cr = 10;
+	pc->cr = cw->op_tab[1].ctc;
+	cw->nbr_live_calls++;
 	free(str);
 }
