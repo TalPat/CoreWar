@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/11 10:12:56 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/12 10:26:36 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void			ft_live(t_cw *cw, t_pc *pc);
 char			*hex_to_bin(char *hex);
 unsigned char	*dec_to_hex(unsigned char n);
 int				*ft_getparam(unsigned char c);
+int				*ft_getparam_size(unsigned char c)
 int				ft_verify_eb(t_cw *cw, t_pc *pc);
 int				ft_getdir(t_cw *cw, int idx);
 int				ft_getind(t_cw *cw, int idx);

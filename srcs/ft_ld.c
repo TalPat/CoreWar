@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 16:10:31 by cking             #+#    #+#             */
-/*   Updated: 2018/09/11 12:05:25 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/12 10:09:18 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void		ft_ld(t_cw *cw, t_pc *pc)
 	int		*arr;
 	int		i;
 
-	pc->cr = 5;
+	pc->cr = cw->op_tab[2].ctc;
 	if (ft_verify_eb(cw, pc))
 	{
 		arr = ft_getparam(cw->mem[pc->index + 1]);
