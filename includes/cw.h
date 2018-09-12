@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/12 16:52:28 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/12 16:54:55 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct		s_cw
 	int				cycle2die;
 	int				cycledelta;
 	int				nbr_live_calls;
+	int				options;
 }					t_cw;
 
 typedef struct		s_pc
