@@ -6,7 +6,7 @@
 /*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 16:53:27 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/13 13:06:29 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/13 13:25:17 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ int	main(int argc, char **argv)
 	cw = (t_cw*)malloc(sizeof(t_cw));
 	init_struct(cw);
 	cw->error = ft_getargs(cw, argc, argv);
+	if (cw->error)
+	{
+		//ft_memclean(cw);
+		ft_putendl("An error occured");
+		return (0);
+	}
 	ft_read_player(cw, argv);
 	while (!cw->gameover)
 	{

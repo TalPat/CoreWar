@@ -6,7 +6,7 @@
 /*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/13 13:07:27 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/13 13:57:24 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct		s_cw
 	int				dump;
 	int				dumpno;
 	int				error;
+	int				visualiser;
 }					t_cw;
 
 typedef struct		s_pc
@@ -64,6 +65,7 @@ typedef struct		s_player
 	char			*warcry;
 	unsigned int	idnbr;
 	char			*magic_num;
+	int				progsize;
 }					t_player;
 
 void			ft_initcw(t_cw *cw);

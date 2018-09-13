@@ -6,7 +6,7 @@
 /*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 13:38:54 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/09/12 18:38:23 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/09/13 13:58:15 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void ft_store_player(t_cw *cw, char *info, int pos, int incr)
 	while (++i < incr)
 		tmp = tmp->next;
 	((t_player *)(tmp->content))->magic_num = ft_strndup(info, 8);
-	((t_player *)(tmp->content))->name = ft_strsplit((info + 8), '\0');
+	((t_player *)(tmp->content))->name = ft_strnew_del((info + 8), '\0');
 }
 
 /*
@@ -111,9 +111,10 @@ int ft_count_players(char **players)
 	return (i - 1);
 }
 
-char *ft_store_player_info(char *file, int size) // Store player file info into temp char **
+unsigned char *ft_store_player_info(char *file, int size) // Store player file info into temp char **
 {
 	int fd;
+	int i;
 	int ret;
 	unsigned char c;
 	unsigned char *str;
@@ -195,7 +196,7 @@ int ft_read_player(t_cw *cw, char **players)
 	while (i <= npl)
 	{
 		str = ft_store_player_info(players[i], ft_file_size(players[i]));
-		ft_store_player(cw, str, mem * (i - 1), npl - i));
+		ft_store_player(cw, str, mem * (i - 1), npl - i);
 		i++;
 	}
 	return (0);
