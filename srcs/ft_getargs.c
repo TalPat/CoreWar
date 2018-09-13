@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cwmain.c                                           :+:      :+:    :+:   */
+/*   ft_getargs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/12 16:53:27 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/13 13:06:29 by tpatter          ###   ########.fr       */
+/*   Created: 2018/09/13 12:51:05 by tpatter           #+#    #+#             */
+/*   Updated: 2018/09/13 13:16:34 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cw.h"
-#include "op.h"
+#include <stdlib.h>
 
-int	main(int argc, char **argv)
+int	ft_getargs(t_cw *cw, int argc, char **argv)
 {
-	t_cw *cw;
+	int	i;
 
-	cw = (t_cw*)malloc(sizeof(t_cw));
-	init_struct(cw);
-	cw->error = ft_getargs(cw, argc, argv);
-	ft_read_player(cw, argv);
-	while (!cw->gameover)
+	i = 1;
+	if (argc == 1)
+		return (1);
+	while (i < argc)
 	{
-		if (cw->error)
+		if (!ft_strcmp(argv[i],"-dump"))
 		{
-			//ft_memclean(cw);
-			ft_putendl("An error occured");
-			return (0);
+			if (ft_isnum(argv[i + 1]))
+			{
+				cw->dump = 1;
+				cw->dumpno = ft_atoi(argv[i + 1]);
+			}
+			else
+				return (2);
 		}
 	}
-	//ft_memclean(cw);
-	return (0);
 }

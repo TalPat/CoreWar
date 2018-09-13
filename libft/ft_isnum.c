@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cwmain.c                                           :+:      :+:    :+:   */
+/*   ft_isnum.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/12 16:53:27 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/13 13:06:29 by tpatter          ###   ########.fr       */
+/*   Created: 2018/09/13 13:17:58 by tpatter           #+#    #+#             */
+/*   Updated: 2018/09/13 13:21:17 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cw.h"
-#include "op.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_isnum(char *str)
 {
-	t_cw *cw;
+	int	i;
 
-	cw = (t_cw*)malloc(sizeof(t_cw));
-	init_struct(cw);
-	cw->error = ft_getargs(cw, argc, argv);
-	ft_read_player(cw, argv);
-	while (!cw->gameover)
+	i = 0;
+	if (str[0] == '-')
+		i = 1;
+	while (str[i])
 	{
-		if (cw->error)
-		{
-			//ft_memclean(cw);
-			ft_putendl("An error occured");
+		if (!ft_isdigit(str[i]))
 			return (0);
-		}
+		i++;
 	}
-	//ft_memclean(cw);
-	return (0);
+	return (1);
 }

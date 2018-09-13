@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
+/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 13:43:14 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/09/05 13:42:38 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/09/13 13:21:56 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int					ft_isint(int c);
 int					ft_atoi_base(const char *str, int str_base);
 int					ft_atoi(const char *str);
 int					ft_delchr(const char *s, char c);
+int					ft_isnum(char *str);
 
 int					ft_islower(int c);
 int					ft_isupper(int c);
