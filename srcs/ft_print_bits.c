@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 15:49:51 by cking             #+#    #+#             */
-/*   Updated: 2018/09/13 14:26:29 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/13 15:42:37 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,36 @@
 void	ft_print_bits(t_cw *cw, int index, int n)
 {
 	int	i;
+	unsigned char	*temp;
 
 	i = 0;
 	while (i < n)
 	{
+		temp = &cw->mem[index + i];
+		if (i % 32 == 0)
+		{
+			ft_putstr("0x");
+			if (index + i < 4096)
+				ft_putchar('0');
+			if (index + i < 256)
+				ft_putchar('0');
+			if (!(index + i))
+				ft_putchar('0');
+			ft_putstr(ft_itoa_base((index + i), 16));
+			ft_putstr(" : ");
+		}
 		if (cw->mem[index + i] < 16)
-			ft_putchar('0');
+			ft_putchar('_');
 		ft_putstr(ft_itoa_base(cw->mem[index + i], 16));
 		i++;
 		if (i <= n)
 			ft_putchar(' ');
 
-		if (i % 32 == 0)
-			ft_putstr(": ");
+		// if (i % 32 == 0)
+		// 	ft_putstr(": ");
 		if (i % 32 == 0)
 		{
-			ft_putnbr(i/32);
+			//ft_putnbr(i/32);
 			ft_putchar('\n');
 		}
 	}
