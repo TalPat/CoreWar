@@ -6,7 +6,7 @@
 /*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 13:38:54 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/09/13 13:58:15 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/09/13 15:46:01 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int ft_file_size(char *file) // Count bytes to malloc for
 	return (i);
 }
 
-void ft_store_player(t_cw *cw, char *info, int pos, int incr)
+void ft_store_player(t_cw *cw, unsigned char *info, int pos, int incr)
 {
 	int i;
 	t_list *tmp;
@@ -68,38 +68,18 @@ void ft_store_player(t_cw *cw, char *info, int pos, int incr)
 	tmp = cw->playerlist;
 	while (++i < incr)
 		tmp = tmp->next;
-	((t_player *)(tmp->content))->magic_num = ft_strndup(info, 8);
-	((t_player *)(tmp->content))->name = ft_strnew_del((info + 8), '\0');
-}
-
-/*
-void	ft_store_player(t_cw *cw, char *file, int pos, int player)
-{
-	int				i;
-	int				fd;
-	int				ret;
-	unsigned char	c;
-
-	fd = open(file, O_RDONLY);
-	if (fd == -1)
-	{
-		ft_read_error_msg(1, file);
-		return ;
-	}
+	((t_player *)(tmp->content))->magic_num = ft_strndup((const char *)info, 4);
+	((t_player *)(tmp->content))->name = ft_strndup((const char *)(info + 4), 138);
+	((t_player *)(tmp->content))->progsize = ((int)(*(info + 138)) * 256 + (int)(*(info + 139)));
+	((t_player *)(tmp->content))->warcry = ft_strndup((const char *)(info + 140), 2192);
 	i = pos;
-	while (1)
+	while (i < (pos + ((t_player *)(tmp->content))->progsize))
 	{
-		ret = read(fd, &c, 1);
-		if (ret == 1)// && i < (pos + (MEM_SIZE / 4)))
-			cw->mem[i++] = c;
-		else if (ret == -1)
-			ft_read_error_msg(2, file);
-		if (ret < 1)
-			break ;
+		cw->mem[i] = info[i - pos + 2192];
+		i++;
 	}
-	close(fd);
+
 }
-*/
 
 int ft_count_players(char **players)
 {
@@ -147,10 +127,10 @@ void ft_crfirstpl(t_cw *cw) // initialise first player data
 
 	cw->playerlist = (t_list *)malloc(sizeof(t_list));
 	player = (t_player *)malloc(sizeof(t_player));
-	player->live = 0;
+	player->live = 1;
 	player->name = NULL;
 	player->warcry = NULL;
-	player->idnbr = 0;
+	player->idnbr = -1;
 	player->magic_num = NULL;
 	cw->playerlist->content = player;
 	cw->playerlist->next = NULL;
@@ -169,10 +149,10 @@ void ft_init_player_list(t_cw *cw, int npl) //	Create player list and initialise
 	while (i < npl)
 	{
 		tmpplayer = (t_player *)malloc(sizeof(t_player));
-		tmpplayer->live = 0;
+		tmpplayer->live = 1;
 		tmpplayer->name = NULL;
 		tmpplayer->warcry = NULL;
-		tmpplayer->idnbr = 0;
+		tmpplayer->idnbr = -i - 1;
 		tmpplayer->magic_num = NULL;
 		tmplist = (t_list *)malloc(sizeof(t_list));
 		tmplist->content = tmpplayer;
@@ -187,7 +167,7 @@ int ft_read_player(t_cw *cw, char **players)
 	int mem;
 	int npl;
 	int i;
-	char *str;
+	unsigned char *str;
 
 	npl = ft_count_players(players);
 	ft_init_player_list(cw, npl);
@@ -202,6 +182,33 @@ int ft_read_player(t_cw *cw, char **players)
 	return (0);
 }
 
+void	ft_print_player_data(t_cw *cw, int npl)
+{
+	t_list *tmp;
+	int i;
+
+	i = 0;
+	tmp = cw->playerlist;
+	while (i < npl)
+	{
+		write(1, "\nName: ", 7);
+		ft_putstr(((t_player *)(tmp->content))->name);
+		write(1, "\nWarcry: ", 9);
+		ft_putstr(((t_player *)(tmp->content))->warcry);
+		write(1, "\nLive: ", 7);
+		ft_putnbr(((t_player *)(tmp->content))->live);
+		write(1, "\nID: ", 5);
+		ft_putnbr(((t_player *)(tmp->content))->idnbr);
+		write(1, "\nMagic: ", 8);
+		ft_putstr(((t_player *)(tmp->content))->magic_num);
+		write(1, "\nProgsize: ", 11);
+		ft_putnbr(((t_player *)(tmp->content))->progsize);
+		write(1, "\n", 1);
+		tmp = tmp->next;
+		i++;
+	}	
+}
+
 int main(int argc, char **argv)
 {
 	t_cw *cw;
@@ -213,5 +220,6 @@ int main(int argc, char **argv)
 	ft_print_bits(cw, 0, MEM_SIZE);
 	ft_read_player(cw, argv);
 	ft_print_bits(cw, 0, MEM_SIZE);
+	ft_print_player_data(cw, ft_count_players(argv));
 	return (0);
 }
