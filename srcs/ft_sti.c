@@ -6,7 +6,7 @@
 /*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 11:47:51 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/13 18:25:17 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/13 20:50:33 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,12 @@ void	ft_sti(t_cw *cw, t_pc *pc)
 	int		*arr;
 	int		newidx;
 	int		i;
+	int		src;
 	int		sum;
 
 	i = 0;
 	if (!pc->cr)
 		pc->cr = cw->op_tab[11].ctc;
-	/**/ft_putendl("----------------------------sti---------------------");
-	ft_putnbr(pc->cyccomplete);
 	pc->cyccomplete++;
 	if (pc->cr == pc->cyccomplete)
 	{
@@ -43,10 +42,13 @@ void	ft_sti(t_cw *cw, t_pc *pc)
 				sum = ft_getregval(pc, cw->mem[pc->index + newidx]);
 				newidx += 1;
 			}
-			else if (arr[1] == T_IND)
+			else if (arr[1] == T_DIR)
 			{
-				sum = ft_getdir(cw, pc->index + newidx);
-				newidx += DIR_SIZE;
+				sum = ft_getind(cw, pc->index + newidx);
+				newidx += IND_SIZE;
+			/**/ft_putendl(" ");
+			/**/ft_putnbr(sum);
+			/**/ft_putendl(" ");
 			}
 			else
 			{
@@ -61,13 +63,20 @@ void	ft_sti(t_cw *cw, t_pc *pc)
 			}
 			else
 			{
-				sum += ft_getdir(cw, pc->index + newidx);
-				newidx += DIR_SIZE;
+				sum += ft_getind(cw, pc->index + newidx);
+				newidx += IND_SIZE;
+			/**/ft_putendl(" ");
+			/**/ft_putnbr(sum);
+			/**/ft_putendl(" ");
 			}
+			src = cw->mem[pc->index + 2];
+			/**/ft_putendl(" ");
+			/**/ft_putnbr(sum);
+			/**/ft_putendl(" ");
 			while (i < REG_SIZE)
 			{
-				cw->mem[pc->index + (sum % IDX_MOD) + i] =
-					pc->registers[cw->mem[pc->index + 2]][i];
+				cw->mem[(pc->index + (sum % IDX_MOD) + i) % MEM_SIZE] =
+					pc->registers[src][i];
 				i++;
 			}
 		}
@@ -77,3 +86,24 @@ void	ft_sti(t_cw *cw, t_pc *pc)
 		pc->cyccomplete = 0;
 	}
 }
+
+/*int	main(void)
+{
+	t_cw *cw;
+	t_pc *pc;
+
+	pc = (t_pc*)malloc(sizeof(t_pc));
+	cw = (t_cw*)malloc(sizeof(t_cw));
+	ft_initcw(cw);
+	pc->registers = (unsigned char**)malloc(sizeof(char*) * REG_SIZE);
+	cw->mem[0] = 0xB;
+	cw->mem[1] = 0x68;
+	cw->mem[2] = 0x02;
+	cw->mem[3] = 0xB;
+	cw->mem[4] = 0xB;
+	cw->mem[5] = 0xB;
+	cw->mem[6] = 0xB;
+	cw->mem[7] = 0xB;
+	cw->mem[8] = 0xB;
+
+}*/

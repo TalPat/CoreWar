@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_st.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 13:02:28 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/12 18:57:14 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/13 20:08:37 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	ft_st(t_cw *cw, t_pc *pc)
 	int		*arr;
 	int		newidx;
 	int		i;
+	int		dest;
+	int		src;
 
 	i = 0;
 	if (!pc->cr)
@@ -43,10 +45,12 @@ void	ft_st(t_cw *cw, t_pc *pc)
 			}
 			else
 			{
+				dest = ft_getdir(cw, pc->index + 3);
+				src = cw->mem[pc->index + 2];
 				while (i < REG_SIZE)
 				{
-					cw->mem[pc->index + (ft_getdir(cw, pc->index + 3) % IDX_MOD)
-					+ i] = pc->registers[cw->mem[pc->index + 2]][i];
+					cw->mem[(pc->index + (dest % IDX_MOD) + i) % MEM_SIZE] =
+					pc->registers[src][i];
 					i++;
 				}
 				newidx += IND_SIZE;

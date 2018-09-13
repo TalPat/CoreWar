@@ -6,7 +6,7 @@
 /*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 17:26:47 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/13 18:10:33 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/13 19:40:04 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	ft_genpc(t_cw *cw)
 				/**/ft_putnbr(i);
 				i++;
 			}
+			ft_memcpy(pc->registers[1], &(((t_player*)(tmp->content))->idnbr),
+					REG_SIZE);
 			pc->carry = 0;
 			pc->live = 0;
 			/**/ft_putendl("end first pcgen");
@@ -61,6 +63,8 @@ void	ft_genpc(t_cw *cw)
 				/**/ft_putnbr(i);
 				i++;
 			}
+			ft_memcpy(pc->registers[1], &(((t_player*)(tmp->content))->idnbr),
+					REG_SIZE);
 			pc->carry = 0;
 			pc->live = 0;
 			pclist->content = pc;

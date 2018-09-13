@@ -6,7 +6,7 @@
 /*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 20:14:25 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/13 12:40:26 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/13 20:54:13 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_fork(t_cw *cw, t_pc *pc)
 	if (pc->cr == pc->cyccomplete)
 	{
 		newpc = (t_pc*)malloc(sizeof(pc));
-		newpc->index = (pc->index + (ft_getdir(cw, pc->index + 1) % IDX_MOD))
+		newpc->index = (pc->index + (ft_getind(cw, pc->index + 1) % IDX_MOD))
 			% MEM_SIZE;
 		newpc->idnbr = pc->idnbr;
 		newpc->cr = pc->cr;
@@ -43,7 +43,7 @@ void	ft_fork(t_cw *cw, t_pc *pc)
 		newpclist->content = newpc;
 		newpclist->content_size = sizeof(t_pc);
 		ft_lstadd(&(cw->pclist), newpclist);
-		newidx = DIR_SIZE;
+		newidx = IND_SIZE;
 		pc->index = (pc->index + newidx) % MEM_SIZE;
 		pc->cr = 0;
 		pc->cyccomplete = 0;

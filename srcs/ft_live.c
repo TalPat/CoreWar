@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_live.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
+/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 15:51:30 by cking             #+#    #+#             */
-/*   Updated: 2018/09/13 14:43:37 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/13 20:55:23 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ void		ft_live(t_cw *cw, t_pc *pc)
 		cw->nbr_live_calls++;
 		free(str);
 		pc->cyccomplete = 0;
+		pc->cr = 0;
 	}
 }
