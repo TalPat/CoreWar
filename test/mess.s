@@ -1,4 +1,4 @@
-.name "messaround"
+.name "load index 2 in register 3"
 .comment "hmmm"
 
-lld %0, r5
+ld 2,r3
