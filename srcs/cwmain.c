@@ -6,7 +6,7 @@
 /*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 16:53:27 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/13 14:23:29 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/13 16:53:01 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	main(int argc, char **argv)
 		}
 		ft_executepcs(cw);
 		ft_cull(cw);
+		ft_dump(cw);
 	}
 	//ft_memclean(cw);
 	return (0);
