@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_read_player.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 13:38:54 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/09/13 15:46:01 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/09/13 16:40:14 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,7 +209,7 @@ void	ft_print_player_data(t_cw *cw, int npl)
 	}	
 }
 
-int main(int argc, char **argv)
+/*int main(int argc, char **argv)
 {
 	t_cw *cw;
 
@@ -222,4 +222,4 @@ int main(int argc, char **argv)
 	ft_print_bits(cw, 0, MEM_SIZE);
 	ft_print_player_data(cw, ft_count_players(argv));
 	return (0);
-}
+}*/
