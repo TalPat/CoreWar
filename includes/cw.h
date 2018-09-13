@@ -6,7 +6,7 @@
 /*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/13 17:41:53 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/13 17:58:44 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,5 +113,6 @@ void			ft_dump(t_cw *cw);
 int				ft_getargs(t_cw *cw, int argc, char **argv);
 void			ft_executepcs(t_cw *cw);
 void			ft_cull(t_cw *cw);
+void			ft_genpc(t_cw *cw);
 
 #endif

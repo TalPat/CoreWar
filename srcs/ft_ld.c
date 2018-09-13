@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ld.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
+/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 16:10:31 by cking             #+#    #+#             */
-/*   Updated: 2018/09/13 16:36:35 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/13 18:24:46 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void		ft_ld(t_cw *cw, t_pc *pc)
 		}
 		else
 			pc->index += 2;
+		pc->cyccomplete = 0;
+		pc->cr = 0;
 	}
 }
 

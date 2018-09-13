@@ -6,7 +6,7 @@
 /*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 11:47:51 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/13 17:22:20 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/13 18:25:17 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	ft_sti(t_cw *cw, t_pc *pc)
 	i = 0;
 	if (!pc->cr)
 		pc->cr = cw->op_tab[11].ctc;
+	/**/ft_putendl("----------------------------sti---------------------");
+	ft_putnbr(pc->cyccomplete);
 	pc->cyccomplete++;
 	if (pc->cr == pc->cyccomplete)
 	{
@@ -69,7 +71,6 @@ void	ft_sti(t_cw *cw, t_pc *pc)
 				i++;
 			}
 		}
-		/**/cw->mem[20] = 0xFF;
 		ft_putendl("HELLOOO");
 		pc->index = (pc->index + newidx) % MEM_SIZE;
 		pc->cr = 0;

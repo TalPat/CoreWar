@@ -6,7 +6,7 @@
 /*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 14:41:24 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/13 15:50:38 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/13 18:29:25 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ void	ft_cullpcs(t_cw *cw)
 	while (tmp)
 	{
 		if (((t_pc*)(tmp->content))->live == 0)
+		{
+			/**/ft_print_reg((t_pc*)(tmp->content));
 			ft_erasepc(cw, tmp, prev);
+		}
 		prev = tmp;
 		tmp = tmp->next;
 	}
@@ -80,7 +83,8 @@ void	ft_checkwinner(t_cw *cw)
 	i = 0;
 	while (tmp)
 	{
-		i++;
+		if (((t_player*)(tmp->content))->live)
+			i++;
 		tmp = tmp->next;
 	}
 	if (i == 1)
