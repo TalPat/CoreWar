@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ldi.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 09:58:28 by cking             #+#    #+#             */
-/*   Updated: 2018/09/12 17:50:24 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/09/13 13:49:00 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_getmemval(t_cw *cw, int index, int size);
 
-int	ft_getdirval(t_cw *cw, int idx)
+int	ft_getdirval(t_cw *cw, int idx) //we have a function for this called ft_getdir
 {
 	int	i;
 	int	val;
