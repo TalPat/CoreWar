@@ -6,7 +6,7 @@
 /*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 15:10:08 by talon             #+#    #+#             */
-/*   Updated: 2018/09/13 14:39:16 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/13 16:39:21 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	ft_comcont(t_cw *cw, unsigned char com, t_pc *pc)
 		ft_fork(cw, pc);
 	else if (com == 0x0d)
 		ft_lld(cw, pc);
-	else if (com == 0x0e)
-		ft_lldi(cw, pc);
+//	else if (com == 0x0e)
+//		ft_lldi(cw, pc);
 	else if (com == 0x0f)
 		ft_lfork(cw, pc);
 	else if (com == 0x10)

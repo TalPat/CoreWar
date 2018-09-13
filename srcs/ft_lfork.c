@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lfork.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 16:27:06 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/12 18:57:26 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/13 16:37:06 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void	ft_lfork(t_cw *cw, t_pc *pc)
 		i = 0;
 		while (i < REG_NUMBER)
 		{
-			newpc->registers[i] = (char*)malloc(sizeof(char) * REG_SIZE);
+			newpc->registers[i] = (unsigned char*)malloc(sizeof(char)
+				* REG_SIZE);
 			ft_memcpy(newpc->registers[i], pc->registers[i], REG_SIZE);
 			i++;
 		}

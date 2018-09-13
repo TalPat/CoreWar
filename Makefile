@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+         #
+#    By: tpatter <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/24 17:28:22 by tpatter           #+#    #+#              #
-#    Updated: 2018/09/12 17:24:09 by cking            ###   ########.fr        #
+#    Updated: 2018/09/13 16:47:31 by tpatter          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,6 @@ SRC			=	ft_add.c\
 				ft_getind.c\
 				ft_hextodec.c\
 				ft_ldi.c\
-				ft_print_bits.c\
 				ft_sti.c\
 				ft_xor.c\
 				hex_to_bin.c\
@@ -46,14 +45,16 @@ SRC			=	ft_add.c\
 				init.c\
 				ft_print_bits.c\
 				ft_set_reg.c\
-				ft_free_reg.c
+				ft_free_reg.c\
+				ft_lfork.c\
+				ft_dump.c
 SRCPATH		:=	$(addprefix $(SRCDIR), $(SRC))
 OBJDIR		=	obj/
 OBJ			=	$(SRC:%.c=%.o)
 OBJPATH		:=	$(addprefix $(OBJDIR), $(OBJ))
 
 HEADER		=	includes/
-CFLAGS		=	-Wall -Werror -Wextra
+CFLAGS		=	
 CC			=	gcc
 LIBDIR		=	libft/
 LIB			=	$(LIBDIR)libft.a

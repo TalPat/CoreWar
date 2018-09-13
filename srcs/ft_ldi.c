@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ldi.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
+/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 09:58:28 by cking             #+#    #+#             */
-/*   Updated: 2018/09/13 13:49:00 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/13 16:40:38 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void		ft_ldi(t_cw *cw, t_pc *pc)
 	}
 }
 
-int main(void)
+/*int main(void)
 {
 	t_cw			*cw;
 	t_pc			*pc;
@@ -135,5 +135,5 @@ int main(void)
 	//ft_putchar('\n');
 	//ft_putnbr(pc->carry);
 	//ft_ld(cw, pc);
-}
+}*/
 
