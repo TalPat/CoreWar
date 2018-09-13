@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 15:51:30 by cking             #+#    #+#             */
-/*   Updated: 2018/09/12 16:52:45 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/13 14:43:37 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,23 @@ void		ft_live(t_cw *cw, t_pc *pc)
 	unsigned int			plr_nbr;
 	t_list					*cursor;
 
-	str = ft_strsub((const char *)cw->mem, pc->index + 1, DIR_SIZE);
-	plr_nbr = ft_atoi(str);
-	cursor = cw->playerlist;
-	while (cursor)
+	if (!pc->cr)
+		pc->cr = cw->op_tab[1].ctc;
+	pc->cyccomplete++;
+	if (pc->cr == pc->cyccomplete)
 	{
-		if (((t_player *)(cursor->content))->idnbr == plr_nbr)
-			((t_player *)(cursor->content))->live = 1;
-		cursor = cursor->next;
+		str = ft_strsub((const char *)cw->mem, pc->index + 1, DIR_SIZE);
+		plr_nbr = ft_atoi(str);
+		cursor = cw->playerlist;
+		while (cursor)
+		{
+			if (((t_player *)(cursor->content))->idnbr == plr_nbr)
+				((t_player *)(cursor->content))->live = 1;
+			cursor = cursor->next;
+		}
+		pc->index = pc->index + DIR_SIZE;
+		cw->nbr_live_calls++;
+		free(str);
+		pc->cyccomplete = 0;
 	}
-	pc->index = pc->index + DIR_SIZE;
-	pc->cr = cw->op_tab[1].ctc;
-	cw->nbr_live_calls++;
-	free(str);
 }

@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 15:59:54 by cking             #+#    #+#             */
-/*   Updated: 2018/09/12 15:59:56 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/13 14:47:16 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,20 @@ void	ft_zjmp(t_cw *cw, t_pc *pc)
 {
 	int				newidx;
 
-	pc->cr = cw->op_tab[9].ctc; //cycles to complete this
-	newidx = 0; //beginning of current cmd
-	if (pc->carry == 1)
-        newidx = ft_getdir(cw, pc->index + 1);
-	else
-		newidx = DIR_SIZE + 1;
-	pc->index += newidx;
+	if (!pc->cr)
+		pc->cr = cw->op_tab[8].ctc;
+	pc->cyccomplete++;
+	if (pc->cr == pc->cyccomplete)
+	{
+		pc->cr = cw->op_tab[9].ctc; //cycles to complete this
+		newidx = 0; //beginning of current cmd
+		if (pc->carry == 1)
+			newidx = ft_getdir(cw, pc->index + 1);
+		else
+			newidx = DIR_SIZE + 1;
+		pc->index += newidx;
+		pc->cyccomplete = 0;
+	}
 }
 
 // int main(void)

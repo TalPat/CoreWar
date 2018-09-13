@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 16:03:07 by cking             #+#    #+#             */
-/*   Updated: 2018/09/12 16:52:51 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/13 14:44:31 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,18 +65,24 @@ void		ft_lld(t_cw *cw, t_pc *pc)
 {
 	int		*arr;
 
-	pc->cr = cw->op_tab[13].ctc;
-	if (ft_verify_eb(cw, pc))
+	if (!pc->cr)
+		pc->cr = cw->op_tab[13].ctc;
+	pc->cyccomplete++;
+	if (pc->cr == pc->cyccomplete)
 	{
-		arr = ft_getparam(cw->mem[pc->index + 1]);
-		if (arr[0] == T_DIR)
-			ft_llddir(cw, pc);
+		if (ft_verify_eb(cw, pc))
+		{
+			arr = ft_getparam(cw->mem[pc->index + 1]);
+			if (arr[0] == T_DIR)
+				ft_llddir(cw, pc);
+			else
+				ft_lldind(cw, pc);
+			free(arr);
+		}
 		else
-			ft_lldind(cw, pc);
-		free(arr);
+			pc->index += 2;
+		pc->cyccomplete = 0;
 	}
-	else
-		pc->index += 2;
 }
 
 // int		main(void)
