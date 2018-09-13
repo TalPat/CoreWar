@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_read_player.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 13:38:54 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/09/13 16:40:14 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/13 17:13:59 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,17 @@ void ft_store_player(t_cw *cw, unsigned char *info, int pos, int incr)
 int ft_count_players(char **players)
 {
 	int i;
+	int count;
 
 	i = 1;
+	count = 0;
 	while (players[i])
+	{
+		if (!ft_strcmp(players[i] + ft_strlen(players[i]) - 4, ".cor"))
+			count++;
 		i++;
-	return (i - 1);
+	}
+	return (count);
 }
 
 unsigned char *ft_store_player_info(char *file, int size) // Store player file info into temp char **
@@ -209,17 +215,17 @@ void	ft_print_player_data(t_cw *cw, int npl)
 	}	
 }
 
-/*int main(int argc, char **argv)
-{
-	t_cw *cw;
+// int main(int argc, char **argv)
+// {
+// 	t_cw *cw;
 
-	argc = 0;
-	cw = (t_cw *)malloc(sizeof(t_cw));
-	ft_inittable(cw);
-	init_struct(cw);
-	ft_print_bits(cw, 0, MEM_SIZE);
-	ft_read_player(cw, argv);
-	ft_print_bits(cw, 0, MEM_SIZE);
-	ft_print_player_data(cw, ft_count_players(argv));
-	return (0);
-}*/
+// 	argc = 0;
+// 	cw = (t_cw *)malloc(sizeof(t_cw));
+// 	ft_inittable(cw);
+// 	init_struct(cw);
+// 	ft_print_bits(cw, 0, MEM_SIZE);
+// 	ft_read_player(cw, argv);
+// 	ft_print_bits(cw, 0, MEM_SIZE);
+// 	ft_print_player_data(cw, ft_count_players(argv));
+// 	return (0);
+// }
