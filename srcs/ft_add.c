@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 15:47:29 by cking             #+#    #+#             */
-/*   Updated: 2018/09/12 15:47:37 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/13 14:39:38 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,33 @@ void	ft_add(t_cw *cw, t_pc *pc)
 	int				r2;
 	int				r3;
 	//unsigned char	*ans;
-
-	pc->cr = cw->op_tab[4].ctc; //cycles to complete this
-	newidx = 0; //beginning of current cmd
-	num = 0;
-	if (ft_verify_eb(cw, pc)) //valid eb
+	if (!pc->cr)
+		pc->cr = cw->op_tab[4].ctc;
+	pc->cyccomplete++;
+	if (pc->cr == pc->cyccomplete)
 	{
-		newidx += 2; //need to work on identifying registers!!
-		r1 = ft_atoi_base(ft_itoa_base(cw->mem[pc->index + newidx], 10), 10);
-		r2 = ft_atoi_base(ft_itoa_base(cw->mem[pc->index + newidx + 1],
+		pc->cr = cw->op_tab[4].ctc; //cycles to complete this
+		newidx = 0; //beginning of current cmd
+		num = 0;
+		if (ft_verify_eb(cw, pc)) //valid eb
+		{
+			newidx += 2; //need to work on identifying registers!!
+			r1 = ft_atoi_base(ft_itoa_base(cw->mem[pc->index + newidx], 10), 10);
+			r2 = ft_atoi_base(ft_itoa_base(cw->mem[pc->index + newidx + 1],
 			10), 10);
-		r3 = ft_atoi_base(ft_itoa_base(cw->mem[pc->index + newidx + 2],
+			r3 = ft_atoi_base(ft_itoa_base(cw->mem[pc->index + newidx + 2],
 			10), 10);
-		num = ft_atoi_base((char*)pc->registers[r1 - 1], 10) +
+			num = ft_atoi_base((char*)pc->registers[r1 - 1], 10) +
 			ft_atoi_base((char*)pc->registers[r2 - 1], 10);
-		ft_putnbr(num);
-		ft_putchar('\n');
-		pc->registers[r3 - 1] = (unsigned char*)ft_itoa_base(num, 16);
-		if (ft_atoi_base((char *)pc->registers[r3 - 1], 10) == 0) //carry
-			pc->carry = 1;
-	}
+			ft_putnbr(num);
+			ft_putchar('\n');
+			pc->registers[r3 - 1] = (unsigned char*)ft_itoa_base(num, 16);
+			if (ft_atoi_base((char *)pc->registers[r3 - 1], 10) == 0) //carry
+				pc->carry = 1;
+		}
 	pc->index+= 5;
+	pc->cyccomplete = 0;
+	}
 }
 
 // int main(void)
