@@ -6,7 +6,7 @@
 /*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/13 17:05:46 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/13 17:41:53 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct		s_player
 	unsigned int	idnbr;
 	char			*magic_num;
 	int				progsize;
+	int				startidx;
 }					t_player;
 
 void			ft_initcw(t_cw *cw);

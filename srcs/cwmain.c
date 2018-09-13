@@ -6,7 +6,7 @@
 /*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 16:53:27 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/13 17:06:59 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/13 17:15:23 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	ft_read_player(cw, argv);
+	ft_print_bits(cw, 0, MEM_SIZE);
 	while (!cw->gameover)
 	{
 		if (cw->error)
@@ -39,6 +40,7 @@ int	main(int argc, char **argv)
 		ft_cull(cw);
 		ft_dump(cw);
 	}
+	ft_print_bits(cw, 0, MEM_SIZE);
 	//ft_memclean(cw);
 	return (0);
 }

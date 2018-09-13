@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sti.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 11:47:51 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/12 18:57:10 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/13 17:22:20 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ void	ft_sti(t_cw *cw, t_pc *pc)
 				i++;
 			}
 		}
+		/**/cw->mem[20] = 0xFF;
+		ft_putendl("HELLOOO");
 		pc->index = (pc->index + newidx) % MEM_SIZE;
 		pc->cr = 0;
 		pc->cyccomplete = 0;
