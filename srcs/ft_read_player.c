@@ -6,7 +6,7 @@
 /*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 13:38:54 by avan-ni           #+#    #+#             */
-/*   Updated: 2018/09/13 17:13:59 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/09/13 17:44:25 by avan-ni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void ft_store_player(t_cw *cw, unsigned char *info, int pos, int incr)
 	((t_player *)(tmp->content))->name = ft_strndup((const char *)(info + 4), 138);
 	((t_player *)(tmp->content))->progsize = ((int)(*(info + 138)) * 256 + (int)(*(info + 139)));
 	((t_player *)(tmp->content))->warcry = ft_strndup((const char *)(info + 140), 2192);
+	((t_player *)(tmp->content))->startidx = pos;
 	i = pos;
 	while (i < (pos + ((t_player *)(tmp->content))->progsize))
 	{
