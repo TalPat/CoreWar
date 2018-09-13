@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cw.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-ni <avan-ni@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/13 13:50:30 by avan-ni          ###   ########.fr       */
+/*   Updated: 2018/09/13 13:57:24 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct		s_cw
 	int				dump;
 	int				dumpno;
 	int				error;
+	int				visualiser;
 }					t_cw;
 
 typedef struct		s_pc
