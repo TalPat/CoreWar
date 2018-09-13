@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 16:10:31 by cking             #+#    #+#             */
-/*   Updated: 2018/09/12 16:21:47 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/13 14:26:27 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void		ft_ld(t_cw *cw, t_pc *pc)
 // 	cw->mem[5] = 0;
 // 	cw->mem[6] = 0;
 // 	pc->index = 0;
-// 	ft_print_bits(cw, 0, 7);
+// 	ft_print_bits(cw, 0, 500);
 // 	pc->registers = (unsigned char **)malloc(sizeof(unsigned char *) * REG_NUMBER);
 // 	i = 0;
 // 	while (i < REG_NUMBER)
