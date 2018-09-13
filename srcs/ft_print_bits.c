@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 15:49:51 by cking             #+#    #+#             */
-/*   Updated: 2018/09/13 15:42:37 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/13 15:44:52 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,15 @@ void	ft_print_bits(t_cw *cw, int index, int n)
 		}
 		if (cw->mem[index + i] < 16)
 			ft_putchar('_');
-		ft_putstr(ft_itoa_base(cw->mem[index + i], 16));
+		if(cw->mem[index + i], 16))
+			ft_putstr(ft_itoa_base(cw->mem[index + i], 16));
+		else
+			ft_putchar('_');
 		i++;
 		if (i <= n)
 			ft_putchar(' ');
-
-		// if (i % 32 == 0)
-		// 	ft_putstr(": ");
 		if (i % 32 == 0)
-		{
-			//ft_putnbr(i/32);
 			ft_putchar('\n');
-		}
 	}
 	ft_putchar('\n');
 }
