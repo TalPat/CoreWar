@@ -6,7 +6,7 @@
 #    By: tpatter <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/24 17:28:22 by tpatter           #+#    #+#              #
-#    Updated: 2018/09/13 16:43:24 by tpatter          ###   ########.fr        #
+#    Updated: 2018/09/13 16:47:31 by tpatter          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,8 @@ SRC			=	ft_add.c\
 				ft_print_bits.c\
 				ft_set_reg.c\
 				ft_free_reg.c\
-				ft_lfork.c
+				ft_lfork.c\
+				ft_dump.c
 SRCPATH		:=	$(addprefix $(SRCDIR), $(SRC))
 OBJDIR		=	obj/
 OBJ			=	$(SRC:%.c=%.o)

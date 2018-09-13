@@ -6,7 +6,7 @@
 /*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/13 13:57:24 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/13 16:50:24 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,6 @@ void			ft_lld(t_cw *cw, t_pc *pc);
 void			ft_lldi(t_cw *cw, t_pc *pc);
 void			ft_lfork(t_cw *cw, t_pc *pc);
 void			ft_aff(t_cw *cw, t_pc *pc);
+void			ft_dump(t_cw *cw);
 
 #endif
