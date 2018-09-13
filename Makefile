@@ -6,7 +6,7 @@
 #    By: tpatter <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/24 17:28:22 by tpatter           #+#    #+#              #
-#    Updated: 2018/09/13 16:47:31 by tpatter          ###   ########.fr        #
+#    Updated: 2018/09/13 17:06:11 by tpatter          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRC			=	ft_add.c\
 				ft_lld.c\
 				ft_read_player.c\
 				ft_sub.c\
-				main.c\
+				cwmain.c\
 				ft_aff.c\
 				ft_getdir.c\
 				ft_getregval.c\
@@ -47,7 +47,10 @@ SRC			=	ft_add.c\
 				ft_set_reg.c\
 				ft_free_reg.c\
 				ft_lfork.c\
-				ft_dump.c
+				ft_dump.c\
+				ft_getargs.c\
+				ft_executepcs.c\
+				ft_cull.c
 SRCPATH		:=	$(addprefix $(SRCDIR), $(SRC))
 OBJDIR		=	obj/
 OBJ			=	$(SRC:%.c=%.o)

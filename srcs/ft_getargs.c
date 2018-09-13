@@ -6,7 +6,7 @@
 /*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 12:51:05 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/13 13:45:40 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/13 17:11:19 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int	ft_getargs(t_cw *cw, int argc, char **argv)
 			cw->visualiser = 1;
 			i++;
 		}
+		else if (!ft_strcmp(argv[i] + ft_strlen(argv[i]) - 4, ".cor"))
+			i++;
 		else
 			return (3);
 	}

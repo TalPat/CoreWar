@@ -6,11 +6,11 @@
 /*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 14:24:40 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/13 14:39:33 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/13 17:06:25 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cw,h"
+#include "cw.h"
 #include <stdlib.h>
 
 void	ft_executepcs(t_cw *cw)
