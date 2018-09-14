@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cull.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 14:41:24 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/13 18:29:25 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/14 14:06:50 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ void	ft_checkwinner(t_cw *cw)
 
 void	ft_cull(t_cw *cw)
 {
+	cw->cyclebase++;
 	if (cw->cyclecounter < cw->cycle2die)
 	{
 		cw->cyclecounter++;

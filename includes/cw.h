@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cw.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
+/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/14 10:43:17 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/14 14:05:18 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct		s_cw
 	t_list			*pclist;
 	unsigned char	*mem;
 	unsigned int	cyclecounter;
+	unsigned int	cyclebase;
 	t_op			op_tab[17];
 	int				cycle2die;
 	int				cycledelta;

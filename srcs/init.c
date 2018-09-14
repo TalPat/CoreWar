@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 12:21:14 by jde-agr           #+#    #+#             */
-/*   Updated: 2018/09/13 13:08:07 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/14 14:05:35 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	init_struct(t_cw *cw)
 	cw->pclist = NULL;
 	cw->mem = (unsigned char*)malloc(sizeof(unsigned char) * MEM_SIZE);
 	cw->cyclecounter = 0;
+	cw->cyclebase = 0;
 	ft_inittable(cw);
 	cw->cycle2die = CYCLE_TO_DIE;
 	cw->cycledelta = CYCLE_DELTA;

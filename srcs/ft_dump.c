@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dump.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 16:47:55 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/13 16:50:00 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/14 14:07:12 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 void	ft_dump(t_cw *cw)
 {
-	if (cw->dump && cw->cyclecounter == cw->dumpno)
+	if (cw->dump && cw->cyclebase == cw->dumpno)
 		ft_print_bits(cw, 0, MEM_SIZE);
 }
