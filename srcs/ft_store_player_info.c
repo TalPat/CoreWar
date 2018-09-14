@@ -1,51 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_reads.c                                         :+:      :+:    :+:   */
+/*   ft_store_player_info.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/13 13:54:05 by cking             #+#    #+#             */
-/*   Updated: 2018/09/13 14:04:00 by cking            ###   ########.fr       */
+/*   Created: 2018/09/14 09:49:07 by cking             #+#    #+#             */
+/*   Updated: 2018/09/14 09:50:48 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fcntl.h"
-#include <stdio.h>
 #include "../includes/cw.h"
+#include "fcntl.h"
 
-int ft_file_size(char *file) // Count bytes to malloc for
+unsigned char *ft_store_player_info(char *file, int size) // Store player file info into temp char **
 {
-	int i;
 	int fd;
+	int i;
 	int ret;
 	unsigned char c;
+	unsigned char *str;
 
-	i = 0;
+	str = (unsigned char *)malloc(sizeof(unsigned char) * (size));
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{
-		//ft_read_error_msg(1, file);
-		return (0);
+		ft_read_error_msg(1, file);
+		return (NULL);
 	}
+	i = 0;
 	while (1)
 	{
 		ret = read(fd, &c, 1);
 		if (ret == 1)
-			i++;
+			str[i++] = c;
 		else if (ret == -1)
-			break ;
+			ft_read_error_msg(2, file);
 		if (ret < 1)
-			break ;
+			break;
 	}
 	close(fd);
-	return (i);
-}
-
-int		main(void)
-{
-	int fd;
-
-	fd = ft_file_size("test.s");
-	ft_putnbr(fd);
+	return (str);
 }

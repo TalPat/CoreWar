@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hex_to_bin.c                                       :+:      :+:    :+:   */
+/*   ft_hex_to_bin.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/05 11:13:27 by cking             #+#    #+#             */
-/*   Updated: 2018/09/05 16:34:18 by jde-agr          ###   ########.fr       */
+/*   Created: 2018/09/14 09:26:32 by cking             #+#    #+#             */
+/*   Updated: 2018/09/14 09:27:23 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cw.h"
+#include "../includes/cw.h"
 
 char	*rec_h2b(int num, char *ans)
 {
@@ -28,7 +28,7 @@ char	*rec_h2b(int num, char *ans)
 	return (rec_h2b(num / 2, ans));
 }
 
-char	*hex_to_bin(char *hex)
+char	*ft_hex_to_bin(char *hex)
 {
 	char	*ans;
 	int		num;

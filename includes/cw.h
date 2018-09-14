@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cw.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/13 17:58:44 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/14 10:40:19 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ typedef struct		s_player
 
 void			ft_initcw(t_cw *cw);
 void			ft_docommand(t_cw *cw, t_pc *pc);
-char			*hex_to_bin(char *hex);
+char			*ft_hex_to_bin(char *hex);
 unsigned char	*dec_to_hex(unsigned char n);
 int				*ft_getparam(unsigned char c);
 int				*ft_getparam_size(unsigned char c);
@@ -114,5 +114,14 @@ int				ft_getargs(t_cw *cw, int argc, char **argv);
 void			ft_executepcs(t_cw *cw);
 void			ft_cull(t_cw *cw);
 void			ft_genpc(t_cw *cw);
+void			ft_print_player_data(t_cw *cw, int npl);
+void			ft_init_player_list(t_cw *cw, int npl);
+void			ft_crfirstpl(t_cw *cw);
+unsigned char	*ft_store_player_info(char *file, int size);
+void			ft_store_player(t_cw *cw, unsigned char *info,
+				int pos, int incr);
+int				ft_file_size(char *file);
+int				ft_count_players(char **players);
+void			ft_read_error_msg(int flag, char *file);
 
 #endif

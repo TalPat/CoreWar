@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tpatter <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/24 17:28:22 by tpatter           #+#    #+#              #
-#    Updated: 2018/09/13 17:59:04 by tpatter          ###   ########.fr        #
+#    Updated: 2018/09/14 10:40:18 by cking            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ SRC			=	ft_add.c\
 				ft_ldi.c\
 				ft_sti.c\
 				ft_xor.c\
-				hex_to_bin.c\
+				ft_hex_to_bin.c\
 				dec_to_hex.c\
 				ft_docommand.c\
 				ft_getmemval.c\
@@ -51,7 +51,15 @@ SRC			=	ft_add.c\
 				ft_getargs.c\
 				ft_executepcs.c\
 				ft_cull.c\
-				ft_genpc.c
+				ft_genpc.c\
+				ft_print_player_data.c\
+				ft_init_player_list.c\
+				ft_crfirstpl.c\
+				ft_store_player_info.c\
+				ft_store_player.c\
+				ft_file_size.c\
+				ft_count_players.c\
+				ft_read_error_msg.c
 SRCPATH		:=	$(addprefix $(SRCDIR), $(SRC))
 OBJDIR		=	obj/
 OBJ			=	$(SRC:%.c=%.o)
