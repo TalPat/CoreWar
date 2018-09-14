@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_st.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 13:02:28 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/13 20:08:37 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/14 12:41:37 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,43 @@
 #include "cw.h"
 #include <stdlib.h>
 
+int		ft_streg(t_cw *cw, t_pc *pc)
+{
+	int	i;
+
+	i = 0;
+	while (i < REG_SIZE)
+	{
+		pc->registers[cw->mem[pc->index + 3]][i] =
+			pc->registers[cw->mem[pc->index + 2]][i];
+		i++;
+	}
+	return (1);
+}
+
+int		ft_stind(t_cw *cw, t_pc *pc)
+{
+	int	i;
+	int	dest;
+	int	src;
+
+	i = 0;
+	dest = ft_getind(cw, pc->index + 3);
+	src = cw->mem[pc->index + 2];
+	while (i < REG_SIZE)
+	{
+		cw->mem[(pc->index + (dest % IDX_MOD) + i) % MEM_SIZE] =
+		pc->registers[src][i];
+		i++;
+	}
+	return (IND_SIZE);
+}
+
 void	ft_st(t_cw *cw, t_pc *pc)
 {
 	int		*arr;
 	int		newidx;
-	int		i;
-	int		dest;
-	int		src;
 
-	i = 0;
 	if (!pc->cr)
 		pc->cr = cw->op_tab[2].ctc;
 	pc->cyccomplete++;
@@ -34,27 +62,9 @@ void	ft_st(t_cw *cw, t_pc *pc)
 			arr = ft_getparam(cw->mem[pc->index + newidx]);
 			newidx += 2;
 			if (arr[1] == T_REG)
-			{
-				while (i < REG_SIZE)
-				{
-					pc->registers[cw->mem[pc->index + 3]][i] =
-						pc->registers[cw->mem[pc->index + 2]][i];
-					i++;
-				}
-				newidx += 1;
-			}
+				newidx += ft_streg(cw, pc);
 			else
-			{
-				dest = ft_getdir(cw, pc->index + 3);
-				src = cw->mem[pc->index + 2];
-				while (i < REG_SIZE)
-				{
-					cw->mem[(pc->index + (dest % IDX_MOD) + i) % MEM_SIZE] =
-					pc->registers[src][i];
-					i++;
-				}
-				newidx += IND_SIZE;
-			}
+				newidx += ft_stind(cw, pc);
 		}
 		pc->index = (pc->index + newidx) % MEM_SIZE;
 		pc->cr = 0;

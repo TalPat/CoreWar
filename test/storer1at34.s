@@ -1,4 +1,4 @@
 .name "messaround"
 .comment "hmmm"
 
-sti r1,%16,%32
+st r1,16
