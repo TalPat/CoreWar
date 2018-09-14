@@ -6,11 +6,20 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 10:12:12 by cking             #+#    #+#             */
-/*   Updated: 2018/09/11 10:29:39 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/14 10:50:19 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cw.h"
+
+void	ft_print_regcont(t_pc *pc, int i, int j)
+{
+	if ((int)pc->registers[i][j] < 10)
+		ft_putstr("00");
+	else if ((int)pc->registers[i][j] < 100)
+		ft_putstr("0");
+	ft_putnbr((int)pc->registers[i][j]);
+}
 
 void	ft_print_reg(t_pc *pc)
 {
@@ -27,13 +36,7 @@ void	ft_print_reg(t_pc *pc)
 		while (j < REG_SIZE)
 		{
 			if ((int)pc->registers[i][j])
-			{
-				if ((int)pc->registers[i][j] < 10)
-					ft_putstr("00");
-				else if ((int)pc->registers[i][j] < 100)
-					ft_putstr("0");
-				ft_putnbr((int)pc->registers[i][j]);
-			}
+				ft_print_regcont(pc, i, j);
 			else
 				ft_putstr("000");
 			j++;

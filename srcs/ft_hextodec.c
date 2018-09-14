@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_hextodec.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 16:47:19 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/10 17:29:58 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/09/14 10:52:36 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cw.h"
-#include <stdio.h>
 
 int	ft_hextodec(char *str)
 {
@@ -31,6 +30,5 @@ int	ft_hextodec(char *str)
 		mult *= 16;
 		charno--;
 	}
-	//printf("ans : %i", val);
 	return (val);
 }

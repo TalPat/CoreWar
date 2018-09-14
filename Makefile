@@ -6,7 +6,7 @@
 #    By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/24 17:28:22 by tpatter           #+#    #+#              #
-#    Updated: 2018/09/14 10:40:18 by cking            ###   ########.fr        #
+#    Updated: 2018/09/14 10:43:26 by cking            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ SRC			=	ft_add.c\
 				ft_sti.c\
 				ft_xor.c\
 				ft_hex_to_bin.c\
-				dec_to_hex.c\
+				ft_dec_to_hex.c\
 				ft_docommand.c\
 				ft_getmemval.c\
 				ft_inittable.c\

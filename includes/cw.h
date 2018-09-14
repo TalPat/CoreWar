@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/14 10:40:19 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/14 10:43:17 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ typedef struct		s_player
 void			ft_initcw(t_cw *cw);
 void			ft_docommand(t_cw *cw, t_pc *pc);
 char			*ft_hex_to_bin(char *hex);
-unsigned char	*dec_to_hex(unsigned char n);
+unsigned char	*ft_dec_to_hex(unsigned char n);
 int				*ft_getparam(unsigned char c);
 int				*ft_getparam_size(unsigned char c);
 int				ft_verify_eb(t_cw *cw, t_pc *pc);

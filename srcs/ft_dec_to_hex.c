@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dec_to_hex.c                                       :+:      :+:    :+:   */
+/*   ft_dec_to_hex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/05 13:18:18 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/05 13:40:29 by tpatter          ###   ########.fr       */
+/*   Created: 2018/09/14 10:42:45 by cking             #+#    #+#             */
+/*   Updated: 2018/09/14 10:43:02 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "cw.h"
+#include "../includes/cw.h"
 
-unsigned char	*dec_to_hex(unsigned char n)
+unsigned char	*ft_dec_to_hex(unsigned char n)
 {
 	int				x;
 	unsigned char	*tmp;

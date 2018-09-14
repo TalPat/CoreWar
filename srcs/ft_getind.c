@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_getind.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 12:42:27 by cking             #+#    #+#             */
-/*   Updated: 2018/09/10 18:03:11 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/14 10:55:22 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cw.h"
-#include "../libft/includes/libft.h"
-#include <stdlib.h>
 
 int	ft_getind(t_cw *cw, int idx)
 {

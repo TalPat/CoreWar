@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_getregval.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 15:48:14 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/10 18:02:38 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/14 10:51:37 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cw.h"
-#include "libft.h"
-#include <stdlib.h>
+#include "../includes/cw.h"
 
 /*
 **Returns integer value of bytes held within a referenced register

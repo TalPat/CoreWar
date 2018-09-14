@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_getdir.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:58:26 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/10 18:02:05 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/14 10:52:07 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cw.h"
-#include "libft.h"
-#include <stdlib.h>
+#include "../includes/cw.h"
 
 /*
 **credit tpatter
