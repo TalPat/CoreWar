@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 09:32:45 by cking             #+#    #+#             */
-/*   Updated: 2018/09/12 09:55:12 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/17 09:43:02 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@ int		ft_getmemval(t_cw *cw, int index, int size)
 
 	val = 0;
 	mult = 1;
-	while (size >= 0)
+	while (size > 0)
 	{
+		ft_putstr("value in function: ");
+		ft_putnbr(index + size - 1);
+		ft_putchar('\n');
 		val = val + (cw->mem[index + size - 1] * mult);
 		mult *= 256;
 		size--;
