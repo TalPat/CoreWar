@@ -6,7 +6,7 @@
 /*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:50:04 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/17 14:02:52 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/17 15:25:26 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,16 @@ typedef struct	s_label
 	char		*name;
 }				t_label;
 
+typedef struct	s_asm
+{
+	t_list		*lbllst;
+	t_list		*tknlst;
+	int			error[16];
+}				t_asm;
+
+typedef struct	s_token
+{
+	int			opcode;
+	char		*args;
+}				t_token;
 #endif
