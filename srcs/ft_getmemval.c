@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_getmemval.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
+/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 09:32:45 by cking             #+#    #+#             */
-/*   Updated: 2018/09/17 09:43:02 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/17 09:47:09 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,6 @@ int		ft_getmemval(t_cw *cw, int index, int size)
 	mult = 1;
 	while (size > 0)
 	{
-		ft_putstr("value in function: ");
-		ft_putnbr(index + size - 1);
-		ft_putchar('\n');
 		val = val + (cw->mem[index + size - 1] * mult);
 		mult *= 256;
 		size--;
