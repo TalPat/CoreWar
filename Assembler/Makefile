@@ -3,63 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+         #
+#    By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/24 17:28:22 by tpatter           #+#    #+#              #
-#    Updated: 2018/09/14 10:43:26 by cking            ###   ########.fr        #
+#    Updated: 2018/09/17 12:39:20 by tpatter          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	corewar
+NAME		=	asm
 SRCDIR		=	srcs/
-SRC			=	ft_add.c\
-				ft_fork.c\
-				ft_getparam.c\
-				ft_itoa_base.c\
-				ft_lld.c\
-				ft_read_player.c\
-				ft_sub.c\
-				cwmain.c\
-				ft_aff.c\
-				ft_getdir.c\
-				ft_getregval.c\
-				ft_ld.c\
-				ft_or.c\
-				ft_st.c\
-				ft_verify_eb.c\
-				ft_and.c\
-				ft_getind.c\
-				ft_hextodec.c\
-				ft_ldi.c\
-				ft_sti.c\
-				ft_xor.c\
-				ft_hex_to_bin.c\
-				ft_dec_to_hex.c\
-				ft_docommand.c\
-				ft_getmemval.c\
-				ft_inittable.c\
-				ft_live.c\
-				ft_print_reg.c\
-				ft_strinreg.c\
-				ft_zjmp.c\
-				init.c\
-				ft_print_bits.c\
-				ft_set_reg.c\
-				ft_free_reg.c\
-				ft_lfork.c\
-				ft_dump.c\
-				ft_getargs.c\
-				ft_executepcs.c\
-				ft_cull.c\
-				ft_genpc.c\
-				ft_print_player_data.c\
-				ft_init_player_list.c\
-				ft_crfirstpl.c\
-				ft_store_player_info.c\
-				ft_store_player.c\
-				ft_file_size.c\
-				ft_count_players.c\
-				ft_read_error_msg.c
+SRC			=	main.c
 SRCPATH		:=	$(addprefix $(SRCDIR), $(SRC))
 OBJDIR		=	obj/
 OBJ			=	$(SRC:%.c=%.o)
