@@ -6,7 +6,7 @@
 /*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 09:58:28 by cking             #+#    #+#             */
-/*   Updated: 2018/09/17 14:41:42 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/09/18 11:24:17 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void		ft_ldi(t_cw *cw, t_pc *pc)
 	}
 }
 
-int main(void)
+/*int main(void)
 {
 	t_cw			*cw;
 	t_pc			*pc;
@@ -96,11 +96,11 @@ int main(void)
 	cw->mem[9] = 3;//2
 	cw->mem[10] = 4;//up..
 	cw->mem[11] = 0;
-	cw->mem[12] = 0;
+	cw->mem[12] = 0;*/
 /*	cw->mem[13] = 2;
 	cw->mem[14] = 3;//..here
 	cw->mem[15] = 4;*/
-	cw->mem[19] = 30;
+/*	cw->mem[19] = 30;
 	//cw->mem[13] = 4;
 	pc->index = 0;
 
@@ -125,5 +125,5 @@ int main(void)
 	//ft_putchar('\n');
 	//ft_putnbr(pc->carry);
 	//ft_ld(cw, pc);
-}
+}*/
 

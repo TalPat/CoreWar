@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+         #
+#    By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/24 17:28:22 by tpatter           #+#    #+#              #
-#    Updated: 2018/09/14 10:43:26 by cking            ###   ########.fr        #
+#    Updated: 2018/09/18 11:50:53 by jde-agr          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,8 @@ SRC			=	ft_add.c\
 				ft_store_player.c\
 				ft_file_size.c\
 				ft_count_players.c\
-				ft_read_error_msg.c
+				ft_read_error_msg.c\
+				ft_viz.c
 SRCPATH		:=	$(addprefix $(SRCDIR), $(SRC))
 OBJDIR		=	obj/
 OBJ			=	$(SRC:%.c=%.o)
@@ -71,7 +72,7 @@ CC			=	gcc
 LIBDIR		=	libft/
 LIB			=	$(LIBDIR)libft.a
 LIBHEAD		=	$(LIBDIR)includes/
-LIBLINK		=	-L $(LIBDIR) -l ft
+LIBLINK		=	-L $(LIBDIR) -l ft -lncurses
 INCLUDES	=	-I $(HEADER) -I $(LIBHEAD)
 
 all: $(NAME)

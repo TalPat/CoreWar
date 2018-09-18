@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cw.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/14 14:05:18 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/18 11:48:09 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../libft/includes/libft.h"
 # include "op.h"
+# include <ncurses.h>
 
 typedef struct		s_op
 {
@@ -124,5 +125,5 @@ void			ft_store_player(t_cw *cw, unsigned char *info,
 int				ft_file_size(char *file);
 int				ft_count_players(char **players);
 void			ft_read_error_msg(int flag, char *file);
-
+void			ft_viz(t_cw *cw, t_pc *pc);
 #endif

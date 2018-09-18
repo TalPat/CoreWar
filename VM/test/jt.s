@@ -1,5 +1,7 @@
 .name "messaround"
 .comment "hmmm"
 
-ldi r3, %5, r2
+ld %2, r3
+ld %3, r4
+ldi 3, r3, r2
 add r2, r3, r4
