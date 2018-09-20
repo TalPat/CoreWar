@@ -32,7 +32,9 @@ void	regs(WINDOW *win, t_pc *pc)
 
 void	print_reg(WINDOW *win, t_pc *pc)
 {
+	wattron(win, COLOR_PAIR(3));
 	mvwprintw(win, 0, 17, "  REGISTERS  ");
+	wattroff(win, COLOR_PAIR(3));
 	regs(win, pc);
 	wrefresh(win);
 }
@@ -80,6 +82,7 @@ void	print_mem(WINDOW *win, t_cw *cw, t_pc *pc)
 	mvwprintw(win, 0, 91, "  MEMORY  ");
 	wattroff(win, COLOR_PAIR(2));
 	mem_print(win, cw, pc, MEM_SIZE);
+	//wattroff(win, COLOR_PAIR(2));
 	wrefresh(win);
 }
 
@@ -120,7 +123,7 @@ void	ft_viz2(t_cw *cw, t_pc *pc)
 	ft_layout(win, win2);
 	print_mem(win, cw, pc);
 	print_reg(win2, pc);
-	int c = getchar();
+	int c = getchar();//usleep(5000000);
 }
 
 void	ft_viz(t_cw *cw, t_pc *pc)
