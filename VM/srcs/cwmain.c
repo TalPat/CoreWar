@@ -6,7 +6,7 @@
 /*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 16:53:27 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/18 16:06:37 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/09/20 11:39:49 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,19 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	ft_read_player(cw, argv);
-	ft_viz(cw, pc);
-	//ft_genpc(cw);
+	//ft_viz(cw, pc);
+	ft_genpc(cw);
 	//ft_print_bits(cw, 0, MEM_SIZE);
 	while (!cw->gameover)
 	{
+		ft_viz(cw, pc);
 		ft_executepcs(cw);
 		ft_cull(cw);
 		ft_dump(cw);
 		//ft_viz(cw, pc);
 	}
+	ft_viz(cw, pc);
+	endwin();
 	//ft_print_bits(cw, 0, MEM_SIZE);
 	return (0);
 }

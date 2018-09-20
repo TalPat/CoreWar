@@ -130,5 +130,5 @@ void	ft_viz(t_cw *cw, t_pc *pc)
 {
 	initscr();
 	ft_viz2(cw, pc);
-	endwin();
+	//endwin();
 }
