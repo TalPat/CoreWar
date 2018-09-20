@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sti.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 11:47:51 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/14 13:02:17 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/20 18:01:22 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_param2(t_cw *cw, t_pc *pc, int *newidx, int *sum)
 	{
 		cw->mem[(pc->index + (*sum % IDX_MOD) + i) % MEM_SIZE] =
 			pc->registers[src][i];
-		i++;
+		cw->memp[(pc->index + (*sum % IDX_MOD) + i) % MEM_SIZE] = ft_abs((int)(pc->idnbr)) + 5; //added for viz
 	}
 }
 

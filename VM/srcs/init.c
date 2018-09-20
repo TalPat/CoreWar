@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 12:21:14 by jde-agr           #+#    #+#             */
-/*   Updated: 2018/09/14 14:05:35 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/20 14:04:24 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	init_struct(t_cw *cw)
 	cw->nbrplayers = 0;
 	cw->pclist = NULL;
 	cw->mem = (unsigned char*)malloc(sizeof(unsigned char) * MEM_SIZE);
+	cw->memp = (int*)malloc(sizeof(int) * MEM_SIZE);
 	cw->cyclecounter = 0;
 	cw->cyclebase = 0;
 	ft_inittable(cw);

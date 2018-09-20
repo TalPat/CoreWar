@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_st.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 13:02:28 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/14 12:41:37 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/20 17:58:52 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int		ft_stind(t_cw *cw, t_pc *pc)
 	{
 		cw->mem[(pc->index + (dest % IDX_MOD) + i) % MEM_SIZE] =
 		pc->registers[src][i];
+		cw->memp[(pc->index + (dest % IDX_MOD) + i) % MEM_SIZE] = ft_abs((int)(pc->idnbr)) + 5; //added for viz
 		i++;
 	}
 	return (IND_SIZE);

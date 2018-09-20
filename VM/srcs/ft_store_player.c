@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_store_player.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
+/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/14 10:02:16 by cking             #+#    #+#             */
-/*   Updated: 2018/09/14 10:08:23 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/20 13:26:42 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	ft_store_player(t_cw *cw, unsigned char *info, int pos, int incr)
 	while (i < (pos + ((t_player *)(tmp->content))->progsize))
 	{
 		cw->mem[i] = info[i - pos + 2192];
+		cw->memp[i] = (int)((t_player *)(tmp->content))->idnbr;
 		i++;
 	}
 }

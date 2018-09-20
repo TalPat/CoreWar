@@ -6,7 +6,7 @@
 /*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/18 11:48:09 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/09/20 18:11:10 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct		s_cw
 	int				nbrplayers;
 	t_list			*pclist;
 	unsigned char	*mem;
+	int				*memp;
 	unsigned int	cyclecounter;
 	unsigned int	cyclebase;
 	t_op			op_tab[17];
@@ -125,5 +126,8 @@ void			ft_store_player(t_cw *cw, unsigned char *info,
 int				ft_file_size(char *file);
 int				ft_count_players(char **players);
 void			ft_read_error_msg(int flag, char *file);
-void			ft_viz(t_cw *cw, t_pc *pc);
+void			ft_viz(t_cw *cw, t_pc *pc, WINDOW *win, WINDOW *win2);
+void			ft_viz2(t_cw *cw, t_pc *pc, WINDOW *win, WINDOW *win2);
+int				ft_abs(int num);
+//int				ft_numlen(int value, int base);
 #endif
