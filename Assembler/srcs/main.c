@@ -10,9 +10,36 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "asm.h"
+#include "../includes/asm.h"
+
+int		spacecount(char *str)
+{
+	int		count;
+	int		i;
+
+	i = 0;
+	count = 0;
+	while(str[i])
+	{
+		if(str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+			count++;
+		i++;
+	}
+	return (count);
+}
+
+char	*trim(char *str)
+{
+	int		newlen;
+	char	*out;
+
+	newlen = ft_strlen(str) - spacecount(str) - (ft_wcount(str) - 1) + 1;
+	out = (char *)malloc(sizeof(char) * newlen);
+}
 
 int	main(int ac, char **av)
 {
-	
+	char *str = "   test  test  \ntest";
+	char *trim = ft_strtrim(str);
+	ft_putstr(trim);
 }
