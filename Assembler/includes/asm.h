@@ -32,7 +32,11 @@ typedef struct	s_asm
 
 typedef struct	s_token
 {
-	int			opcode;
 	char		*args;
+	int			op_code;
+	int			type[4];
+	int			value[4];
+	char		*lblname;
+	char		*lblval[4];
 }				t_token;
 #endif
