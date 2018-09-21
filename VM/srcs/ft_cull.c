@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cull.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 14:41:24 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/14 14:06:50 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/21 12:11:36 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_cullpcs(t_cw *cw)
 	{
 		if (((t_pc*)(tmp->content))->live == 0)
 		{
-			/**/ft_print_reg((t_pc*)(tmp->content));
+			/**///ft_print_reg((t_pc*)(tmp->content));
 			ft_erasepc(cw, tmp, prev);
 		}
 		prev = tmp;

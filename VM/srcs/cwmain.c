@@ -6,7 +6,7 @@
 /*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 16:53:27 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/20 18:11:41 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/09/21 12:16:34 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int argc, char **argv)
 		//cw->pclist = cw->pclist->next;
 		//ft_viz(cw, pc);
 	}
-	ft_viz2(cw, pc, win, win2);
+	//ft_viz2(cw, pc, win, win2);
 	endwin();
 	//ft_print_bits(cw, 0, MEM_SIZE);
 	return (0);

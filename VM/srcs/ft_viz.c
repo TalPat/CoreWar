@@ -32,14 +32,18 @@ void	regs(WINDOW *win, t_pc *pc)
 
 void	print_reg(WINDOW *win, t_pc *pc)
 {
-	//wattron(win, COLOR_PAIR(3));
-	//mvwprintw(win, 0, 17, "  REGISTERS  ");
-	//wattroff(win, COLOR_PAIR(3));
+	wattron(win, COLOR_PAIR(3));
+	mvwprintw(win, 0, 17, "  REGISTERS  ");
+	wattroff(win, COLOR_PAIR(3));
 	regs(win, pc);
 	//wrefresh(win);
 }
 
-void ft_assign_col(WINDOW *win, t_cw *cw, int i)
+/*
+** ft_assign_col highlights any changes made to memory
+*/
+
+void	ft_assign_col(WINDOW *win, t_cw *cw, int i)
 {
 	if (cw->memp[i] >= 5)
 	{
@@ -48,6 +52,16 @@ void ft_assign_col(WINDOW *win, t_cw *cw, int i)
 	}
 	else
 		wattron(win, COLOR_PAIR((cw->memp[i] % 5) + 1));
+}
+
+/*
+** ft_pc_col keeps track of which process is currently being executed
+*/
+
+void	ft_pc_col(WINDOW *win, t_cw *cw, int i)
+{
+	if (i == ((t_pc*)cw->pclist->content)->index)
+		wattron(win, COLOR_PAIR(11));
 }
 
 int		ft_abs(int num)
@@ -61,7 +75,7 @@ void	ft_abs_memp(t_cw *cw)
 {
 	int i;
 	int tmp;
-	
+
 	i = 0;
 	tmp = 0;
 	while (i < MEM_SIZE)
@@ -71,6 +85,7 @@ void	ft_abs_memp(t_cw *cw)
 		i++;
 	}
 }
+
 /*
 ** Manages the printing of memory
 ** j and k used to track position withing the MEMORY window
@@ -92,17 +107,17 @@ void	mem_print(WINDOW *win, t_cw *cw, int n)
 	while (++i < n)
 	{
 		if ((i % 70) == 0)
-		  j++;
+			j++;
 		mvwprintw(win2, j, i % 70, "%i", cw->memp[i]);
 	}
 	wrefresh(win2);
-	usleep(50000);
 	i = 0;
 	j = 1;
 	while (i < n)
 	{
 		ft_assign_col(win, cw, i);
-		mvwprintw(win, 10, 10, "%i", cw->memp[i]);
+		ft_pc_col(win, cw, i);
+		//mvwprintw(win, 10, 10, "%i", cw->memp[i]);
 		(cw->mem[i] < 16) ? mvwprintw(win, j, k++, "0") : k;
 		if (cw->mem[i])
 		{
@@ -115,9 +130,6 @@ void	mem_print(WINDOW *win, t_cw *cw, int n)
 		(i <= n) ? mvwprintw(win, j, k++, " ") : k;
 		((i % 64 == 0) && (j++)) ? k = 2 : k;
 	}
-	//wrefresh(win);
-	//usleep(500000);
-	//int c = getchar();
 }
 
 /*
@@ -127,9 +139,9 @@ void	mem_print(WINDOW *win, t_cw *cw, int n)
 
 void	print_mem(WINDOW *win, t_cw *cw)
 {
-	//wattron(win, COLOR_PAIR(2));
-	//mvwprintw(win, 0, 91, "  MEMORY  ");
-	//wattroff(win, COLOR_PAIR(2));
+	wattron(win, COLOR_PAIR(2));
+	mvwprintw(win, 0, 91, "  MEMORY  ");
+	wattroff(win, COLOR_PAIR(2));
 	mem_print(win, cw, MEM_SIZE);
 	//wattroff(win, COLOR_PAIR(2));
 	//wrefresh(win);
@@ -154,6 +166,7 @@ void	ft_layout(WINDOW *win, WINDOW *win2)
 	init_pair(8, COLOR_GREEN, COLOR_BLUE);
 	init_pair(9, COLOR_MAGENTA, COLOR_BLUE);
 	init_pair(10, COLOR_RED, COLOR_BLUE);	// 4th Player
+	init_pair(11, COLOR_BLACK, COLOR_GREEN);
 	box(win, 0, 0);//window, char l&r, char t&b
 	box(win2, 0, 0);
 	//wrefresh(win);
@@ -177,13 +190,13 @@ void	ft_viz2(t_cw *cw, t_pc *pc, WINDOW *win, WINDOW *win2)
 	//win2 = newwin(20, 50, 2, 205);
 	//ft_layout(win, win2);
 	//int c = getchar();
+	noecho();
 	print_mem(win, cw);
 	wrefresh(win);
 	print_reg(win2, pc);
 	wrefresh(win2);
-	//usleep(1000000);
-	noecho();
-	int c = getchar();//usleep(5000000);
+	usleep(1000000);
+	//int c = getchar();//usleep(5000000);
 }
 
 void	ft_viz(t_cw *cw, t_pc *pc, WINDOW *win, WINDOW *win2)
