@@ -32,9 +32,15 @@ char	*trim(char *str)
 {
 	int		newlen;
 	char	*out;
+	int		i; //incrementor in new string
+	int		j; //incrementor in old string
+	int		wcount;
 
-	newlen = ft_strlen(str) - spacecount(str) - (ft_wcount(str) - 1) + 1;
+	newlen = ft_strlen(str) - (spacecount(str) - (ft_wcount(str) - 1)) + 1;
 	out = (char *)malloc(sizeof(char) * newlen);
+	i = 0;
+	j = 0;
+	wcount = ft_wcount(str);
 }
 
 int	main(int ac, char **av)
