@@ -6,7 +6,7 @@
 /*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:50:04 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/24 14:10:35 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/24 16:26:07 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,18 @@
 
 #ifndef ASM_H
 # define ASM_H
+
+typedef struct		s_op
+{
+	char			*name;
+	int				argc;
+	int				arg[4];
+	int				op_code;
+	int				ctc;
+	char			*desc;
+	int				eb;
+	int				dunno;
+}					t_op;
 
 typedef struct	s_label
 {
@@ -46,16 +58,9 @@ typedef struct	s_token
 	int			index;
 }				t_token;
 
-typedef struct		s_op
-{
-	char			*name;
-	int				argc;
-	int				arg[4];
-	int				op_code;
-	int				ctc;
-	char			*desc;
-	int				eb;
-	int				dunno;
-}					t_op;
+void				ft_createfile(t_asm *asmb);
+void				ft_append(int tokenno, t_asm *asmb);
+void				ft_getindex(t_asm *asmb);
+int					ft_buildeb(t_token *tok);
 
 #endif

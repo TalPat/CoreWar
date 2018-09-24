@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:49:13 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/17 15:26:19 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/24 16:15:08 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ char	*trim(char *str)
 	wcount = ft_wcount(str);
 }
 
-int	main(int ac, char **av)
-{
+int		main(int ac, char **av)
+{	
 	char *str = "   test  test  \ntest";
 	char *trim = ft_strtrim(str);
 	ft_putstr(trim);

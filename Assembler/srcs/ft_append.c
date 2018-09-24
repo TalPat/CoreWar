@@ -6,7 +6,7 @@
 /*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/24 11:03:01 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/24 14:27:25 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/24 16:27:36 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_buildval(t_token *tok, t_asm *asmb, int i)
 	j = 0;
 	while (i < bytes)
 	{
-		ft_memcpy(&c, (unsigned char)(tok->value + i) + sizeof(int) - j, 1);
+		ft_memcpy(&c, (unsigned char*)(tok->value + i) + sizeof(int) - j, 1);
 		write(asmb->fd, &c, 1);
 		i++;
 	}

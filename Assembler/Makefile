@@ -3,16 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+         #
+#    By: tpatter <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/24 17:28:22 by tpatter           #+#    #+#              #
-#    Updated: 2018/09/17 12:39:20 by tpatter          ###   ########.fr        #
+#    Updated: 2018/09/24 16:25:00 by tpatter          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	asm
 SRCDIR		=	srcs/
-SRC			=	main.c
+SRC			=	asmmain.c\
+				ft_createfile.c\
+				ft_append.c\
+				ft_getindex.c\
+				ft_buildeb.c
 SRCPATH		:=	$(addprefix $(SRCDIR), $(SRC))
 OBJDIR		=	obj/
 OBJ			=	$(SRC:%.c=%.o)

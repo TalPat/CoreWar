@@ -6,7 +6,7 @@
 /*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/24 15:04:50 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/24 16:01:00 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/24 16:05:02 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_getindex(t_asm *asmb)
 		if (tok->op_code)
 		{
 			index++;
-			if ((asmb->op_tab)[c].eb)
+			if ((asmb->op_tab)[tok->op_code].eb)
 				index++;
 			index += ft_addindex(tok, asmb);
 		}
