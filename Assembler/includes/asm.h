@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   asm.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:50:04 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/17 15:25:26 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/24 10:54:34 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ typedef struct	s_asm
 	t_list		*lbllst;
 	t_list		*tknlst;
 	int			error[16];
+	int			errorcnt;
+	int			fd;
+	char		*namecor;
+	char		*names;
 }				t_asm;
 
 typedef struct	s_token
