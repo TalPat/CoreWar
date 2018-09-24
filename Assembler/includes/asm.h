@@ -6,7 +6,7 @@
 /*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:50:04 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/24 10:54:34 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/24 14:10:35 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct	s_asm
 	int			fd;
 	char		*namecor;
 	char		*names;
+	t_op		op_tab[17];
 }				t_asm;
 
 typedef struct	s_token
@@ -42,5 +43,19 @@ typedef struct	s_token
 	int			value[4];
 	char		*lblname;
 	char		*lblval[4];
+	int			index;
 }				t_token;
+
+typedef struct		s_op
+{
+	char			*name;
+	int				argc;
+	int				arg[4];
+	int				op_code;
+	int				ctc;
+	char			*desc;
+	int				eb;
+	int				dunno;
+}					t_op;
+
 #endif

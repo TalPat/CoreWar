@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_createfile.c                                    :+:      :+:    :+:   */
+/*   ft_buildeb.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/24 10:47:46 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/24 12:51:14 by tpatter          ###   ########.fr       */
+/*   Created: 2018/09/24 12:34:25 by tpatter           #+#    #+#             */
+/*   Updated: 2018/09/24 12:41:10 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
-#include <fcntl.h>
 
-void	ft_createfile(t_asm *asmb)
+int	ft_buildeb(t_token *tok)
 {
-	asmb->fd = open(asmb->namecor, O_RDWR | O_APPEND | O_TRUNC | O_CREAT,
-		S_IRUSR, S_IWUSR);
-	if (asmb->fd < 0)
+	int	eb;
+	int	i;
+	int	mult;
+
+	eb = 0;
+	i = 0;
+	mult = 1;
+	while (i < 4)
 	{
-		asmb->error[asmb->errorcnt] = 1;
-		asmb->errorcnt++;
+		if (tok->type[i] == T_REG)
+			eb += 1 * mult;
+		if (tok->type[i] == T_DIR)
+			eb += 2 * mult;
+		if (tok->type[i] == T_IND)
+			eb += 4 * mult;
+		mult *= 4;
+		i++;
 	}
+	return (eb);
 }
