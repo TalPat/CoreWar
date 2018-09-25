@@ -13,6 +13,7 @@
 //#include "../includes/asm.h"
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
 
 int		ft_isspace(int c)
 {
@@ -143,15 +144,18 @@ char	*trim(char *str)
 		while(ft_isalnum(str[i]))
 		{
 			out[j] = str[i];
+			printf("str[%d]:%c\n", i, str[i]);
 			i++;
 			j++;
 		}
 		wcount--;
 		while(ft_isspace(str[i]))
 			i++;
-		out[j] = ' ';
-		j++;
+		if (wcount)
+			out[j++] = ' ';
 	}
+	out[j] = '\0';
+	return (out);
 }
 
 int		main(int ac, char **av)
@@ -159,5 +163,6 @@ int		main(int ac, char **av)
 	char *str = "   test  test  \ntest";
 	char *out = trim(str);
 	ft_putstr(out);
+	ft_putchar('#');
 	ft_putchar('\n');
 }
