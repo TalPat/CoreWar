@@ -48,7 +48,6 @@ char	*ft_trim(char *str)
 		while(ft_isalnum(str[i]))
 		{
 			out[j] = str[i];
-			printf("str[%d]:%c\n", i, str[i]);
 			i++;
 			j++;
 		}
