@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   asmmain.c                                          :+:      :+:    :+:   */
+/*   ft_initasm.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/24 16:23:36 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/25 14:54:40 by tpatter          ###   ########.fr       */
+/*   Created: 2018/09/25 14:52:48 by tpatter           #+#    #+#             */
+/*   Updated: 2018/09/25 15:02:07 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-int	main(int ac, char **av)
+void	ft_initasm(t_asm *asmb)
 {
-	t_asm	*asmb;
+	int	i;
 
-	asmb = (t_asm*)malloc(sizeof(t_asm));
-	ft_initasm(asmb);
-	return (0);
+	i = 0;
+	while (i < 16)
+	{
+		asmb->error[0] = 0;
+		i++;
+	}
+	asmb->errorcnt = 0;
+	ft_inittable(asmb);
 }

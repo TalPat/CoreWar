@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   asm.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:50:04 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/24 16:26:07 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/25 15:05:16 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,7 @@ void				ft_append(int tokenno, t_asm *asmb);
 void				ft_getindex(t_asm *asmb);
 int					ft_buildeb(t_token *tok);
 char				*ft_trim(char *str);
+void				ft_inittable(t_asm *asmb);
+void				ft_initasm(t_asm *asmb);
 
 #endif
