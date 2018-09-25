@@ -41,6 +41,22 @@ char	*trim(char *str)
 	i = 0;
 	j = 0;
 	wcount = ft_wcount(str);
+	while (wcount)
+	{
+		while(ft_isspace(str[i]))
+			i++;
+		while(ft_isalnum)(str[i])
+		{
+			out[j] = str[i]
+			i++;
+			j++;
+		}
+		wcount--;
+		while(ft_isspace(str[i]))
+			i++;
+		out[j] = ' ';
+		j++;
+	}
 }
 
 int		main(int ac, char **av)
