@@ -28,7 +28,7 @@ int		spacecount(char *str)
 	return (count);
 }
 
-char	*trim(char *str)
+char	*ft_trim(char *str)
 {
 	int		newlen;
 	char	*out;

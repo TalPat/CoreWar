@@ -62,5 +62,6 @@ void				ft_createfile(t_asm *asmb);
 void				ft_append(int tokenno, t_asm *asmb);
 void				ft_getindex(t_asm *asmb);
 int					ft_buildeb(t_token *tok);
+char				*ft_trim(char *str);
 
 #endif

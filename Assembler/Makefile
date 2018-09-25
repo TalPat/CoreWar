@@ -16,7 +16,8 @@ SRC			=	asmmain.c\
 				ft_createfile.c\
 				ft_append.c\
 				ft_getindex.c\
-				ft_buildeb.c
+				ft_buildeb.c\
+				ft_trim.c
 SRCPATH		:=	$(addprefix $(SRCDIR), $(SRC))
 OBJDIR		=	obj/
 OBJ			=	$(SRC:%.c=%.o)
