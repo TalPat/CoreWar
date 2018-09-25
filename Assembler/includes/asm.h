@@ -6,7 +6,7 @@
 /*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:50:04 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/25 15:05:16 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/25 15:19:17 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct	s_token
 	char		*lblname;
 	char		*lblval[4];
 	int			index;
+	int			line;
 }				t_token;
 
 void				ft_createfile(t_asm *asmb);
