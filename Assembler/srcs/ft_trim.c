@@ -6,7 +6,7 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/25 14:23:24 by cking             #+#    #+#             */
-/*   Updated: 2018/09/25 14:23:24 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/26 08:24:12 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int		spacecount(char *str)
 
 	i = 0;
 	count = 0;
-	while(str[i])
+	while (str[i])
 	{
-		if(ft_isspace(str[i]))
+		if (ft_isspace(str[i]))
 			count++;
 		i++;
 	}
@@ -43,16 +43,16 @@ char	*ft_trim(char *str)
 	wcount = ft_wcount(str, ' ');
 	while (wcount)
 	{
-		while(ft_isspace(str[i]))
+		while (ft_isspace(str[i]))
 			i++;
-		while(ft_isalnum(str[i]))
+		while (ft_isalnum(str[i]))
 		{
 			out[j] = str[i];
 			i++;
 			j++;
 		}
 		wcount--;
-		while(ft_isspace(str[i]))
+		while (ft_isspace(str[i]))
 			i++;
 		if (wcount)
 			out[j++] = ' ';

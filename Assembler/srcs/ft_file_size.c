@@ -1,22 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   asmmain.c                                          :+:      :+:    :+:   */
+/*   ft_file_size.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/24 16:23:36 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/26 09:03:01 by cking            ###   ########.fr       */
+/*   Created: 2018/09/26 09:06:19 by cking             #+#    #+#             */
+/*   Updated: 2018/09/26 09:17:41 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
+#include <unistd.h>
+#include <fcntl.h>
 
-int	main(int ac, char **av)
+int			ft_file_size(char *file)
 {
-	t_asm	*asmb;
+	int				i;
+	int				fd;
+	int				ret;
+	unsigned char	c;
 
-	asmb = (t_asm*)malloc(sizeof(t_asm));
-	ft_initasm(asmb);
-	return (0);
+	i = 0;
+	fd = open(file, O_RDONLY);
+	if (fd == -1)
+	{
+		return (0);
+	}
+	while (1)
+	{
+		ret = read(fd, &c, 1);
+		if (ret == 1)
+			i++;		
+		if (ret < 1)
+			break ;
+	}
+	close(fd);
+	return (i);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   asm.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:50:04 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/25 15:19:17 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/26 09:08:53 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,7 @@ int					ft_buildeb(t_token *tok);
 char				*ft_trim(char *str);
 void				ft_inittable(t_asm *asmb);
 void				ft_initasm(t_asm *asmb);
+int					ft_file_size(char *file);
+unsigned char 		*ft_store_info(char *file, int size);
 
 #endif
