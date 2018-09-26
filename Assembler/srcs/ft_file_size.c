@@ -6,13 +6,14 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 09:06:19 by cking             #+#    #+#             */
-/*   Updated: 2018/09/26 09:17:41 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/26 10:05:21 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 #include <unistd.h>
 #include <fcntl.h>
+#include <stdio.h>
 
 int			ft_file_size(char *file)
 {

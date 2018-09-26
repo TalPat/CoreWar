@@ -6,12 +6,13 @@
 /*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 09:08:06 by cking             #+#    #+#             */
-/*   Updated: 2018/09/26 09:18:25 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/26 10:02:27 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include <unistd.h>
+#include <stdio.h>
 #include "asm.h"
 
 unsigned char	*ft_store_info(char *file, int size)
