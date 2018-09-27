@@ -12,13 +12,13 @@ void	regs(WINDOW *win, t_pc *pc)
 	int j;
 
 	i = 0;
-	pc = (t_pc*)malloc(sizeof(t_pc));
-	pc->registers = (unsigned char**)malloc(sizeof(char*) * REG_NUMBER);
+	//pc = (t_pc*)malloc(sizeof(t_pc));
+	//pc->registers = (unsigned char**)malloc(sizeof(char*) * REG_NUMBER);
 	while (i < REG_NUMBER)
 	{
 		j = 2;
-		pc->registers[i] = (unsigned char*)ft_strnew(REG_SIZE);
-		pc->registers[i] = (unsigned char*)"0";
+		//pc->registers[i] = (unsigned char*)ft_strnew(REG_SIZE);
+		//pc->registers[i] = (unsigned char*)"0";
 		mvwprintw(win, i + 2, j++, "Register %i", i + 1);
 		mvwprintw(win, i + 2, 30, "%u", ft_getregval(pc, i));
 		i++;
@@ -214,7 +214,7 @@ void	ft_viz2(t_cw *cw, t_pc *pc, WINDOW *win, WINDOW *win2)
 	wrefresh(win);
 	print_reg(win2, pc);
 	wrefresh(win2);
-	usleep(1000000);
+	usleep(100000);
 	//int c = getchar();//usleep(5000000);
 }
 
