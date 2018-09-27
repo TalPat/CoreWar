@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_genpc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 17:26:47 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/14 13:40:38 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/27 13:11:08 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ void	ft_genpc(t_cw *cw)
 	t_list	*pclist;
 	t_pc	*pc;
 	int		i;
+	int		zero;
 
+	zero = 0;
 	tmp = cw->playerlist;
 	while (tmp)
 	{
@@ -35,7 +37,7 @@ void	ft_genpc(t_cw *cw)
 			pc->registers = (unsigned char**)malloc(sizeof(char*) * REG_NUMBER);
 			while (i < REG_NUMBER)
 			{
-				pc->registers[i] = (unsigned char*)ft_strnew(REG_SIZE);
+				pc->registers[i] = (unsigned char*)&zero;
 				i++;
 			}
 			ft_memcpy(pc->registers[1], &(((t_player*)(tmp->content))->idnbr),
@@ -56,7 +58,7 @@ void	ft_genpc(t_cw *cw)
 			pc->registers = (unsigned char**)malloc(sizeof(char*) * REG_NUMBER);
 			while (i < REG_NUMBER)
 			{
-				pc->registers[i] = (unsigned char*)ft_strnew(REG_SIZE);
+				pc->registers[i] = (unsigned char*)&zero;
 				i++;
 			}
 			ft_memcpy(pc->registers[1], &(((t_player*)(tmp->content))->idnbr),
