@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_add.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 15:47:29 by cking             #+#    #+#             */
-/*   Updated: 2018/09/14 13:31:08 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/26 12:56:23 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	ft_add(t_cw *cw, t_pc *pc)
 			10), 10);
 			num = ft_atoi_base((char*)pc->registers[r1 - 1], 10) +
 			ft_atoi_base((char*)pc->registers[r2 - 1], 10);
-			ft_putnbr(num);
-			ft_putchar('\n');
+			//ft_putnbr(num);
+			//ft_putchar('\n');
 			pc->registers[r3 - 1] = (unsigned char*)ft_itoa_base(num, 16);
 			if (ft_atoi_base((char *)pc->registers[r3 - 1], 10) == 0) //carry
 				pc->carry = 1;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_live.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 15:51:30 by cking             #+#    #+#             */
-/*   Updated: 2018/09/13 20:55:23 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/26 12:31:39 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void		ft_live(t_cw *cw, t_pc *pc)
 				((t_player *)(cursor->content))->live = 1;
 			cursor = cursor->next;
 		}
-		pc->index = pc->index + DIR_SIZE;
+		pc->index = pc->index + DIR_SIZE + 1;
 		cw->nbr_live_calls++;
 		free(str);
 		pc->cyccomplete = 0;

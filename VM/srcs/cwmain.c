@@ -6,13 +6,13 @@
 /*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 16:53:27 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/21 12:16:34 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/09/27 13:05:39 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cw.h"
 #include "op.h"
-
+#include <stdio.h>
 int	main(int argc, char **argv)
 {
 	t_cw *cw;
@@ -39,7 +39,6 @@ int	main(int argc, char **argv)
 	//ft_print_bits(cw, 0, MEM_SIZE);
 	while (!cw->gameover)
 	{
-		
 		ft_executepcs(cw);
 		ft_cull(cw);
 		ft_dump(cw);

@@ -20,7 +20,7 @@ void	regs(WINDOW *win, t_pc *pc)
 		pc->registers[i] = (unsigned char*)ft_strnew(REG_SIZE);
 		pc->registers[i] = (unsigned char*)"0";
 		mvwprintw(win, i + 2, j++, "Register %i", i + 1);
-		mvwprintw(win, i + 2, 30, "%i", ft_getregval(pc, i));
+		mvwprintw(win, i + 2, 30, "%u", ft_getregval(pc, i));
 		i++;
 	}
 	//wrefresh(win);
@@ -60,8 +60,20 @@ void	ft_assign_col(WINDOW *win, t_cw *cw, int i)
 
 void	ft_pc_col(WINDOW *win, t_cw *cw, int i)
 {
-	if (i == ((t_pc*)cw->pclist->content)->index)
-		wattron(win, COLOR_PAIR(11));
+	t_list *tmp;
+
+	tmp = cw->pclist;
+	while (tmp)
+	{
+		if (i == ((t_pc*)tmp->content)->index)//((t_pc*)cw->pclist->content)->index)
+		{
+			wattron(win, COLOR_PAIR((cw->memp[i] % 5) + 1 + 10));
+			break ;
+		}			
+		tmp = tmp->next;
+	}
+	//else if (i == ((t_pc*)cw->pclist->next)->index)
+	//	wattron(win, COLOR_PAIR(12));
 }
 
 int		ft_abs(int num)
@@ -111,6 +123,9 @@ void	mem_print(WINDOW *win, t_cw *cw, int n)
 		mvwprintw(win2, j, i % 70, "%i", cw->memp[i]);
 	}
 	wrefresh(win2);
+	WINDOW *win3 = newwin(10, 30, 80, 5);
+	mvwprintw(win3, 2, 2, "%i", cw->cyclecounter);
+	wrefresh(win3);
 	i = 0;
 	j = 1;
 	while (i < n)
@@ -157,16 +172,20 @@ void	ft_layout(WINDOW *win, WINDOW *win2)
 	curs_set(0);
 	start_color();
 	init_pair(1, COLOR_WHITE, COLOR_BLACK);
-	init_pair(2, COLOR_YELLOW, COLOR_BLACK);
-	init_pair(3, COLOR_GREEN, COLOR_BLACK);
-	init_pair(4, COLOR_MAGENTA, COLOR_BLACK);
-	init_pair(5, COLOR_WHITE, COLOR_BLACK);
-	init_pair(6, COLOR_RED, COLOR_BLACK);
-	init_pair(7, COLOR_YELLOW, COLOR_BLUE);
-	init_pair(8, COLOR_GREEN, COLOR_BLUE);
-	init_pair(9, COLOR_MAGENTA, COLOR_BLUE);
-	init_pair(10, COLOR_RED, COLOR_BLUE);	// 4th Player
-	init_pair(11, COLOR_BLACK, COLOR_GREEN);
+	init_pair(2, COLOR_RED, COLOR_BLACK);
+	init_pair(3, COLOR_YELLOW, COLOR_BLACK);
+	init_pair(4, COLOR_GREEN, COLOR_BLACK);
+	init_pair(5, COLOR_MAGENTA, COLOR_BLACK);
+	init_pair(6, COLOR_WHITE, COLOR_BLACK);
+	init_pair(7, COLOR_RED, COLOR_BLUE);
+	init_pair(8, COLOR_YELLOW, COLOR_BLUE);
+	init_pair(9, COLOR_GREEN, COLOR_BLUE);
+	init_pair(10, COLOR_MAGENTA, COLOR_BLUE);
+	init_pair(11, COLOR_WHITE, COLOR_BLACK); // Default
+	init_pair(12, COLOR_BLACK, COLOR_RED);
+	init_pair(13, COLOR_BLACK, COLOR_YELLOW);
+	init_pair(14, COLOR_BLACK, COLOR_GREEN);
+	init_pair(15, COLOR_BLACK, COLOR_MAGENTA);
 	box(win, 0, 0);//window, char l&r, char t&b
 	box(win2, 0, 0);
 	//wrefresh(win);
