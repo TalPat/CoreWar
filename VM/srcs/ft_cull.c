@@ -6,7 +6,7 @@
 /*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 14:41:24 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/27 16:47:05 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/09/27 18:07:13 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_erasepc(t_cw *cw, t_list *tmp, t_list *prev)
 		cw->pclist = tmp->next;
 	while (i < REG_NUMBER)
 	{
-		free(((t_pc*)(tmp->content))->registers[i]);
+		//free(((t_pc*)(tmp->content))->registers[i]);
 		i++;
 	}
 	free(((t_pc*)(tmp->content))->registers);
@@ -35,19 +35,21 @@ void	ft_cullpcs(t_cw *cw)
 {
 	t_list	*tmp;
 	t_list	*prev;
+	t_list	*next;
 
 	prev = NULL;
 	tmp = cw->pclist;
 	while (tmp)
 	{
+		next = tmp->next;
 		if (((t_pc*)(tmp->content))->live == 0)
 		{
 			/**///ft_print_reg((t_pc*)(tmp->content));
 			ft_erasepc(cw, tmp, prev);
-			break ;
 		}
-		prev = tmp;
-		tmp = tmp->next;
+		else
+			prev = tmp;
+		tmp = next;
 	}
 }
 
@@ -75,6 +77,34 @@ void	ft_cullplayers(t_cw *cw)
 	}
 }
 
+void	ft_checkplayers(t_cw *cw)
+{
+	int		i;
+	t_list	*tmpplayer;
+	t_list	*tmppc;
+
+	tmpplayer = cw->playerlist;
+	while (tmpplayer)
+	{
+		i = 0;
+		tmppc = cw->pclist;
+		while (tmppc)
+		{
+			if (((t_pc*)tmppc->content)->idnbr == ((t_player*)tmpplayer->content)->idnbr)
+				if (((t_pc*)tmppc->content)->live == 1)
+				{
+					i = 1;
+					((t_pc*)tmppc->content)->registers[15][3] = 3;
+				}
+			tmppc = tmppc->next;
+		}
+		((t_player*)tmpplayer->content)->live = 0;
+		if (i)
+			((t_player*)tmpplayer->content)->live = 1;
+		tmpplayer = tmpplayer->next;
+	}
+}
+
 void	ft_checkwinner(t_cw *cw)
 {
 	int		i;
@@ -82,6 +112,7 @@ void	ft_checkwinner(t_cw *cw)
 
 	tmp = cw->playerlist;
 	i = 0;
+	ft_checkplayers(cw);
 	while (tmp)
 	{
 		if (((t_player*)(tmp->content))->live)

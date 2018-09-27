@@ -6,7 +6,7 @@
 /*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 16:53:27 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/27 16:21:56 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/09/27 18:10:21 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	main(int argc, char **argv)
 	initscr();
 	win = newwin(66, 195, 2, 5);//height, width, start y, start x
 	win2 = newwin(20, 50, 2, 205);
+	cw->pcdisplay = (t_pc*)cw->pclist->content;
 	ft_viz(cw, ((t_pc*)cw->pclist->content), win, win2);
 	//ft_print_bits(cw, 0, MEM_SIZE);
 	while (!cw->gameover)
@@ -44,7 +45,7 @@ int	main(int argc, char **argv)
 		ft_cull(cw);
 		ft_dump(cw);
 		if (!cw->gameover)
-			ft_viz2(cw, ((t_pc *)cw->pclist->content), win, win2);
+			ft_viz2(cw, cw->pcdisplay, win, win2);
 		//ft_viz2(cw, ((t_pc *)cw->pclist->content), win, win2);
 		//cw->pclist = cw->pclist->next;
 		//ft_viz(cw, pc);

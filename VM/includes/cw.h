@@ -6,7 +6,7 @@
 /*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 11:30:44 by cking             #+#    #+#             */
-/*   Updated: 2018/09/20 18:11:10 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/09/27 18:06:52 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,17 @@ typedef struct		s_op
 	int				dunno;
 }					t_op;
 
+typedef struct		s_pc
+{
+	int				index;
+	unsigned int	idnbr;
+	int				cr;
+	int				cyccomplete;
+	unsigned char	**registers;
+	unsigned char	carry;
+	unsigned char	live;
+}					t_pc;
+
 typedef struct		s_cw
 {
 	t_list			*playerlist;
@@ -48,18 +59,9 @@ typedef struct		s_cw
 	int				dumpno;
 	int				error;
 	int				visualiser;
+	t_pc			*pcdisplay;
+	int				displaycount;
 }					t_cw;
-
-typedef struct		s_pc
-{
-	int				index;
-	unsigned int	idnbr;
-	int				cr;
-	int				cyccomplete;
-	unsigned char	**registers;
-	unsigned char	carry;
-	unsigned char	live;
-}					t_pc;
 
 typedef struct		s_player
 {

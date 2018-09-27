@@ -205,6 +205,8 @@ void	ft_layout(WINDOW *win, WINDOW *win2)
 
 void	ft_viz2(t_cw *cw, t_pc *pc, WINDOW *win, WINDOW *win2)
 {
+	int	i;
+	t_list	*tmp;
 	// WINDOW *win;
 	// WINDOW *win2;
 
@@ -215,10 +217,53 @@ void	ft_viz2(t_cw *cw, t_pc *pc, WINDOW *win, WINDOW *win2)
 	noecho();
 	print_mem(win, cw);
 	wrefresh(win);
-	print_reg(win2, pc);
+	print_reg(win2, cw->pcdisplay);
 	wrefresh(win2);
 	//usleep(100000);
 	int c = getchar();//usleep(5000000);
+	while (c == '.' || c == ',')
+	{
+		if (c == '.')
+		{
+			i = 0;
+			cw->displaycount++;
+			tmp = cw->pclist;
+			while (i < cw->displaycount && tmp->next)
+			{
+				tmp = tmp->next;
+				i++;
+			}
+			cw->pcdisplay = (t_pc*)tmp->content;
+		}
+		else if (c == ',')
+		{
+			i = 0;
+			if (cw->displaycount > 0)
+			cw->displaycount--;
+			tmp = cw->pclist;
+			while (i < cw->displaycount && tmp->next)
+			{
+				tmp = tmp->next;
+				i++;
+			}
+			cw->pcdisplay = (t_pc*)tmp->content;
+		}
+		tmp = cw->playerlist;
+		while (tmp)
+		{
+			mvwprintw(win2, 1, 2, "						");
+			if (((t_player*)tmp->content)->idnbr == cw->pcdisplay->idnbr)
+			{
+				mvwprintw(win2, 1, 2, "Player %s", ((t_player*)tmp->content)->name);
+				break ;
+			}				
+			tmp = tmp->next;
+		}
+		print_reg(win2, cw->pcdisplay);
+		wrefresh(win2);
+		wclear(win2);
+		c = getchar();
+	}
 }
 
 void	ft_viz(t_cw *cw, t_pc *pc, WINDOW *win, WINDOW *win2)

@@ -6,7 +6,7 @@
 /*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 12:21:14 by jde-agr           #+#    #+#             */
-/*   Updated: 2018/09/20 14:04:24 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/09/27 18:01:05 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,5 @@ void	init_struct(t_cw *cw)
 	cw->error = 0;
 	cw->dump = 0;
 	cw->dumpno = 0;
+	cw->displaycount = 0;
 }
