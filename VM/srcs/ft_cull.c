@@ -6,7 +6,7 @@
 /*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 14:41:24 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/27 14:05:30 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/09/27 16:47:05 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_erasepc(t_cw *cw, t_list *tmp, t_list *prev)
 		cw->pclist = tmp->next;
 	while (i < REG_NUMBER)
 	{
-		//free(((t_pc*)(tmp->content))->registers[i]);
+		free(((t_pc*)(tmp->content))->registers[i]);
 		i++;
 	}
 	free(((t_pc*)(tmp->content))->registers);

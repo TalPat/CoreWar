@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_genpc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
+/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 17:26:47 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/27 13:12:54 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/27 16:44:59 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,10 @@ void	ft_genpc(t_cw *cw)
 			while (i < REG_NUMBER)
 			{
 				pc->registers[i] = (unsigned char*)ft_strnew(REG_SIZE);
+				/**/pc->registers[i][3] = 8;
 				i++;
 			}
-			ft_memcpy(pc->registers[1], &(((t_player*)(tmp->content))->idnbr),
+			ft_memcpy(pc->registers[0], &(((t_player*)(tmp->content))->idnbr),
 					REG_SIZE);
 			pc->carry = 0;
 			pc->live = 0;
@@ -57,9 +58,10 @@ void	ft_genpc(t_cw *cw)
 			while (i < REG_NUMBER)
 			{
 				pc->registers[i] = (unsigned char*)ft_strnew(REG_SIZE);
+				/**/pc->registers[i][3] = 9;
 				i++;
 			}
-			ft_memcpy(pc->registers[1], &(((t_player*)(tmp->content))->idnbr),
+			ft_memcpy(pc->registers[0], &(((t_player*)(tmp->content))->idnbr),
 					REG_SIZE);
 			pc->carry = 0;
 			pc->live = 0;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_getregval.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
+/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 15:48:14 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/14 10:51:37 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/27 16:44:21 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_getregval(t_pc *pc, int reg)
 	int	val;
 	int	mult;
 
-	if (reg < 1 || reg > REG_NUMBER)
+	if (reg < 0 || reg >= REG_NUMBER)
 		return (0);
 	i = 0;
 	val = 0;

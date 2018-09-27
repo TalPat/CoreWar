@@ -123,8 +123,11 @@ void	mem_print(WINDOW *win, t_cw *cw, int n)
 		mvwprintw(win2, j, i % 70, "%i", cw->memp[i]);
 	}
 	wrefresh(win2);
-	WINDOW *win3 = newwin(10, 30, 80, 5);
-	mvwprintw(win3, 2, 2, "%i", cw->cyclecounter);
+	WINDOW *win3 = newwin(10, 30, 75, 5);
+	mvwprintw(win3, 1, 2, "Total Cycles : %i", cw->cyclebase);
+	mvwprintw(win3, 2, 2, "Cycle Count : %i", cw->cyclecounter);
+	mvwprintw(win3, 3, 2, "Live Status : %i", ((t_pc*)cw->pclist->content)->live);
+	mvwprintw(win3, 4, 2, "Nbr of Lives : %i", cw->nbr_live_calls);
 	wrefresh(win3);
 	i = 0;
 	j = 1;
@@ -214,8 +217,8 @@ void	ft_viz2(t_cw *cw, t_pc *pc, WINDOW *win, WINDOW *win2)
 	wrefresh(win);
 	print_reg(win2, pc);
 	wrefresh(win2);
-	usleep(100000);
-	//int c = getchar();//usleep(5000000);
+	//usleep(100000);
+	int c = getchar();//usleep(5000000);
 }
 
 void	ft_viz(t_cw *cw, t_pc *pc, WINDOW *win, WINDOW *win2)
