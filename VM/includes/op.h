@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
+/*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/04 11:33:27 by zaz               #+#    #+#             */
-/*   Updated: 2018/09/14 11:04:51 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/27 19:26:34 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
 
 # define REG_NUMBER				16
 
-# define CYCLE_TO_DIE			40//1536
+# define CYCLE_TO_DIE			300//1536
 # define CYCLE_DELTA			50
 # define NBR_LIVE				21
 # define MAX_CHECKS				10

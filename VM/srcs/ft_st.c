@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_st.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
+/*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 13:02:28 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/20 17:58:52 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/09/27 19:31:55 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int		ft_streg(t_cw *cw, t_pc *pc)
 	i = 0;
 	while (i < REG_SIZE)
 	{
-		pc->registers[cw->mem[pc->index + 3]][i] =
-			pc->registers[cw->mem[pc->index + 2]][i];
+		pc->registers[cw->mem[pc->index + 3] - 1][i] =
+			pc->registers[cw->mem[pc->index + 2] - 1][i];
 		i++;
 	}
 	return (1);
@@ -40,7 +40,7 @@ int		ft_stind(t_cw *cw, t_pc *pc)
 	while (i < REG_SIZE)
 	{
 		cw->mem[(pc->index + (dest % IDX_MOD) + i) % MEM_SIZE] =
-		pc->registers[src][i];
+		pc->registers[src - 1][i];
 		cw->memp[(pc->index + (dest % IDX_MOD) + i) % MEM_SIZE] = ft_abs((int)(pc->idnbr)) + 5; //added for viz
 		i++;
 	}

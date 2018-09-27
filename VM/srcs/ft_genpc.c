@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_genpc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
+/*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 17:26:47 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/27 16:44:59 by jde-agr          ###   ########.fr       */
+/*   Updated: 2018/09/27 19:28:12 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	ft_genpc(t_cw *cw)
 			while (i < REG_NUMBER)
 			{
 				pc->registers[i] = (unsigned char*)ft_strnew(REG_SIZE);
-				/**/pc->registers[i][3] = 8;
 				i++;
 			}
 			ft_memcpy(pc->registers[0], &(((t_player*)(tmp->content))->idnbr),
@@ -58,7 +57,6 @@ void	ft_genpc(t_cw *cw)
 			while (i < REG_NUMBER)
 			{
 				pc->registers[i] = (unsigned char*)ft_strnew(REG_SIZE);
-				/**/pc->registers[i][3] = 9;
 				i++;
 			}
 			ft_memcpy(pc->registers[0], &(((t_player*)(tmp->content))->idnbr),
