@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ld.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
+/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 16:10:31 by cking             #+#    #+#             */
-/*   Updated: 2018/09/28 12:28:58 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/28 13:34:50 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ void		ft_lddir(t_cw *cw, t_pc *pc)
 
 	i = 0;
 	regnum = cw->mem[pc->index + 2 + DIR_SIZE];
-	while (i < REG_SIZE)
-	{
-		pc->registers[regnum - 1][i] = cw->mem[pc->index + 2 + i];
-		i++;
-	}
+	if (regnum <= 16 && regnum >= 1)
+		while (i < REG_SIZE)
+		{
+			pc->registers[regnum - 1][i] = cw->mem[pc->index + 2 + i];
+			i++;
+		}
 	pc->index = pc->index + 3 + DIR_SIZE;
 }
 
