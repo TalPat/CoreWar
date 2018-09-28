@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ld.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpatter <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tpatter <tpatter@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 16:10:31 by cking             #+#    #+#             */
-/*   Updated: 2018/09/13 18:24:46 by tpatter          ###   ########.fr       */
+/*   Updated: 2018/09/28 12:28:58 by tpatter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void		ft_lddir(t_cw *cw, t_pc *pc)
 	regnum = cw->mem[pc->index + 2 + DIR_SIZE];
 	while (i < REG_SIZE)
 	{
-		pc->registers[regnum][i] = cw->mem[pc->index + 2 + i];
+		pc->registers[regnum - 1][i] = cw->mem[pc->index + 2 + i];
 		i++;
 	}
 	pc->index = pc->index + 3 + DIR_SIZE;
@@ -38,7 +38,7 @@ void		ft_ldind(t_cw *cw, t_pc *pc)
 	offset = ft_hextodec(ft_strsub((char *)cw->mem, pc->index + 2, IND_SIZE));
 	while (i < REG_SIZE)
 	{
-		pc->registers[regnum][i] = cw->mem[pc->index + i + (offset % IDX_MOD)];
+		pc->registers[regnum - 1][i] = cw->mem[pc->index + i + (offset % IDX_MOD)];
 		i++;
 	}
 	pc->index = pc->index + 3 + IND_SIZE;
