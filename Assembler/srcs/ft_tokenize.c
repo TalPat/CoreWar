@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_args.c                                      :+:      :+:    :+:   */
+/*   ft_tokenize.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/28 13:30:29 by cking             #+#    #+#             */
-/*   Updated: 2018/09/28 13:55:56 by cking            ###   ########.fr       */
+/*   Created: 2018/09/28 13:56:11 by cking             #+#    #+#             */
+/*   Updated: 2018/09/28 13:59:37 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
-#include <fcntl.h>
 
-char	**ft_get_args(char *file_name)
+void	ft_tokenize(t_asm asmb, char *filename)
 {
-	int				fd;
-	int				size;
-	unsigned char	*info;
-	char			**out;
-	int				i;
+	char	**args;
 
-	i = 0;
-	fd = open(file_name, O_RDONLY);
-	size = ft_file_size(file_name);
-	info = ft_store_info("test.s", size);
-	out = ft_strsplit((char *)info, '\n');
-	while (out[i])
-		out[i] = ft_trim(out[i]); //probably leaking - fix later
-	return (out);
+	args = ft_get_args(filename);
 }
