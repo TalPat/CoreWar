@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lld.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
+/*   By: jde-agr <jde-agr@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 16:03:07 by cking             #+#    #+#             */
-/*   Updated: 2018/09/13 14:44:31 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/28 13:39:07 by jde-agr          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void		ft_llddir(t_cw *cw, t_pc *pc)
 	regnum = cw->mem[pc->index + 2 + DIR_SIZE];
 	while (i < REG_SIZE)
 	{
-		pc->registers[regnum][i] = cw->mem[pc->index + 2 + i];
+		pc->registers[regnum - 1][i] = cw->mem[pc->index + 2 + i];
 		if (cw->mem[pc->index + 2 + i])
 			check++;
 		i++;
@@ -49,7 +49,7 @@ void		ft_lldind(t_cw *cw, t_pc *pc)
 	check = 0;
 	while (i < REG_SIZE)
 	{
-		pc->registers[regnum][i] = cw->mem[pc->index + i + (offset % IDX_MOD)];
+		pc->registers[regnum - 1][i] = cw->mem[pc->index + i + (offset % IDX_MOD)];
 		if (cw->mem[pc->index + i + (offset % IDX_MOD)])
 			check++;
 		i++;
