@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   asm.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cking <cking@student.wethinkcode.co.za>    +#+  +:+       +#+        */
+/*   By: cking <cking@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:50:04 by tpatter           #+#    #+#             */
-/*   Updated: 2018/09/26 09:08:53 by cking            ###   ########.fr       */
+/*   Updated: 2018/09/28 13:33:55 by cking            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,6 @@ void				ft_inittable(t_asm *asmb);
 void				ft_initasm(t_asm *asmb);
 int					ft_file_size(char *file);
 unsigned char 		*ft_store_info(char *file, int size);
+char				**ft_get_args(char *file_name);
 
 #endif
