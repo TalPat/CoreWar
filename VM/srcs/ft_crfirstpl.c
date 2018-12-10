@@ -12,7 +12,11 @@
 
 #include "../includes/cw.h"
 
-void ft_crfirstpl(t_cw *cw) // initialise first player data
+/*
+**initialise first player data
+*/
+
+void	ft_crfirstpl(t_cw *cw)
 {
 	t_player *player;
 
